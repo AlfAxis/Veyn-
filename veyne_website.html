@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>VEYNÉ — Cealis Veyne</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+--bg:#faf6f0;--bg2:#f0e8d6;--bg3:#e4d8c4;
+--dark:#0a0806;--dark2:#160e06;--dark3:#221408;
+--accent:#7c2c2c;--accent2:#5c1e1e;
+--gold:#b8905a;--gold2:#946e38;--gold3:#d4b07c;
+--text:#180e06;--text2:#3a2a16;--text3:#6a5438;--text4:#9a8468;--text5:#c4b098;
+--border:#c8bca8;--border2:#b8a890;--border3:#a89878;
+--nav-h:62px;
+}
+html,body{font-family:'Raleway',sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;min-height:100vh;}
+button,input{font-family:'Raleway',sans-serif;cursor:pointer;}
+
+/* PAGE SYSTEM */
+.page{display:none;animation:pageIn .35s ease;}
+.page.active{display:block;}
+@keyframes pageIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+
+/* ANNOUNCEMENT */
+.ann{background:var(--dark2);overflow:hidden;padding:.52rem 0;}
+.ann-inner{display:flex;gap:4rem;animation:annS 28s linear infinite;white-space:nowrap;}
+@keyframes annS{to{transform:translateX(-50%);}}
+.ann-inner span{font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;}
+.ann-dot{color:#3a2010;font-size:5px;vertical-align:middle;}
+
+/* NAV */
+.nav{background:var(--dark);border-bottom:0.5px solid #2a1e10;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;position:sticky;top:0;z-index:200;}
+.nav-left{display:flex;align-items:center;}
+.hbtn{background:none;border:none;padding:.5rem;color:#c8b898;display:flex;align-items:center;justify-content:center;transition:color .2s;width:38px;height:38px;}
+.hbtn:hover{color:#f5f0e8;}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:26px;letter-spacing:12px;color:#f5f0e8;font-weight:300;cursor:pointer;position:absolute;left:50%;transform:translateX(-50%);}
+.nav-logo em{font-style:italic;color:var(--gold);}
+.nav-right{display:flex;align-items:stretch;}
+.nr-svc{background:none;border:none;border-left:0.5px solid #2a1e10;padding:0 1rem;color:#8a7868;font-size:9px;letter-spacing:2px;text-transform:uppercase;display:flex;align-items:center;gap:.5rem;transition:color .2s;height:var(--nav-h);}
+.nr-svc:hover{color:#c8b898;}
+.nicon{background:none;border:none;border-left:0.5px solid #2a1e10;padding:0 .85rem;color:#8a7868;display:flex;align-items:center;justify-content:center;position:relative;transition:color .2s;height:var(--nav-h);min-width:44px;font-size:20px;}
+.nicon:hover{color:#f5f0e8;}
+.nbadge{position:absolute;top:10px;right:6px;min-width:16px;height:16px;background:var(--accent);border-radius:8px;font-size:8px;color:#fff;display:none;align-items:center;justify-content:center;padding:0 3px;font-weight:500;}
+.nbadge.on{display:flex;}
+.nav-cats{background:var(--dark);border-bottom:0.5px solid #2a1e10;display:flex;justify-content:center;overflow-x:auto;}
+.nav-cats::-webkit-scrollbar{display:none;}
+.ncat{background:none;border:none;border-bottom:2px solid transparent;color:#8a7868;font-size:9px;letter-spacing:3px;text-transform:uppercase;padding:.82rem 1.2rem;white-space:nowrap;transition:all .25s;}
+.ncat:hover,.ncat.on{color:#f5f0e8;border-bottom-color:var(--gold);}
+
+/* SIDE MENU */
+.side-ov{display:none;position:fixed;inset:0;z-index:300;min-height:100vh;}
+.side-ov.open{display:flex;background:rgba(10,8,6,.72);}
+.side-panel{background:var(--dark);width:290px;height:100%;display:flex;flex-direction:column;animation:sideIn .3s ease;overflow-y:auto;}
+@keyframes sideIn{from{transform:translateX(-100%);}to{transform:translateX(0);}}
+.side-hd{padding:1.3rem 1.6rem;border-bottom:0.5px solid #2a1e10;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;}
+.side-logo{font-family:'Cormorant Garamond',serif;font-size:16px;letter-spacing:7px;color:#f0e8dc;}
+.side-x{background:none;border:none;color:#6a5a48;font-size:22px;display:flex;align-items:center;justify-content:center;width:32px;height:32px;transition:color .2s;flex-shrink:0;}
+.side-x:hover{color:#f0e8dc;}
+.side-sec{padding:1.1rem 1.6rem .4rem;font-size:9px;letter-spacing:5px;color:var(--gold2);text-transform:uppercase;}
+.slink{display:flex;justify-content:space-between;align-items:center;width:100%;padding:.82rem 1.6rem;background:none;border:none;border-bottom:0.5px solid #1e1610;font-size:12px;letter-spacing:1.5px;color:#8a7868;text-align:left;transition:all .2s;font-family:'Cormorant Garamond',serif;}
+.slink:hover{background:#1e160e;color:#f0e8dc;padding-left:2.2rem;}
+.slink-arr{color:#3a2a18;flex-shrink:0;}
+.side-ft{margin-top:auto;padding:1.4rem 1.6rem;border-top:0.5px solid #1e1610;display:flex;gap:.8rem;flex-shrink:0;}
+.sftb{flex:1;padding:.7rem;font-size:9px;letter-spacing:3px;text-transform:uppercase;border:0.5px solid #3a2a18;background:transparent;color:#6a5a48;transition:all .25s;}
+.sftb.prim{background:var(--gold);color:var(--dark);border-color:var(--gold);}
+.sftb:hover{border-color:#8a7868;color:#c8b898;}
+.sftb.prim:hover{background:var(--gold3);}
+
+/* CART DRAWER */
+.cart-drawer{position:fixed;top:0;right:-440px;width:420px;height:100%;background:#fff;z-index:300;transition:right .35s ease;display:flex;flex-direction:column;border-left:0.5px solid var(--border);}
+.cart-drawer.open{right:0;box-shadow:-4px 0 24px rgba(10,8,6,.15);}
+.cart-dh{padding:1.3rem 1.6rem;background:var(--dark);display:flex;justify-content:space-between;align-items:center;flex-shrink:0;}
+.cart-dh-t{font-family:'Cormorant Garamond',serif;font-size:17px;letter-spacing:5px;color:#f0e8dc;}
+.cart-dh-x{background:none;border:none;color:#8a7868;font-size:22px;display:flex;align-items:center;justify-content:center;width:32px;height:32px;transition:color .2s;}
+.cart-dh-x:hover{color:#f0e8dc;}
+.cart-body{flex:1;overflow-y:auto;}
+.cart-bi{padding:1rem 1.6rem;}
+.cart-line{display:flex;justify-content:space-between;padding:1rem 0;border-bottom:0.5px solid #f0ead8;gap:1rem;}
+.cart-li{flex:1;min-width:0;}
+.cart-ln{font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:1px;color:#180e06;}
+.cart-lm{font-size:10px;color:#9a8468;letter-spacing:1px;margin-top:3px;}
+.cart-qty-row{display:flex;align-items:center;gap:.5rem;margin-top:.6rem;}
+.cqb{background:none;border:0.5px solid #c8bca8;width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:16px;color:#6a5438;transition:all .2s;line-height:1;}
+.cqb:hover{background:#f0e8d6;}
+.cart-qty-n{font-family:'Cormorant Garamond',serif;font-size:14px;color:#180e06;min-width:22px;text-align:center;}
+.cart-lr{display:flex;flex-direction:column;align-items:flex-end;gap:.5rem;flex-shrink:0;}
+.cart-lp{font-family:'Cormorant Garamond',serif;font-size:14px;color:#3a2a16;}
+.cart-lx{background:none;border:none;color:#c4b098;font-size:16px;transition:color .2s;}
+.cart-lx:hover{color:var(--accent);}
+.cart-empty{font-size:12px;color:#9a8468;text-align:center;padding:3rem 1.6rem;font-family:'Cormorant Garamond',serif;font-style:italic;line-height:1.9;}
+.cart-ft{border-top:0.5px solid #e8dfc8;background:#f8f3ea;padding:1.4rem 1.6rem;flex-shrink:0;}
+.cart-ship{font-size:10px;color:#9a8468;letter-spacing:1px;margin-bottom:.8rem;text-align:center;}
+.cart-tot{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1.2rem;}
+.cart-tot-l{font-size:10px;letter-spacing:3px;color:#6a5438;text-transform:uppercase;}
+.cart-tot-v{font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:2px;color:var(--accent);}
+.cart-co{width:100%;padding:.88rem;background:var(--dark);color:#f0e8dc;border:none;font-size:9px;letter-spacing:4px;text-transform:uppercase;transition:background .3s;}
+.cart-co:hover{background:var(--dark3);}
+.cart-ov{position:fixed;inset:0;background:rgba(10,8,6,.4);z-index:299;display:none;}
+.cart-ov.on{display:block;}
+
+/* ACC PANEL */
+.acc-panel{background:var(--bg);border-bottom:0.5px solid var(--border);display:none;}
+.acc-panel.open{display:block;}
+.acc-tabs{display:flex;background:var(--bg2);border-bottom:0.5px solid var(--border);}
+.acc-tab{flex:1;padding:.9rem;font-size:10px;letter-spacing:3px;text-transform:uppercase;background:none;border:none;color:var(--text4);border-bottom:2px solid transparent;transition:all .25s;}
+.acc-tab.on{color:var(--text);border-bottom-color:var(--accent);}
+.acc-bd{padding:1.8rem 2rem;}
+.acc-pane{display:none;}
+.acc-pane.on{display:block;}
+.info-r{display:flex;justify-content:space-between;padding:.88rem 0;border-bottom:0.5px solid var(--border);}
+.info-l{font-size:9px;letter-spacing:3px;color:var(--text4);text-transform:uppercase;}
+.info-v{font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:1px;color:var(--text);}
+
+/* AUTH MODAL */
+.auth-ov{display:none;position:fixed;inset:0;z-index:400;align-items:center;justify-content:center;padding:2rem;}
+.auth-ov.open{display:flex;background:rgba(10,8,6,.75);}
+.auth-box{background:var(--bg);width:100%;max-width:400px;border:0.5px solid var(--border);}
+.auth-hd{padding:1.8rem 2rem 1.2rem;border-bottom:0.5px solid var(--border);display:flex;justify-content:space-between;align-items:flex-start;}
+.auth-logo{font-family:'Cormorant Garamond',serif;font-size:18px;letter-spacing:6px;color:var(--text);}
+.auth-sub{font-size:9px;letter-spacing:3px;color:var(--text5);margin-top:4px;text-transform:uppercase;}
+.auth-x{background:none;border:none;color:var(--text4);font-size:22px;display:flex;align-items:center;justify-content:center;width:32px;height:32px;transition:color .2s;}
+.auth-x:hover{color:var(--text);}
+.atabs{display:flex;border-bottom:0.5px solid var(--border);}
+.atab{flex:1;padding:.88rem;font-size:9px;letter-spacing:3px;text-transform:uppercase;background:none;border:none;color:var(--text4);border-bottom:2px solid transparent;transition:all .25s;}
+.atab.on{color:var(--text);border-bottom-color:var(--accent);}
+.auth-bd{padding:1.8rem;}
+.fg{margin-bottom:1.1rem;}
+.fl{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--text4);display:block;margin-bottom:.45rem;}
+.fi{width:100%;padding:.78rem 1rem;border:0.5px solid var(--border2);background:var(--bg2);font-size:12px;color:var(--text);outline:none;transition:border-color .25s;}
+.fi:focus{border-color:var(--accent);background:var(--bg);}
+.fi::placeholder{color:var(--border3);font-size:10px;letter-spacing:1.5px;}
+.fsub{width:100%;padding:.88rem;background:var(--dark2);color:#f0e8dc;border:none;font-size:9px;letter-spacing:4px;text-transform:uppercase;transition:background .3s;margin-top:.5rem;}
+.fsub:hover{background:var(--accent2);}
+.falt{font-size:10px;color:var(--text4);text-align:center;margin-top:1rem;letter-spacing:1px;line-height:1.9;}
+.falt a{color:var(--accent);cursor:pointer;}
+.fmsg{font-size:10px;letter-spacing:1.5px;min-height:18px;margin-top:.8rem;text-align:center;}
+.code-row{display:flex;gap:.5rem;margin-top:.5rem;}
+.cdig{width:44px;padding:.72rem 0;text-align:center;border:0.5px solid var(--border2);background:var(--bg2);font-size:18px;color:var(--text);font-family:'Cormorant Garamond',serif;outline:none;transition:border-color .25s;}
+.cdig:focus{border-color:var(--accent);}
+.vinfo{font-size:11px;color:var(--text3);letter-spacing:.5px;line-height:2;margin-bottom:1.2rem;}
+
+/* BUTTONS */
+.btn{padding:.85rem 2.2rem;font-size:9px;letter-spacing:4px;text-transform:uppercase;border:0.5px solid;transition:all .3s;display:inline-flex;align-items:center;gap:.5rem;}
+.btn-p{background:#f5f0e8;color:var(--dark2);border-color:#f5f0e8;}
+.btn-p:hover{background:var(--gold3);border-color:var(--gold3);}
+.btn-g{background:transparent;color:#f0ebe0;border-color:#3a2e22;}
+.btn-g:hover{border-color:#c8b898;}
+.btn-d{background:var(--dark2);color:#f0e8dc;border-color:var(--dark2);}
+.btn-d:hover{background:var(--dark3);}
+.btn-o{background:transparent;color:var(--text);border-color:var(--border2);}
+.btn-o:hover{border-color:var(--text);}
+.btn-acc{background:var(--accent);color:#faf6f0;border-color:var(--accent);}
+.btn-acc:hover{background:var(--accent2);}
+
+/* TICKER */
+.ticker{background:var(--accent2);padding:.65rem 0;overflow:hidden;}
+.tick-inner{display:flex;gap:4rem;animation:tick 22s linear infinite;white-space:nowrap;}
+@keyframes tick{to{transform:translateX(-50%);}}
+.tick-inner span{font-size:9px;letter-spacing:5px;color:#f0d0c0;text-transform:uppercase;}
+.tdot{color:#9a5040;font-size:5px;vertical-align:middle;}
+
+/* SECTIONS */
+.sec{padding:5rem 2rem;}
+.sec-hd{text-align:center;margin-bottom:3.5rem;}
+.eye{font-size:9px;letter-spacing:6px;color:var(--accent);text-transform:uppercase;display:block;margin-bottom:1rem;}
+.stitle{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4vw,40px);font-weight:300;letter-spacing:4px;color:var(--text);line-height:1.2;}
+.srule{width:36px;height:0.5px;background:var(--border2);margin:1.2rem auto 0;}
+
+/* HERO */
+.hero{min-height:88vh;background:var(--dark2);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4rem 2rem;position:relative;overflow:hidden;}
+.hero canvas{position:absolute;inset:0;pointer-events:none;width:100%;height:100%;}
+.hero-c{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;}
+.h-eye{font-size:9px;letter-spacing:8px;color:var(--gold);text-transform:uppercase;margin-bottom:1.5rem;opacity:0;animation:fu .9s ease forwards .4s;}
+.h-t{font-family:'Cormorant Garamond',serif;font-size:clamp(56px,11vw,98px);font-weight:300;letter-spacing:16px;color:#f5f0e8;line-height:.9;margin-bottom:.4rem;opacity:0;animation:fu .9s ease forwards .6s;}
+.h-s{font-family:'Cormorant Garamond',serif;font-size:clamp(11px,1.8vw,14px);font-style:italic;letter-spacing:7px;color:var(--gold2);margin-bottom:2rem;opacity:0;animation:fu .9s ease forwards .8s;}
+.h-rule{width:0;height:0.5px;background:var(--gold2);margin:0 auto 2rem;animation:rg .8s ease forwards 1s;}
+@keyframes rg{to{width:52px;}}
+.h-q{font-family:'Cormorant Garamond',serif;font-size:clamp(14px,2.2vw,18px);font-style:italic;color:#7a6858;line-height:2.1;max-width:460px;opacity:0;animation:fu .9s ease forwards 1.2s;}
+.h-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2.5rem;opacity:0;animation:fu .9s ease forwards 1.4s;}
+@keyframes fu{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+
+/* PAGE HEADER */
+.pg-hd{background:var(--dark2);padding:4rem 2rem;text-align:center;border-bottom:0.5px solid #2a1e10;}
+.pg-hd-eye{font-size:9px;letter-spacing:8px;color:var(--gold2);text-transform:uppercase;margin-bottom:1rem;display:block;}
+.pg-hd-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,6vw,64px);font-weight:300;letter-spacing:10px;color:#f5f0e8;line-height:1;}
+.pg-hd-sub{font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;letter-spacing:4px;color:var(--gold2);margin-top:.8rem;}
+
+/* BREADCRUMB */
+.breadcrumb{padding:.8rem 2rem;background:var(--bg2);border-bottom:0.5px solid var(--border);display:flex;gap:.5rem;align-items:center;font-size:10px;letter-spacing:2px;color:var(--text4);text-transform:uppercase;flex-wrap:wrap;}
+.breadcrumb span{cursor:pointer;transition:color .2s;}
+.breadcrumb span:hover{color:var(--text);}
+.breadcrumb-sep{color:var(--border2);}
+
+/* CATEGORY GRID */
+.cat-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:1px;background:var(--border);}
+.cc{background:var(--bg);cursor:pointer;overflow:hidden;transition:background .3s;}
+.cc:hover{background:var(--bg2);}
+.cc-img{aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.cc-img svg{transition:transform .6s ease;}
+.cc:hover .cc-img svg{transform:scale(1.05);}
+.cc-ov{position:absolute;bottom:0;left:0;right:0;background:rgba(22,14,6,.92);padding:.65rem 1rem;opacity:0;transition:opacity .3s;display:flex;justify-content:space-between;align-items:center;}
+.cc:hover .cc-ov{opacity:1;}
+.cc-ov span{font-size:9px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;}
+.cc-bd{padding:1.2rem 1.5rem 1.8rem;}
+.cc-tag{font-size:9px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:.4rem;}
+.cc-name{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:300;letter-spacing:2px;color:var(--text);margin-bottom:.3rem;}
+.cc-price{font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--text3);}
+
+/* PRODUCT GRID */
+.frow{display:flex;flex-wrap:wrap;border:0.5px solid var(--border);margin-bottom:1px;}
+.fb{padding:.78rem 1.4rem;font-size:9px;letter-spacing:3px;text-transform:uppercase;background:none;border:none;color:var(--text4);transition:all .25s;border-right:0.5px solid var(--border);white-space:nowrap;}
+.fb:last-child{border-right:none;}
+.fb.on,.fb:hover{background:var(--dark2);color:#f0e8dc;}
+.pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:1px;background:var(--border);}
+.pc{background:var(--bg);cursor:pointer;transition:background .3s;position:relative;}
+.pc:hover{background:var(--bg2);}
+.pc-img{aspect-ratio:1;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.pc-img svg{transition:transform .5s;}
+.pc:hover .pc-img svg{transform:scale(1.06);}
+.pc-bd{padding:1rem 1.2rem 1.6rem;}
+.pc-tag{font-size:9px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:.3rem;}
+.pc-name{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:300;letter-spacing:1.5px;color:var(--text);margin-bottom:.3rem;}
+.pc-price{font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--text3);}
+.pc-add{width:100%;margin-top:.8rem;padding:.6rem;border:0.5px solid var(--border2);background:transparent;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--text4);transition:all .3s;}
+.pc-add:hover{border-color:var(--dark2);color:var(--text2);}
+.pc-add.done{border-color:var(--accent);color:var(--accent);}
+.pc-bdg{position:absolute;top:10px;left:10px;background:var(--accent);color:#faf6f0;font-size:8px;letter-spacing:2px;padding:3px 9px;text-transform:uppercase;z-index:1;}
+.pc-wish{position:absolute;top:8px;right:8px;background:rgba(250,246,240,.92);border:0.5px solid var(--border);color:var(--text4);font-size:18px;padding:.3rem;transition:all .25s;width:32px;height:32px;display:flex;align-items:center;justify-content:center;z-index:1;line-height:1;}
+.pc-wish:hover,.pc-wish.on{color:var(--accent);border-color:var(--accent);background:#fff;}
+
+/* PRODUCT DETAIL */
+.pd-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:0.5px solid var(--border);}
+.pd-img{background:var(--bg3);display:flex;align-items:center;justify-content:center;min-height:500px;}
+.pd-info{padding:3rem;display:flex;flex-direction:column;justify-content:flex-start;}
+.pd-tag{font-size:9px;letter-spacing:5px;color:var(--accent);text-transform:uppercase;margin-bottom:1rem;}
+.pd-name{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,3vw,36px);font-weight:300;letter-spacing:3px;color:var(--text);line-height:1.2;margin-bottom:.5rem;}
+.pd-price{font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:2px;color:var(--accent);margin-bottom:2rem;}
+.pd-desc{font-size:12px;color:var(--text3);line-height:2.1;margin-bottom:2rem;letter-spacing:.3px;}
+.pd-det{display:flex;gap:1rem;padding:.88rem 0;border-bottom:0.5px solid var(--border);font-size:11px;color:var(--text3);line-height:1.7;}
+.pd-det span:first-child{font-size:9px;letter-spacing:3px;color:var(--text5);text-transform:uppercase;min-width:80px;flex-shrink:0;}
+.pd-actions{display:flex;gap:1rem;margin-top:2rem;flex-wrap:wrap;}
+
+/* EDITORIAL */
+.ed-pair{display:grid;grid-template-columns:1fr 1fr;border:0.5px solid var(--border);}
+.edp{min-height:420px;display:flex;flex-direction:column;justify-content:flex-end;padding:2.5rem;cursor:pointer;position:relative;overflow:hidden;}
+.edp svg{position:absolute;top:50%;left:50%;transform:translate(-50%,-58%);transition:transform .6s ease;}
+.edp:hover svg{transform:translate(-50%,-61%) scale(1.04);}
+.edp-dk{background:var(--dark2);}
+.edp-lt{background:var(--bg2);}
+.edp-tag{font-size:9px;letter-spacing:4px;text-transform:uppercase;margin-bottom:.5rem;}
+.edp-dk .edp-tag{color:var(--gold2);}
+.edp-lt .edp-tag{color:var(--accent);}
+.edp-title{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,3vw,26px);font-weight:300;letter-spacing:3px;margin-bottom:.9rem;line-height:1.3;}
+.edp-dk .edp-title{color:#f0e8dc;}
+.edp-lt .edp-title{color:var(--text);}
+.edp-cta{font-size:9px;letter-spacing:4px;text-transform:uppercase;display:inline-flex;align-items:center;gap:.5rem;background:none;border:none;padding:0;transition:gap .3s;}
+.edp-dk .edp-cta{color:var(--gold);}
+.edp-lt .edp-cta{color:var(--accent);}
+.edp:hover .edp-cta{gap:1rem;}
+
+/* LORE / DARK SECTIONS */
+.lore-b{background:var(--dark3);padding:6rem 2rem;text-align:center;}
+.lore-q{font-family:'Cormorant Garamond',serif;font-size:clamp(17px,2.8vw,22px);font-style:italic;color:var(--gold);max-width:640px;margin:0 auto;line-height:2.4;letter-spacing:2px;}
+.lore-q em{font-style:normal;color:#6a2828;}
+.lore-sig{font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;color:#3c2010;margin-top:2rem;letter-spacing:3px;}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));background:var(--dark2);}
+.stat{padding:2.8rem 2rem;text-align:center;border-right:0.5px solid #221810;}
+.stat:last-child{border-right:none;}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:36px;color:#f0e8dc;letter-spacing:4px;}
+.stat-l{font-size:9px;letter-spacing:3px;color:#4a3420;text-transform:uppercase;margin-top:.5rem;}
+
+/* WARDEN */
+.warden-sec{display:grid;grid-template-columns:1fr 1fr;}
+.warden-art{background:var(--dark2);display:flex;align-items:center;justify-content:center;padding:4rem;min-height:420px;}
+.warden-info{background:var(--dark);padding:3.5rem;display:flex;flex-direction:column;justify-content:center;}
+.warden-title{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3vw,28px);font-weight:300;color:#f0e8dc;letter-spacing:3px;margin-bottom:1rem;line-height:1.2;}
+.warden-desc{font-size:12px;color:#6a5a48;line-height:2.1;margin-bottom:2rem;}
+.warden-det{display:flex;gap:1rem;padding:.88rem 0;border-bottom:0.5px solid #1e1610;font-size:11px;color:#5a4a38;line-height:1.7;}
+.warden-det span:first-child{font-family:'Cormorant Garamond',serif;font-size:12px;color:#3a2a18;min-width:22px;flex-shrink:0;}
+
+/* FAQ */
+.faq-w{max-width:700px;margin:0 auto;}
+.faq-i{border-bottom:0.5px solid var(--border);}
+.faq-b{width:100%;background:none;border:none;text-align:left;padding:1.4rem 0;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--text2);}
+.faq-arr{font-size:16px;color:var(--text4);transition:transform .3s;margin-left:1rem;flex-shrink:0;display:inline-block;}
+.faq-b.open .faq-arr{transform:rotate(180deg);}
+.faq-ans{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s;}
+.faq-ans.open{max-height:180px;padding-bottom:1.4rem;}
+.faq-ans p{font-size:12px;color:var(--text3);line-height:2.1;}
+
+/* NEWSLETTER */
+.nl-b{background:var(--bg2);padding:5.5rem 2rem;text-align:center;border-top:0.5px solid var(--border);}
+.nl-t{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,4vw,36px);font-weight:300;letter-spacing:5px;color:var(--text);}
+.nl-s{font-size:11px;color:var(--text3);letter-spacing:2px;margin:1rem 0 2.2rem;line-height:1.8;}
+.nl-f{display:flex;max-width:420px;margin:0 auto;}
+.nl-in{flex:1;padding:.9rem 1.2rem;border:0.5px solid var(--border2);border-right:none;background:var(--bg);font-size:11px;color:var(--text);outline:none;}
+.nl-in::placeholder{color:var(--border3);font-size:10px;letter-spacing:2px;}
+.nl-go{padding:.9rem 1.6rem;background:var(--dark2);border:0.5px solid var(--dark2);font-size:9px;letter-spacing:3px;color:#f0e8dc;text-transform:uppercase;transition:background .3s;flex-shrink:0;}
+.nl-go:hover{background:var(--accent2);}
+.nl-msg{font-size:10px;letter-spacing:2px;margin-top:.8rem;min-height:18px;color:var(--text4);}
+
+/* FOOTER */
+.footer{background:var(--dark);}
+.foot-m{padding:4.5rem 2rem 3rem;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;border-bottom:0.5px solid #181208;}
+.foot-brand{font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:8px;color:#f0e8dc;font-weight:300;margin-bottom:.8rem;}
+.foot-tag{font-family:'Cormorant Garamond',serif;font-size:12px;font-style:italic;color:#3c2010;line-height:2.2;}
+.foot-h{font-size:9px;letter-spacing:4px;color:#6a2828;text-transform:uppercase;margin-bottom:1.3rem;}
+.foot-l{list-style:none;}
+.foot-l li{font-size:11px;color:#4a3018;margin-bottom:.7rem;cursor:pointer;transition:color .25s;}
+.foot-l li:hover{color:var(--gold);}
+.foot-soc{display:flex;gap:.5rem;margin-top:1.5rem;}
+.fsoc{background:none;border:0.5px solid #2a1e10;color:#4a3018;font-size:11px;padding:.5rem .8rem;transition:all .25s;letter-spacing:1px;}
+.fsoc:hover{border-color:#6a5040;color:var(--gold);}
+.foot-bot{padding:1.5rem 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.foot-copy{font-size:9px;color:#221408;letter-spacing:2px;text-transform:uppercase;}
+
+/* TOAST */
+.toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(10px);background:var(--dark2);color:#f0e8dc;padding:.72rem 2rem;font-size:9px;letter-spacing:3px;text-transform:uppercase;opacity:0;transition:all .35s ease;white-space:nowrap;pointer-events:none;z-index:500;border:0.5px solid #3a2818;}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0);}
+
+/* LORE PAGE */
+.lore-hero{background:var(--dark);padding:6rem 2rem;text-align:center;border-bottom:0.5px solid #2a1e10;}
+.lore-banner{font-family:'Cormorant Garamond',serif;font-size:clamp(16px,2.5vw,22px);font-style:italic;color:var(--gold);max-width:680px;margin:2rem auto 0;line-height:2.4;letter-spacing:2px;}
+.lore-banner em{font-style:normal;color:#8a3838;}
+.lore-chapter{padding:4rem 2rem;border-bottom:0.5px solid var(--border);max-width:760px;margin:0 auto;}
+.lore-chapter-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;letter-spacing:4px;color:var(--text);margin-bottom:.5rem;}
+.lore-chapter-sub{font-size:9px;letter-spacing:5px;color:var(--accent);text-transform:uppercase;margin-bottom:2rem;display:block;}
+.lore-chapter p{font-size:13px;color:var(--text3);line-height:2.3;margin-bottom:1.5rem;letter-spacing:.3px;}
+
+/* CONTACT PAGE */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:0.5px solid var(--border);margin:2rem;}
+.contact-info{background:var(--dark2);padding:3.5rem;display:flex;flex-direction:column;justify-content:center;}
+.contact-form{padding:3rem;background:var(--bg);}
+.contact-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;letter-spacing:3px;color:#f0e8dc;margin-bottom:1rem;}
+.contact-desc{font-size:12px;color:#6a5a48;line-height:2;margin-bottom:2rem;}
+.contact-detail{font-size:11px;color:#5a4a38;letter-spacing:1px;margin-bottom:.8rem;display:flex;gap:.8rem;align-items:baseline;}
+.contact-detail span:first-child{font-size:9px;letter-spacing:3px;color:#3a2a18;text-transform:uppercase;min-width:70px;}
+
+/* ABOUT PAGE */
+.about-hero{background:var(--dark2);padding:5rem 2rem;display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:400px;}
+.about-hero-text{padding:2rem 3rem;display:flex;flex-direction:column;justify-content:center;}
+.about-hero-img{background:var(--dark3);display:flex;align-items:center;justify-content:center;}
+.about-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,5vw,52px);font-weight:300;letter-spacing:6px;color:#f0e8dc;line-height:1.1;margin-bottom:1.5rem;}
+.about-text{font-size:12px;color:#6a5a48;line-height:2.2;margin-bottom:1.5rem;}
+
+@media(max-width:700px){
+.stats{grid-template-columns:1fr 1fr;}
+.foot-m{grid-template-columns:1fr 1fr;}
+.ed-pair,.warden-sec,.pd-grid,.contact-grid,.about-hero{grid-template-columns:1fr;}
+.h-btns{flex-direction:column;align-items:center;}
+.cart-drawer{width:100%;}
+.nr-svc .svc-lbl{display:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- PERSISTENT CHROME -->
+<div id="chrome">
+<div class="ann">
+  <div class="ann-inner">
+    <span>Complimentary shipping on orders over €75</span><span class="ann-dot">✦</span>
+    <span>Order // 001 · First Limited Edition</span><span class="ann-dot">✦</span>
+    <span>New arrivals this season</span><span class="ann-dot">✦</span>
+    <span>Worldwide delivery available</span><span class="ann-dot">✦</span>
+    <span>Complimentary shipping on orders over €75</span><span class="ann-dot">✦</span>
+    <span>Order // 001 · First Limited Edition</span><span class="ann-dot">✦</span>
+    <span>New arrivals this season</span><span class="ann-dot">✦</span>
+    <span>Worldwide delivery available</span><span class="ann-dot">✦</span>
+  </div>
+</div>
+<div class="nav">
+  <div class="nav-left">
+    <button class="hbtn" onclick="toggleSide()" aria-label="Menu">
+      <svg width="20" height="14" viewBox="0 0 20 14" fill="none"><rect y="0" width="20" height="2" fill="currentColor"/><rect y="6" width="20" height="2" fill="currentColor"/><rect y="12" width="20" height="2" fill="currentColor"/></svg>
+    </button>
+  </div>
+  <span class="nav-logo" onclick="goPage('home')">VEY<em>N</em>É</span>
+  <div class="nav-right">
+    <button class="nr-svc" onclick="goPage('contact')" aria-label="Client Services">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1a6 6 0 0 0-6 6v1.5A1.5 1.5 0 0 0 3.5 10H5V7a3 3 0 1 1 6 0v3h1.5A1.5 1.5 0 0 0 14 8.5V7A6 6 0 0 0 8 1Z" stroke="currentColor" stroke-width="1.2" fill="none"/><path d="M5 10v2a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-2" stroke="currentColor" stroke-width="1.2"/></svg>
+      <span class="svc-lbl" style="font-size:9px;letter-spacing:2px;">Client Services</span>
+    </button>
+    <button class="nicon" onclick="openWish()" aria-label="Wishlist">
+      <svg width="20" height="18" viewBox="0 0 20 18" fill="none"><path d="M10 16S2 11 2 5.5A4.5 4.5 0 0 1 10 3.8 4.5 4.5 0 0 1 18 5.5C18 11 10 16 10 16Z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+      <span class="nbadge" id="wb">0</span>
+    </button>
+    <button class="nicon" onclick="toggleCart()" aria-label="Cart">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 2h2l2.4 9.6A2 2 0 0 0 8.3 13h7.4a2 2 0 0 0 1.9-1.4L19 6H5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8.5" cy="16.5" r="1.5" fill="currentColor"/><circle cx="15.5" cy="16.5" r="1.5" fill="currentColor"/></svg>
+      <span class="nbadge" id="cb">0</span>
+    </button>
+    <button class="nicon" onclick="toggleAcc()" aria-label="Account">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="4" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M2 18c0-4 3.6-6 8-6s8 2 8 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+    </button>
+  </div>
+</div>
+<div class="nav-cats">
+  <button class="ncat" id="nc-home" onclick="goPage('home')">Home</button>
+  <button class="ncat" id="nc-men" onclick="goPage('men')">Men</button>
+  <button class="ncat" id="nc-women" onclick="goPage('women')">Women</button>
+  <button class="ncat" id="nc-kids" onclick="goPage('kids')">Young Sovereign</button>
+  <button class="ncat" id="nc-accessories" onclick="goPage('accessories')">Accessories</button>
+  <button class="ncat" id="nc-collectibles" onclick="goPage('collectibles')">Collectibles</button>
+  <button class="ncat" id="nc-lore" onclick="goPage('lore')">The Lore</button>
+  <button class="ncat" id="nc-about" onclick="goPage('about')">About</button>
+</div>
+</div>
+
+<!-- SIDE MENU -->
+<div class="side-ov" id="side-ov">
+  <div class="side-panel">
+    <div class="side-hd">
+      <span class="side-logo">VEYNÉ</span>
+      <button class="side-x" onclick="toggleSide()">✕</button>
+    </div>
+    <p class="side-sec">Collections</p>
+    <button class="slink" onclick="goPage('men');toggleSide()">Men <span class="slink-arr">›</span></button>
+    <button class="slink" onclick="goPage('women');toggleSide()">Women <span class="slink-arr">›</span></button>
+    <button class="slink" onclick="goPage('kids');toggleSide()">Young Sovereign <span class="slink-arr">›</span></button>
+    <button class="slink" onclick="goPage('accessories');toggleSide()">Accessories <span class="slink-arr">›</span></button>
+    <button class="slink" onclick="goPage('collectibles');toggleSide()">Collectibles <span class="slink-arr">›</span></button>
+    <p class="side-sec">The Realm</p>
+    <button class="slink" onclick="goPage('lore');toggleSide()">The Lore <span class="slink-arr">›</span></button>
+    <button class="slink" onclick="goPage('about');toggleSide()">About Cealis Veyne <span class="slink-arr">›</span></button>
+    <button class="slink" onclick="goPage('contact');toggleSide()">Client Services <span class="slink-arr">›</span></button>
+    <button class="slink" onclick="goPage('faq');toggleSide()">FAQ & Support <span class="slink-arr">›</span></button>
+    <div class="side-ft">
+      <button class="sftb prim" onclick="openAuth('login');toggleSide()">Sign In</button>
+      <button class="sftb" onclick="openAuth('register');toggleSide()">Create Account</button>
+    </div>
+  </div>
+  <div style="flex:1;cursor:pointer;" onclick="toggleSide()"></div>
+</div>
+
+<!-- AUTH MODAL -->
+<div class="auth-ov" id="auth-ov">
+  <div class="auth-box">
+    <div class="auth-hd">
+      <div><div class="auth-logo">VEYNÉ</div><div class="auth-sub">The Sovereign Boutique</div></div>
+      <button class="auth-x" onclick="closeAuth()">✕</button>
+    </div>
+    <div class="atabs">
+      <button class="atab on" id="at1" onclick="switchAuth('login')">Sign In</button>
+      <button class="atab" id="at2" onclick="switchAuth('register')">Create Account</button>
+    </div>
+    <div class="auth-bd">
+      <div id="pLogin">
+        <div class="fg"><label class="fl">Email</label><input class="fi" type="email" id="lEmail" placeholder="your@email.com"/></div>
+        <div class="fg"><label class="fl">Password</label><input class="fi" type="password" id="lPass" placeholder="••••••••"/></div>
+        <button class="fsub" onclick="doLogin()">Enter the Realm</button>
+        <p class="falt">New? <a onclick="switchAuth('register')">Create account</a> &nbsp;·&nbsp; <a onclick="closeAuth()" style="color:var(--text4);">Forgot password?</a></p>
+        <p class="fmsg" id="lMsg"></p>
+      </div>
+      <div id="pReg" style="display:none;">
+        <div class="fg"><label class="fl">Full Name</label><input class="fi" type="text" id="rName" placeholder="Your name"/></div>
+        <div class="fg"><label class="fl">Email</label><input class="fi" type="email" id="rEmail" placeholder="your@email.com"/></div>
+        <div class="fg"><label class="fl">Password</label><input class="fi" type="password" id="rPass" placeholder="Min. 6 characters"/></div>
+        <button class="fsub" onclick="doRegister()">Join the Order</button>
+        <p class="falt">Already a member? <a onclick="switchAuth('login')">Sign in</a></p>
+        <p class="fmsg" id="rMsg"></p>
+      </div>
+      <div id="pVerify" style="display:none;">
+        <p class="vinfo" id="vInfo">A confirmation code has been sent to your email.</p>
+        <label class="fl">Confirmation Code</label>
+        <div class="code-row">
+          <input class="cdig" maxlength="1" id="d0" oninput="nextD(0)" inputmode="numeric"/>
+          <input class="cdig" maxlength="1" id="d1" oninput="nextD(1)" inputmode="numeric"/>
+          <input class="cdig" maxlength="1" id="d2" oninput="nextD(2)" inputmode="numeric"/>
+          <input class="cdig" maxlength="1" id="d3" oninput="nextD(3)" inputmode="numeric"/>
+          <input class="cdig" maxlength="1" id="d4" oninput="nextD(4)" inputmode="numeric"/>
+          <input class="cdig" maxlength="1" id="d5" oninput="nextD(5)" inputmode="numeric"/>
+        </div>
+        <button class="fsub" style="margin-top:1.2rem;" onclick="doVerify()">Verify & Enter</button>
+        <p style="font-size:10px;color:var(--text4);text-align:center;margin-top:.9rem;cursor:pointer;" onclick="resendCode()">Didn't receive it? <span style="color:var(--accent);">Resend</span></p>
+        <p class="fmsg" id="vMsg"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CART DRAWER -->
+<div class="cart-ov" id="cart-ov" onclick="toggleCart()"></div>
+<div class="cart-drawer" id="cart-drawer">
+  <div class="cart-dh">
+    <span class="cart-dh-t">Your Order</span>
+    <button class="cart-dh-x" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-body"><div class="cart-bi" id="cart-bd"><p class="cart-empty">Your order is empty.<br/>Begin your collection.</p></div></div>
+  <div id="cart-ft" style="display:none;" class="cart-ft">
+    <p class="cart-ship">Complimentary shipping on orders over €75</p>
+    <div class="cart-tot"><span class="cart-tot-l">Order Total</span><span class="cart-tot-v" id="cart-total">€ 0.00</span></div>
+    <button class="cart-co" onclick="alert('This is a demo — connect to Stripe or Shopify for live payments!')">Proceed to Checkout</button>
+  </div>
+</div>
+
+<!-- ACCOUNT PANEL -->
+<div class="acc-panel" id="acc-panel">
+  <div class="acc-tabs">
+    <button class="acc-tab on" onclick="switchAcc('profile',this)">Profile</button>
+    <button class="acc-tab" onclick="switchAcc('orders',this)">Orders</button>
+    <button class="acc-tab" onclick="switchAcc('wishlist',this)">Wishlist</button>
+    <button class="acc-tab" onclick="switchAcc('settings',this)">Settings</button>
+  </div>
+  <div class="acc-bd">
+    <div class="acc-pane on" id="ap-profile">
+      <div class="info-r"><span class="info-l">Status</span><span class="info-v" id="aStatus">Guest</span></div>
+      <div class="info-r"><span class="info-l">Name</span><span class="info-v" id="aName">—</span></div>
+      <div class="info-r"><span class="info-l">Email</span><span class="info-v" id="aEmail">—</span></div>
+      <div class="info-r" style="border:none;"><span class="info-l">Edition</span><span class="info-v">Order // 001</span></div>
+      <div style="display:flex;gap:1rem;margin-top:1.5rem;flex-wrap:wrap;">
+        <button class="btn btn-d" onclick="openAuth('login')">Sign In</button>
+        <button class="btn btn-o" onclick="openAuth('register')">Create Account</button>
+      </div>
+    </div>
+    <div class="acc-pane" id="ap-orders"><p style="font-size:12px;color:var(--text3);line-height:2;font-family:'Cormorant Garamond',serif;font-style:italic;">No orders placed yet.</p><button class="btn btn-o" style="margin-top:1rem;" onclick="goPage('men');toggleAcc()">Browse Collection</button></div>
+    <div class="acc-pane" id="ap-wishlist"><div id="wish-content"><p style="font-size:12px;color:var(--text3);font-family:'Cormorant Garamond',serif;font-style:italic;">Your wishlist is empty.</p></div></div>
+    <div class="acc-pane" id="ap-settings">
+      <div class="info-r"><span class="info-l">Language</span><span class="info-v">English</span></div>
+      <div class="info-r"><span class="info-l">Currency</span><span class="info-v">EUR (€)</span></div>
+      <div class="info-r" style="border:none;"><span class="info-l">Newsletter</span><span class="info-v">Active</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGES -->
+<div id="pages">
+
+<!-- HOME PAGE -->
+<div class="page active" id="page-home">
+  <section class="hero">
+    <canvas id="hc"></canvas>
+    <div class="hero-c">
+      <p class="h-eye">Cealis Veyne — Official Boutique</p>
+      <h1 class="h-t">VEYNÉ</h1>
+      <p class="h-s">The Sovereign Collection · Order // 001</p>
+      <div class="h-rule"></div>
+      <p class="h-q">"I don't seek power.<br/>I claim what is mine."</p>
+      <div class="h-btns">
+        <button class="btn btn-p" onclick="goPage('men')">Discover the Collection</button>
+        <button class="btn btn-g" onclick="goPage('lore')">Enter the Lore</button>
+      </div>
+    </div>
+  </section>
+  <div class="ticker">
+    <div class="tick-inner">
+      <span>Men</span><span class="tdot">✦</span><span>Women</span><span class="tdot">✦</span><span>Young Sovereign</span><span class="tdot">✦</span><span>Accessories</span><span class="tdot">✦</span><span>Collectibles</span><span class="tdot">✦</span><span>The Warden Watches</span><span class="tdot">✦</span><span>Loyalty is not given. It is proven.</span><span class="tdot">✦</span><span>Order // 001</span><span class="tdot">✦</span>
+      <span>Men</span><span class="tdot">✦</span><span>Women</span><span class="tdot">✦</span><span>Young Sovereign</span><span class="tdot">✦</span><span>Accessories</span><span class="tdot">✦</span><span>Collectibles</span><span class="tdot">✦</span><span>The Warden Watches</span><span class="tdot">✦</span><span>Loyalty is not given. It is proven.</span><span class="tdot">✦</span><span>Order // 001</span><span class="tdot">✦</span>
+    </div>
+  </div>
+  <section class="sec">
+    <div class="sec-hd"><span class="eye">Explore</span><h2 class="stitle">Shop by Category</h2><div class="srule"></div></div>
+    <div class="cat-g">
+      <div class="cc" onclick="goPage('men')">
+        <div class="cc-img" style="background:#1e1610;"><svg width="72" height="112" viewBox="0 0 72 112" fill="none"><rect x="14" y="10" width="44" height="56" rx="1" fill="#2a1e14" stroke="#3a2820" stroke-width="0.5"/><path d="M14 28 L4 34 L4 58 L14 55" fill="#221810" stroke="#2a2010" stroke-width="0.5"/><path d="M58 28 L68 34 L68 58 L58 55" fill="#221810" stroke="#2a2010" stroke-width="0.5"/><rect x="18" y="66" width="13" height="38" fill="#221810" stroke="#2a2010" stroke-width="0.5"/><rect x="41" y="66" width="13" height="38" fill="#221810" stroke="#2a2010" stroke-width="0.5"/><path d="M20 20 L52 20" stroke="#7c2c2c" stroke-width="0.6"/></svg>
+        <div class="cc-ov"><span>Shop Men</span><span style="color:var(--gold);font-size:16px;">›</span></div></div>
+        <div class="cc-bd"><p class="cc-tag">Men</p><p class="cc-name">The Sovereign Man</p><p class="cc-price">From € 29.99</p></div>
+      </div>
+      <div class="cc" onclick="goPage('women')">
+        <div class="cc-img" style="background:#1a1610;"><svg width="64" height="112" viewBox="0 0 64 112" fill="none"><path d="M18 8 Q32 4 46 8 L50 48 Q32 44 14 48 Z" fill="#c8bca8" stroke="#b8ac98" stroke-width="0.5"/><path d="M14 48 Q6 54 8 90 L20 90 L20 52" fill="#c8bca8" stroke="#b8ac98" stroke-width="0.5"/><path d="M50 48 Q58 54 56 90 L44 90 L44 52" fill="#c8bca8" stroke="#b8ac98" stroke-width="0.5"/><path d="M20 90 Q22 108 24 112 L40 112 Q42 108 44 90" fill="#c8bca8" stroke="#b8ac98" stroke-width="0.5"/><path d="M22 18 Q32 15 42 18" stroke="#7c2c2c" stroke-width="0.6" fill="none"/></svg>
+        <div class="cc-ov"><span>Shop Women</span><span style="color:var(--gold);font-size:16px;">›</span></div></div>
+        <div class="cc-bd"><p class="cc-tag">Women</p><p class="cc-name">The Sovereign Woman</p><p class="cc-price">From € 34.99</p></div>
+      </div>
+      <div class="cc" onclick="goPage('kids')">
+        <div class="cc-img" style="background:#1c1810;"><svg width="60" height="94" viewBox="0 0 60 94" fill="none"><rect x="14" y="12" width="32" height="34" rx="1" fill="#2a1e14" stroke="#3a2820" stroke-width="0.5"/><path d="M14 22 L5 27 L5 42 L14 40" fill="#221810" stroke="#2a2010" stroke-width="0.5"/><path d="M46 22 L55 27 L55 42 L46 40" fill="#221810" stroke="#2a2010" stroke-width="0.5"/><rect x="17" y="46" width="10" height="32" fill="#221810" stroke="#2a2010" stroke-width="0.5"/><rect x="33" y="46" width="10" height="32" fill="#221810" stroke="#2a2010" stroke-width="0.5"/><path d="M18 18 L42 18" stroke="#b8905a" stroke-width="0.5"/><circle cx="30" cy="8" r="5" fill="#2a1e14" stroke="#3a2820" stroke-width="0.5"/></svg>
+        <div class="cc-ov"><span>Young Sovereign</span><span style="color:var(--gold);font-size:16px;">›</span></div></div>
+        <div class="cc-bd"><p class="cc-tag">Young Sovereign</p><p class="cc-name">Little Warriors</p><p class="cc-price">From € 19.99</p></div>
+      </div>
+      <div class="cc" onclick="goPage('accessories')">
+        <div class="cc-img" style="background:#181410;"><svg width="74" height="74" viewBox="0 0 74 74" fill="none"><circle cx="37" cy="37" r="22" fill="#2a1e14" stroke="#3a2820" stroke-width="0.5"/><circle cx="37" cy="37" r="14" fill="#221810" stroke="#2a2010" stroke-width="0.5"/><circle cx="37" cy="37" r="5" fill="#7c2c2c" opacity="0.55"/><path d="M23 23 L13 13" stroke="#3a2820" stroke-width="0.5"/><path d="M51 23 L61 13" stroke="#3a2820" stroke-width="0.5"/></svg>
+        <div class="cc-ov"><span>Shop Accessories</span><span style="color:var(--gold);font-size:16px;">›</span></div></div>
+        <div class="cc-bd"><p class="cc-tag">Accessories</p><p class="cc-name">The Arsenal</p><p class="cc-price">From € 12.99</p></div>
+      </div>
+      <div class="cc" onclick="goPage('collectibles')">
+        <div class="cc-img" style="background:#16120e;"><svg width="68" height="90" viewBox="0 0 68 90" fill="none"><ellipse cx="34" cy="54" rx="22" ry="28" fill="#2a1e14" stroke="#3a2820" stroke-width="0.5"/><ellipse cx="34" cy="35" rx="14" ry="17" fill="#221810" stroke="#2a2010" stroke-width="0.5"/><ellipse cx="27" cy="30" rx="3.5" ry="3.5" fill="#f0e8dc" opacity="0.85"/><ellipse cx="41" cy="30" rx="3.5" ry="3.5" fill="#f0e8dc" opacity="0.85"/><ellipse cx="34" cy="55" rx="7" ry="7" fill="#7c2c2c" opacity="0.5"/></svg>
+        <div class="cc-ov"><span>Shop Collectibles</span><span style="color:var(--gold);font-size:16px;">›</span></div></div>
+        <div class="cc-bd"><p class="cc-tag">Collectibles</p><p class="cc-name">Realm Objects</p><p class="cc-price">From € 19.99</p></div>
+      </div>
+    </div>
+  </section>
+  <div class="ed-pair" style="margin:0 2rem;">
+    <div class="edp edp-dk" onclick="goPage('men')"><svg width="96" height="130" viewBox="0 0 96 130" fill="none"><rect x="20" y="8" width="56" height="76" rx="1" fill="#3a2820" stroke="#4a3830" stroke-width="0.5"/><path d="M20 33 L5 40 L5 74 L20 70" fill="#2a1e14" stroke="#3a2820" stroke-width="0.5"/><path d="M76 33 L91 40 L91 74 L76 70" fill="#2a1e14" stroke="#3a2820" stroke-width="0.5"/><path d="M30 22 L66 22" stroke="#7c2c2c" stroke-width="0.6"/></svg><p class="edp-tag">New Season</p><p class="edp-title">The Sovereign<br/>Man</p><button class="edp-cta">Explore Men ›</button></div>
+    <div class="edp edp-lt" onclick="goPage('women')"><svg width="82" height="130" viewBox="0 0 82 130" fill="none"><path d="M22 8 Q41 3 60 8 L65 54 Q41 49 17 54 Z" fill="#c8bca4" stroke="#b8ac94" stroke-width="0.5"/><path d="M17 54 Q8 60 10 100 L24 100 L24 58" fill="#c8bca4" stroke="#b8ac94" stroke-width="0.5"/><path d="M65 54 Q74 60 72 100 L58 100 L58 58" fill="#c8bca4" stroke="#b8ac94" stroke-width="0.5"/><path d="M24 100 Q26 116 28 120 L54 120 Q56 116 58 100" fill="#c8bca4" stroke="#b8ac94" stroke-width="0.5"/></svg><p class="edp-tag">Exclusive Drop</p><p class="edp-title">The Sovereign<br/>Woman</p><button class="edp-cta">Explore Women ›</button></div>
+  </div>
+  <div class="lore-b" style="margin-top:2rem;">
+    <span class="eye" style="color:#6a2828;">The Lore</span>
+    <p class="lore-q">Born from the depths of the northern seas,<br/>the razorbill was chosen by the Sovereign<br/>as a symbol of <em>unwavering loyalty</em>.</p>
+    <p class="lore-sig">— Cealis Veyne</p>
+    <button class="btn btn-g" style="margin-top:2.5rem;" onclick="goPage('lore')">Read the Full Lore</button>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="stat-n">001</div><div class="stat-l">First Edition</div></div>
+    <div class="stat"><div class="stat-n">VI</div><div class="stat-l">Collections</div></div>
+    <div class="stat"><div class="stat-n">∞</div><div class="stat-l">The Realm</div></div>
+    <div class="stat"><div class="stat-n">I</div><div class="stat-l">Sovereign</div></div>
+  </div>
+  <div class="nl-b">
+    <span class="eye">The Order</span>
+    <h2 class="nl-t">Join the Realm</h2>
+    <p class="nl-s">First access to new drops, lore reveals, and exclusive sovereign pieces.</p>
+    <div class="nl-f"><input class="nl-in" type="email" id="nlEmail" placeholder="Transmission address"/><button class="nl-go" onclick="doNL()">Enter</button></div>
+    <p class="nl-msg" id="nlMsg"></p>
+  </div>
+  <div id="home-footer"></div>
+</div>
+
+<!-- CATEGORY PAGES (generated by JS) -->
+<div class="page" id="page-men"></div>
+<div class="page" id="page-women"></div>
+<div class="page" id="page-kids"></div>
+<div class="page" id="page-accessories"></div>
+<div class="page" id="page-collectibles"></div>
+
+<!-- PRODUCT DETAIL PAGE -->
+<div class="page" id="page-product"></div>
+
+<!-- LORE PAGE -->
+<div class="page" id="page-lore">
+  <div class="lore-hero">
+    <span class="eye" style="color:#6a2828;">The Sovereign Chronicle</span>
+    <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(36px,6vw,64px);font-weight:300;letter-spacing:10px;color:#f5f0e8;">THE LORE</h1>
+    <p class="lore-banner">Born from the depths of the northern seas,<br/>the razorbill was chosen by the Sovereign<br/>as a symbol of <em>unwavering loyalty</em>.<br/><br/>It carries no voice, yet understands all.<br/>It asks for nothing, yet gives everything.</p>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;color:#3c2010;margin-top:2rem;letter-spacing:3px;">— Cealis Veyne</p>
+  </div>
+  <div style="background:var(--bg);padding:2rem 2rem 0;">
+    <div class="breadcrumb"><span onclick="goPage('home')">Home</span><span class="breadcrumb-sep">›</span><span>The Lore</span></div>
+  </div>
+  <div class="lore-chapter">
+    <span class="lore-chapter-sub">Chapter I</span>
+    <h2 class="lore-chapter-title">The Origin of the Sovereign</h2>
+    <p>Long before the realm was named, there existed only shadow and the cold breath of the northern seas. From these depths emerged a figure neither bound by time nor restrained by oath — Cealis Veyne, the Shadow Sovereign. Born not of royalty, but of will. Forged not in fire, but in silence.</p>
+    <p>His left arm, lost in the war of the Silent Passage, was replaced not with flesh but with precision — a mechanical limb of unknown origin, said to be stronger than any blade and colder than the deepest trench. He wears no crown. He wears a mask. The mask is the crown.</p>
+  </div>
+  <div class="lore-chapter">
+    <span class="lore-chapter-sub">Chapter II</span>
+    <h2 class="lore-chapter-title">The Razorbill Warden</h2>
+    <p>In the northern seas swims a bird that never sleeps. The razorbill does not sing. It does not call out. It watches. When Cealis Veyne emerged from the depths after the Silent Passage, a single razorbill followed him ashore and has not left since.</p>
+    <p>The Warden — as it came to be known — bears a crimson core embedded in its chest, a prosthetic leg of sovereign engineering, and a cloak woven with the emblem of the realm. It is a fragment of the Sovereign himself. A witness. A guardian. A friend.</p>
+  </div>
+  <div class="lore-chapter">
+    <span class="lore-chapter-sub">Chapter III</span>
+    <h2 class="lore-chapter-title">The Mask and the Code</h2>
+    <p>The mask was not designed to hide. It was designed to reveal — but only to those worthy of seeing. Its luminous lines shift with the Sovereign's state of mind: white for calm, gold for purpose, crimson for wrath. Those who learn to read the mask understand Cealis Veyne more deeply than any words could allow.</p>
+    <p>His code: <em style="color:var(--accent);">Loyalty is not given. It is proven.</em> His pursuit: not power, but its rightful claim. The hunt continues. The shadow walks. And the warden watches.</p>
+  </div>
+  <div class="lore-b" style="margin-top:0;">
+    <p class="lore-q"><em>The shadow walks.<br/>The warden watches.<br/>The hunt continues.</em></p>
+    <p class="lore-sig">— Cealis Veyne, Order // 001</p>
+    <button class="btn btn-g" style="margin-top:2.5rem;" onclick="goPage('collectibles')">Shop the Collection</button>
+  </div>
+  <div id="lore-footer"></div>
+</div>
+
+<!-- ABOUT PAGE -->
+<div class="page" id="page-about">
+  <div style="background:var(--bg);padding:2rem 2rem 0;">
+    <div class="breadcrumb"><span onclick="goPage('home')">Home</span><span class="breadcrumb-sep">›</span><span>About</span></div>
+  </div>
+  <div class="about-hero">
+    <div class="about-hero-text">
+      <span class="eye" style="color:var(--gold2);">Cealis Veyne</span>
+      <h1 class="about-title">The Shadow<br/>Sovereign</h1>
+      <p class="about-text">Cealis Veyne is a masked VTuber and content creator — calm, mysterious, strategic, and composed. An anti-hero of the streaming world who carries a katana, a cybernetic arm, and a mask that speaks without words.</p>
+      <p class="about-text">Veyné is the official boutique of Cealis Veyne — where the lore becomes tangible. Every piece is crafted as an extension of the Sovereign's world.</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+        <button class="btn btn-p" onclick="goPage('lore')">Read the Lore</button>
+        <button class="btn btn-g" onclick="goPage('collectibles')">Shop Collectibles</button>
+      </div>
+    </div>
+    <div class="about-hero-img">
+      <svg width="160" height="200" viewBox="0 0 160 200" fill="none"><ellipse cx="80" cy="104" rx="40" ry="56" fill="#2a1e14" stroke="#3a2820" stroke-width="0.5"/><ellipse cx="80" cy="70" rx="28" ry="34" fill="#221810" stroke="#2a2010" stroke-width="0.5"/><ellipse cx="68" cy="62" rx="5" ry="5" fill="#f0e8dc" opacity="0.9"/><ellipse cx="92" cy="62" rx="5" ry="5" fill="#f0e8dc" opacity="0.9"/><ellipse cx="68" cy="62" rx="2.5" ry="2.5" fill="#1a1410"/><ellipse cx="92" cy="62" rx="2.5" ry="2.5" fill="#1a1410"/><ellipse cx="80" cy="112" rx="12" ry="12" fill="#7c2c2c" opacity="0.5"/><path d="M58 158 L52 178 L66 175 L80 158" fill="#1a1410" stroke="#2a2010" stroke-width="0.5"/><rect x="90" y="150" width="12" height="24" rx="2" fill="#221810" stroke="#2a2010" stroke-width="0.5"/><path d="M38 118 L16 130 L22 152 L50 140" fill="#1a1410" stroke="#2a2010" stroke-width="0.4" opacity="0.7"/><path d="M122 118 L144 130 L138 152 L110 140" fill="#1a1410" stroke="#2a2010" stroke-width="0.4" opacity="0.7"/></svg>
+    </div>
+  </div>
+  <section class="sec">
+    <div class="sec-hd"><span class="eye">The Vision</span><h2 class="stitle">A World of Sovereign Aesthetics</h2><div class="srule"></div></div>
+    <div style="max-width:760px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem;">
+      <div><h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;letter-spacing:3px;color:var(--text);margin-bottom:1rem;">Gothic Military</h3><p style="font-size:12px;color:var(--text3);line-height:2.1;">Elegant embroidery, military structure, half-capes and crimson accents. Every piece is designed to carry authority without demanding it.</p></div>
+      <div><h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;letter-spacing:3px;color:var(--text);margin-bottom:1rem;">Cybernetic Soul</h3><p style="font-size:12px;color:var(--text3);line-height:2.1;">Technology woven into tradition. The mask, the arm, the LED emotion system — precision meets elegance in every design choice.</p></div>
+      <div><h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;letter-spacing:3px;color:var(--text);margin-bottom:1rem;">The Razorbill</h3><p style="font-size:12px;color:var(--text3);line-height:2.1;">A symbol of unwavering loyalty. The razorbill appears in every collection as a mark of belonging to the realm.</p></div>
+      <div><h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;letter-spacing:3px;color:var(--text);margin-bottom:1rem;">Loyalty Proven</h3><p style="font-size:12px;color:var(--text3);line-height:2.1;">Every order is a declaration. Loyalty is not given — it is proven. Order // 001 is only the beginning.</p></div>
+    </div>
+  </section>
+  <div id="about-footer"></div>
+</div>
+
+<!-- FAQ PAGE -->
+<div class="page" id="page-faq">
+  <div class="pg-hd"><span class="pg-hd-eye">Support</span><h1 class="pg-hd-title">FAQ</h1><p class="pg-hd-sub">Frequently Asked Questions</p></div>
+  <div style="background:var(--bg);padding:2rem 2rem 0;">
+    <div class="breadcrumb"><span onclick="goPage('home')">Home</span><span class="breadcrumb-sep">›</span><span>FAQ</span></div>
+  </div>
+  <section class="sec" style="background:var(--bg2);">
+    <div class="faq-w">
+      <div class="faq-i"><button class="faq-b" onclick="tFaq(this)"><span>What are the shipping times?</span><span class="faq-arr">&#8964;</span></button><div class="faq-ans"><p>Orders ship within 2–3 business days. European delivery takes 5–10 days. International orders may take up to 3 weeks. All orders include a tracking number.</p></div></div>
+      <div class="faq-i"><button class="faq-b" onclick="tFaq(this)"><span>Are items limited edition?</span><span class="faq-arr">&#8964;</span></button><div class="faq-ans"><p>Order // 001 is a limited first run. Once depleted, items will not be restocked under the same edition. Future collections carry new edition numbers.</p></div></div>
+      <div class="faq-i"><button class="faq-b" onclick="tFaq(this)"><span>What is the return policy?</span><span class="faq-arr">&#8964;</span></button><div class="faq-ans"><p>Returns accepted within 14 days of delivery for unused items in original packaging. Signed and digital items are non-refundable.</p></div></div>
+      <div class="faq-i"><button class="faq-b" onclick="tFaq(this)"><span>Do you ship internationally?</span><span class="faq-arr">&#8964;</span></button><div class="faq-ans"><p>Yes, worldwide. Costs vary by destination and are calculated at checkout. Complimentary shipping on EU orders over €75.</p></div></div>
+      <div class="faq-i"><button class="faq-b" onclick="tFaq(this)"><span>Where does Cealis Veyne stream?</span><span class="faq-arr">&#8964;</span></button><div class="faq-ans"><p>Cealis Veyne streams live on Twitch and YouTube. Short content on TikTok and Instagram. All social links are in the footer.</p></div></div>
+      <div class="faq-i"><button class="faq-b" onclick="tFaq(this)"><span>Can I personalise my order?</span><span class="faq-arr">&#8964;</span></button><div class="faq-ans"><p>Select bundles include a personalised signed realm card. Contact client services for bespoke requests.</p></div></div>
+      <div class="faq-i"><button class="faq-b" onclick="tFaq(this)"><span>How do I track my order?</span><span class="faq-arr">&#8964;</span></button><div class="faq-ans"><p>A tracking number is sent to your email within 24 hours of dispatch. You can also log into your account to view order status.</p></div></div>
+    </div>
+  </section>
+  <div id="faq-footer"></div>
+</div>
+
+<!-- CONTACT PAGE -->
+<div class="page" id="page-contact">
+  <div class="pg-hd"><span class="pg-hd-eye">Veyné</span><h1 class="pg-hd-title">CLIENT SERVICES</h1><p class="pg-hd-sub">We are here to assist you</p></div>
+  <div style="background:var(--bg);padding:2rem 2rem 0;">
+    <div class="breadcrumb"><span onclick="goPage('home')">Home</span><span class="breadcrumb-sep">›</span><span>Client Services</span></div>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h2 class="contact-title">Reach the Realm</h2>
+      <p class="contact-desc">Our client services team is available to assist with orders, returns, personalisation requests, and anything related to the Veyné boutique.</p>
+      <div class="contact-detail"><span>Email</span><span style="color:#c8b898;">support@veyne.com</span></div>
+      <div class="contact-detail"><span>Hours</span><span style="color:#6a5a48;">Mon–Fri, 9:00–18:00 CET</span></div>
+      <div class="contact-detail"><span>Response</span><span style="color:#6a5a48;">Within 24 hours</span></div>
+      <div class="contact-detail"><span>Returns</span><span style="color:#6a5a48;">14 days from delivery</span></div>
+      <div class="contact-detail"><span>Stream</span><span style="color:#6a5a48;">Twitch · YouTube · TikTok</span></div>
+    </div>
+    <div class="contact-form">
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;letter-spacing:3px;color:var(--text);margin-bottom:2rem;">Send a Transmission</h3>
+      <div class="fg"><label class="fl">Your Name</label><input class="fi" type="text" id="cName" placeholder="Your name"/></div>
+      <div class="fg"><label class="fl">Email Address</label><input class="fi" type="email" id="cEmail" placeholder="your@email.com"/></div>
+      <div class="fg"><label class="fl">Subject</label>
+        <select class="fi" id="cSubject" style="appearance:none;cursor:pointer;">
+          <option value="">Select a subject</option>
+          <option>Order Enquiry</option>
+          <option>Return Request</option>
+          <option>Personalisation Request</option>
+          <option>Shipping Information</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="fg"><label class="fl">Message</label><textarea class="fi" id="cMsg" rows="5" placeholder="Your message..." style="resize:vertical;"></textarea></div>
+      <button class="btn btn-d" onclick="doContact()" style="width:100%;justify-content:center;">Send Transmission</button>
+      <p class="fmsg" id="cResp" style="margin-top:1rem;"></p>
+    </div>
+  </div>
+  <div id="contact-footer"></div>
+</div>
+
+</div><!-- end pages -->
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+var cart=[],wishlist=[],user=null,vCode='',pending=null,currentPage='home';
+var products=[
+{id:1,name:'Realm Hoodie',cat:'men',tag:'Men — Apparel',price:'54.99',badge:null,desc:'Heavyweight black hoodie with Razorbill back print and Sovereign sleeve detail. Premium weight cotton blend.'},
+{id:2,name:'Shadow Overcoat',cat:'men',tag:'Men — Outerwear',price:'89.99',badge:'New',desc:'Long dark overcoat with subtle military embossing and deep interior pockets. The signature piece of the men\'s collection.'},
+{id:3,name:'Sovereign Tee',cat:'men',tag:'Men — Apparel',price:'29.99',badge:null,desc:'Essential black tee with embroidered Razorbill crest at the chest. Ultra-soft 100% organic cotton.'},
+{id:4,name:'Combat Trousers',cat:'men',tag:'Men — Bottoms',price:'64.99',badge:'New',desc:'Tailored fit tactical trousers with dual side pockets and sovereign emblem hardware.'},
+{id:5,name:'Shadow Blouse',cat:'women',tag:'Women — Apparel',price:'44.99',badge:'New',desc:'Elegant structured blouse in deep charcoal with sovereign embroidery at the cuffs.'},
+{id:6,name:'Realm Cape Dress',cat:'women',tag:'Women — Apparel',price:'74.99',badge:null,desc:'Floor-length cape dress with asymmetric hem and subtle razorbill motif throughout the fabric.'},
+{id:7,name:'Sovereign Wrap',cat:'women',tag:'Women — Outerwear',price:'89.99',badge:null,desc:'Dramatic wrap coat with structured shoulders and deep crimson lining. The statement piece.'},
+{id:8,name:'Crimson Sash',cat:'women',tag:'Women — Accessories',price:'34.99',badge:null,desc:'Hand-finished crimson sash in silk blend. Wearable as a belt, scarf, or dramatic accent.'},
+{id:9,name:'Little Warrior Set',cat:'kids',tag:'Young Sovereign',price:'24.99',badge:'New',desc:'Complete set for the youngest operatives: tee, joggers, and reversible cape. Sizes 3–10.'},
+{id:10,name:'Junior Realm Tee',cat:'kids',tag:'Young Sovereign',price:'19.99',badge:null,desc:'Soft organic cotton tee with the Razorbill logo and Order // 001 detail.'},
+{id:11,name:'Sovereign Chick Jr.',cat:'kids',tag:'Young Sovereign',price:'22.99',badge:null,desc:'The mini Razorbill Warden plushie, designed for younger hands. Softer and rounder than the original.'},
+{id:12,name:'Crimson Pin Set',cat:'accessories',tag:'Accessories',price:'12.99',badge:null,desc:'4-piece enamel pin set featuring the Razorbill, mask, sovereign crest, and realm seal.'},
+{id:13,name:'Realm Belt',cat:'accessories',tag:'Accessories',price:'34.99',badge:'New',desc:'Full-grain leather belt with custom sovereign buckle featuring the razorbill emblem.'},
+{id:14,name:'Sovereign Chain',cat:'accessories',tag:'Accessories',price:'24.99',badge:null,desc:'Oxidised silver-tone chain necklace with the razorbill pendant. Adjustable length.'},
+{id:15,name:'Shadow Wallet',cat:'accessories',tag:'Accessories',price:'44.99',badge:null,desc:'Slim bifold in matte black leather with gold-tone interior foil. 6 card slots.'},
+{id:16,name:'Sovereign Chick',cat:'collectibles',tag:'Collectibles — Plushie',price:'34.99',badge:'Limited',desc:'The Razorbill Warden in premium plush. Complete with crimson nexus core, royal cloak, and prosthetic leg. Not for throwing.'},
+{id:17,name:'Mask Replica',cat:'collectibles',tag:'Collectibles — Decor',price:'44.99',badge:null,desc:'Miniature resin-cast replica of the Cealis Veyne mask. Display-ready on included stand.'},
+{id:18,name:'Realm Artbook',cat:'collectibles',tag:'Collectibles — Print',price:'24.99',badge:null,desc:'A5 hardcover lore tome. Character sheets, Warden schematics, and lore pages. Signed first edition.'},
+{id:19,name:'Realm Poster',cat:'collectibles',tag:'Collectibles — Print',price:'19.99',badge:null,desc:'A3 archival-quality print of the sovereign character art. Ready to frame.'},
+{id:20,name:'Sovereign Bundle',cat:'collectibles',tag:'Collectibles — Bundle',price:'89.99',badge:'Limited',desc:'The complete collection: Sovereign Chick, Crimson Pin Set, Realm Artbook, and a personalised signed realm card.'}
+];
+var catInfo={
+  men:{title:'Men',sub:'The Sovereign Man — Spring 2025'},
+  women:{title:'Women',sub:'The Sovereign Woman — Spring 2025'},
+  kids:{title:'Young Sovereign',sub:'Little Warriors — New Season'},
+  accessories:{title:'Accessories',sub:'The Arsenal — Order // 001'},
+  collectibles:{title:'Collectibles',sub:'Realm Objects — Limited Edition'}
+};
+var bgs=['#1e1610','#1a1610','#1c1810','#181410','#16120e','#201810','#1a1410','#181210'];
+var shps=[
+function(){return '<rect x="14" y="14" width="32" height="32" rx="1" fill="#2a1e14" stroke="#3a2820" stroke-width="0.5"/><path d="M14 22 L6 26 L6 38 L14 36" fill="#221810" stroke="#2a2010" stroke-width="0.4"/><path d="M46 22 L54 26 L54 38 L46 36" fill="#221810" stroke="#2a2010" stroke-width="0.4"/><path d="M18 20 L42 20" stroke="#7c2c2c" stroke-width="0.5"/>'},
+function(){return '<path d="M18 12 Q30 9 42 12 L45 33 Q30 31 15 33 Z" fill="#c8bca8" stroke="#b8ac98" stroke-width="0.5"/><path d="M15 33 Q9 37 10 55 L19 55 L19 36" fill="#c8bca8" stroke="#b8ac98" stroke-width="0.5"/><path d="M45 33 Q51 37 50 55 L41 55 L41 36" fill="#c8bca8" stroke="#b8ac98" stroke-width="0.5"/>'},
+function(){return '<circle cx="30" cy="30" r="17" fill="#2a1e14" stroke="#3a2820" stroke-width="0.5"/><circle cx="30" cy="30" r="10" fill="#221810" stroke="#2a2010" stroke-width="0.5"/><circle cx="30" cy="30" r="4" fill="#7c2c2c" opacity="0.5"/>'},
+function(){return '<rect x="13" y="18" width="34" height="26" rx="1" fill="#2a1e14" stroke="#3a2820" stroke-width="0.5"/><path d="M18 28 Q24 22 30 28 Q36 34 42 28" stroke="#7c2c2c" stroke-width="0.6" fill="none"/>'},
+function(){return '<rect x="14" y="10" width="32" height="42" rx="1" fill="#2a1e14" stroke="#3a2820" stroke-width="0.5"/><line x1="20" y1="20" x2="40" y2="20" stroke="#7c2c2c" stroke-width="0.5"/><line x1="20" y1="27" x2="40" y2="27" stroke="#3a2820" stroke-width="0.4"/>'},
+function(){return '<path d="M30 12 L34 22 L44 24 L37 31 L39 41 L30 36 L21 41 L23 31 L16 24 L26 22 Z" fill="#2a1e14" stroke="#3a2820" stroke-width="0.5"/><circle cx="30" cy="28" r="3.5" fill="#7c2c2c" opacity="0.5"/>'},
+function(){return '<rect x="18" y="14" width="24" height="36" rx="1" fill="#2a1e14" stroke="#3a2820" stroke-width="0.5"/><rect x="22" y="8" width="16" height="7" rx="1" fill="#221810" stroke="#2a2010" stroke-width="0.4"/>'},
+function(){return '<ellipse cx="30" cy="34" rx="19" ry="23" fill="#2a1e14" stroke="#3a2820" stroke-width="0.5"/><ellipse cx="30" cy="23" rx="12" ry="14" fill="#221810" stroke="#2a2010" stroke-width="0.5"/><ellipse cx="30" cy="36" rx="6" ry="6" fill="#7c2c2c" opacity="0.45"/>'}
+];
+
+function mkSvg(i){return '<svg width="60" height="60" viewBox="0 0 60 60" fill="none" style="background:'+bgs[i%bgs.length]+'">'+shps[i%shps.length]()+'</svg>';}
+function mkLgSvg(i){return '<svg width="180" height="180" viewBox="0 0 60 60" fill="none" style="background:'+bgs[i%bgs.length]+'">'+shps[i%shps.length]()+'</svg>';}
+
+function buildCatPage(cat){
+  var el=document.getElementById('page-'+cat);
+  var info=catInfo[cat];
+  var items=products.filter(function(p){return p.cat===cat;});
+  var html='<div class="pg-hd"><span class="pg-hd-eye">Veyné Collection</span><h1 class="pg-hd-title">'+info.title.toUpperCase()+'</h1><p class="pg-hd-sub">'+info.sub+'</p></div>';
+  html+='<div style="background:var(--bg);padding:2rem 2rem 0;"><div class="breadcrumb"><span onclick="goPage(\'home\')">Home</span><span class="breadcrumb-sep">›</span><span>'+info.title+'</span></div></div>';
+  html+='<section class="sec"><div class="pg" id="pg-'+cat+'">';
+  items.forEach(function(p,i){
+    var w=wishlist.includes(p.id);
+    html+='<div class="pc">'+(p.badge?'<span class="pc-bdg">'+p.badge+'</span>':'')+
+    '<button class="pc-wish'+(w?' on':'')+'" onclick="tWish('+p.id+',this)" style="font-size:'+(w?'20px':'18px')+';">'+(w?'♥':'♡')+'</button>'+
+    '<div class="pc-img" style="background:'+bgs[i%bgs.length]+';" onclick="goProduct('+p.id+')">'+mkSvg(i)+'</div>'+
+    '<div class="pc-bd"><p class="pc-tag">'+p.tag+'</p><p class="pc-name" onclick="goProduct('+p.id+')" style="cursor:pointer;">'+p.name+'</p><p class="pc-price">€ '+p.price+'</p>'+
+    '<button class="pc-add" id="pa-cat'+p.id+'" onclick="addToCart('+p.id+',this)">Add to Order</button></div></div>';
+  });
+  html+='</div></section>';
+  html+='<div id="footer-'+cat+'"></div>';
+  el.innerHTML=html;
+  injectFooter('footer-'+cat);
+}
+
+function goProduct(id){
+  var p=products.find(function(x){return x.id===id;});
+  if(!p)return;
+  var i=products.indexOf(p);
+  var w=wishlist.includes(p.id);
+  var catName=(catInfo[p.cat]||{}).title||p.cat;
+  var html='<div style="background:var(--bg);padding:2rem 2rem 0;"><div class="breadcrumb"><span onclick="goPage(\'home\')">Home</span><span class="breadcrumb-sep">›</span><span onclick="goPage(\''+p.cat+'\')">'+catName+'</span><span class="breadcrumb-sep">›</span><span>'+p.name+'</span></div></div>';
+  html+='<div class="pd-grid"><div class="pd-img">'+mkLgSvg(i)+'</div><div class="pd-info">';
+  html+='<p class="pd-tag">'+p.tag+'</p><h1 class="pd-name">'+p.name+'</h1><p class="pd-price">€ '+p.price+'</p>';
+  html+='<p class="pd-desc">'+p.desc+'</p>';
+  html+='<div class="pd-det"><span>Edition</span><span>Order // 001</span></div>';
+  html+='<div class="pd-det"><span>Shipping</span><span>2–3 business days</span></div>';
+  html+='<div class="pd-det"><span>Returns</span><span>14 days</span></div>';
+  html+='<div class="pd-det" style="border:none;"><span>Status</span><span>'+(p.badge||'Available')+'</span></div>';
+  html+='<div class="pd-actions"><button class="btn btn-acc" onclick="addToCart('+p.id+',this)">Add to Order · € '+p.price+'</button>';
+  html+='<button onclick="tWish('+p.id+',this)" class="btn btn-o pc-wish'+(w?' on':'')+'" style="font-size:18px;padding:.85rem 1.2rem;">'+(w?'♥ Saved':'♡ Wishlist')+'</button></div>';
+  html+='</div></div><div id="pd-footer"></div>';
+  var el=document.getElementById('page-product');
+  el.innerHTML=html;
+  injectFooter('pd-footer');
+  goPageRaw('product');
+}
+
+function goPage(page){
+  if(page==='men'||page==='women'||page==='kids'||page==='accessories'||page==='collectibles'){buildCatPage(page);}
+  var pages=document.querySelectorAll('.page');
+  pages.forEach(function(p){p.classList.remove('active');});
+  var target=document.getElementById('page-'+page);
+  if(target){target.classList.add('active');window.scrollTo(0,0);}
+  document.querySelectorAll('.ncat').forEach(function(b){b.classList.remove('on');});
+  var nc=document.getElementById('nc-'+page);
+  if(nc)nc.classList.add('on');
+  currentPage=page;
+  closeAll();
+  if(page==='home'){setTimeout(initCanvas,100);}
+}
+function goPageRaw(page){
+  var pages=document.querySelectorAll('.page');
+  pages.forEach(function(p){p.classList.remove('active');});
+  var target=document.getElementById('page-'+page);
+  if(target){target.classList.add('active');window.scrollTo(0,0);}
+  closeAll();
+}
+
+function injectFooter(id){
+  var el=document.getElementById(id);
+  if(!el)return;
+  el.innerHTML='<div class="nl-b"><span class="eye">The Order</span><h2 class="nl-t">Join the Realm</h2><p class="nl-s">First access to new drops, lore reveals, and exclusive sovereign pieces.</p><div class="nl-f"><input class="nl-in" type="email" id="nlF'+id+'" placeholder="Transmission address"/><button class="nl-go" onclick="doNLAlt(\'nlF'+id+'\',\'nlM'+id+'\')">Enter</button></div><p class="nl-msg" id="nlM'+id+'"></p></div>'+footerHTML();
+}
+function footerHTML(){
+  return '<footer class="footer"><div class="foot-m"><div><p class="foot-brand">VEYNÉ</p><p class="foot-tag">The Shadow Sovereign.<br/>The Razorbill.<br/>The Hunt Continues.</p><div class="foot-soc"><button class="fsoc" onclick="alert(\'@CealisVeyne on Twitch\')">Twitch</button><button class="fsoc" onclick="alert(\'@CealisVeyne on YouTube\')">YouTube</button><button class="fsoc" onclick="alert(\'@CealisVeyne on TikTok\')">TikTok</button><button class="fsoc" onclick="alert(\'@CealisVeyne on Instagram\')">Instagram</button></div></div><div><p class="foot-h">Collections</p><ul class="foot-l"><li onclick="goPage(\'men\')">Men</li><li onclick="goPage(\'women\')">Women</li><li onclick="goPage(\'kids\')">Young Sovereign</li><li onclick="goPage(\'accessories\')">Accessories</li><li onclick="goPage(\'collectibles\')">Collectibles</li></ul></div><div><p class="foot-h">The Realm</p><ul class="foot-l"><li onclick="goPage(\'lore\')">The Lore</li><li onclick="goPage(\'about\')">About</li><li onclick="goPage(\'contact\')">Client Services</li><li onclick="goPage(\'faq\')">FAQ</li></ul></div><div><p class="foot-h">Support</p><ul class="foot-l"><li onclick="goPage(\'faq\')">FAQ</li><li onclick="goPage(\'contact\')">Shipping</li><li onclick="goPage(\'contact\')">Returns</li><li onclick="goPage(\'contact\')">Contact</li><li onclick="goPage(\'faq\')">Privacy</li></ul></div></div><div class="foot-bot"><p class="foot-copy">© Veyné — Cealis Veyne — The Razorbill · Order // 001</p><p class="foot-copy">The Shadow Walks. The Warden Watches.</p></div></footer>';
+}
+
+function addToCart(id,btn){
+  var p=products.find(function(x){return x.id===id;});
+  if(!p)return;
+  var ex=cart.find(function(i){return i.id===id;});
+  if(ex){ex.qty++;}else{cart.push({id:id,name:p.name,tag:p.tag,price:p.price,qty:1});}
+  updateCart();
+  showT(p.name+' added to your order');
+  if(btn){var o=btn.textContent;btn.textContent='Added ✓';btn.classList.add('done');setTimeout(function(){btn.textContent=o;btn.classList.remove('done');},2200);}
+  openCartD();
+}
+function chQty(i,d){var item=cart[i];if(!item)return;item.qty+=d;if(item.qty<1)cart.splice(i,1);updateCart();}
+function rmCart(i){cart.splice(i,1);updateCart();}
+function updateCart(){
+  var cnt=cart.reduce(function(a,x){return a+x.qty;},0);
+  var cb=document.getElementById('cb');
+  cb.textContent=cnt;cnt>0?cb.classList.add('on'):cb.classList.remove('on');
+  var bd=document.getElementById('cart-bd');
+  var ft=document.getElementById('cart-ft');
+  if(!cart.length){bd.innerHTML='<p class="cart-empty">Your order is empty.<br/>Begin your collection.</p>';ft.style.display='none';return;}
+  bd.innerHTML=cart.map(function(item,i){
+    return '<div class="cart-line"><div class="cart-li"><div class="cart-ln">'+item.name+'</div><div class="cart-lm">'+item.tag+'</div>'+
+    '<div class="cart-qty-row"><button class="cqb" onclick="chQty('+i+',-1)">−</button><span class="cart-qty-n">'+item.qty+'</span><button class="cqb" onclick="chQty('+i+',1)">+</button></div></div>'+
+    '<div class="cart-lr"><button class="cart-lx" onclick="rmCart('+i+')">✕</button><span class="cart-lp">€ '+(parseFloat(item.price)*item.qty).toFixed(2)+'</span></div></div>';
+  }).join('');
+  var total=cart.reduce(function(a,x){return a+parseFloat(x.price)*x.qty;},0);
+  document.getElementById('cart-total').textContent='€ '+total.toFixed(2);
+  ft.style.display='block';
+}
+function tWish(id,btn){
+  var idx=wishlist.indexOf(id);
+  if(idx>-1){wishlist.splice(idx,1);btn.classList.remove('on');btn.textContent='♡';btn.style.fontSize='18px';}
+  else{wishlist.push(id);btn.classList.add('on');btn.textContent='♥';btn.style.fontSize='20px';}
+  updateWish();
+}
+function updateWish(){
+  var c=wishlist.length;
+  var wb=document.getElementById('wb');
+  wb.textContent=c;c>0?wb.classList.add('on'):wb.classList.remove('on');
+  var el=document.getElementById('wish-content');
+  var items=products.filter(function(p){return wishlist.includes(p.id);});
+  if(!items.length){el.innerHTML='<p style="font-size:12px;color:var(--text3);font-family:\'Cormorant Garamond\',serif;font-style:italic;">Your wishlist is empty.</p>';return;}
+  el.innerHTML=items.map(function(p){
+    return '<div style="display:flex;justify-content:space-between;align-items:center;padding:.88rem 0;border-bottom:0.5px solid var(--border);">'+
+    '<span style="font-family:\'Cormorant Garamond\',serif;font-size:14px;letter-spacing:1px;color:var(--text);cursor:pointer;" onclick="goProduct('+p.id+')">'+p.name+'</span>'+
+    '<div style="display:flex;align-items:center;gap:1rem;"><span style="font-family:\'Cormorant Garamond\',serif;font-size:13px;color:var(--text3);">€ '+p.price+'</span>'+
+    '<button onclick="addToCart('+p.id+',this)" style="font-size:9px;letter-spacing:2px;color:var(--accent);background:none;border:0.5px solid var(--border2);padding:4px 10px;cursor:pointer;">Add</button></div></div>';
+  }).join('');
+}
+function openCartD(){document.getElementById('cart-drawer').classList.add('open');document.getElementById('cart-ov').classList.add('on');document.getElementById('acc-panel').classList.remove('open');}
+function toggleCart(){var c=document.getElementById('cart-drawer'),o=document.getElementById('cart-ov');if(c.classList.contains('open')){c.classList.remove('open');o.classList.remove('on');}else{c.classList.add('open');o.classList.add('on');document.getElementById('acc-panel').classList.remove('open');}}
+function toggleAcc(){document.getElementById('acc-panel').classList.toggle('open');document.getElementById('cart-drawer').classList.remove('open');document.getElementById('cart-ov').classList.remove('on');}
+function openWish(){document.getElementById('acc-panel').classList.add('open');document.getElementById('cart-drawer').classList.remove('open');document.getElementById('cart-ov').classList.remove('on');setTimeout(function(){var tabs=document.querySelectorAll('.acc-tab');if(tabs[2])tabs[2].click();},50);}
+function switchAcc(tab,btn){document.querySelectorAll('.acc-tab').forEach(function(b){b.classList.remove('on');});document.querySelectorAll('.acc-pane').forEach(function(p){p.classList.remove('on');});btn.classList.add('on');document.getElementById('ap-'+tab).classList.add('on');}
+function toggleSide(){document.getElementById('side-ov').classList.toggle('open');}
+function closeAll(){document.getElementById('side-ov').classList.remove('open');document.getElementById('auth-ov').classList.remove('open');}
+function openAuth(tab){document.getElementById('auth-ov').classList.add('open');switchAuth(tab);}
+function closeAuth(){document.getElementById('auth-ov').classList.remove('open');}
+function switchAuth(tab){document.getElementById('at1').classList.toggle('on',tab==='login');document.getElementById('at2').classList.toggle('on',tab==='register');document.getElementById('pLogin').style.display=tab==='login'?'block':'none';document.getElementById('pReg').style.display=tab==='register'?'block':'none';document.getElementById('pVerify').style.display='none';}
+function doLogin(){var e=document.getElementById('lEmail').value.trim(),p=document.getElementById('lPass').value,m=document.getElementById('lMsg');if(!e||!p){m.style.color='var(--accent)';m.textContent='Please fill all fields.';return;}if(!e.includes('@')){m.style.color='var(--accent)';m.textContent='Invalid email.';return;}user={name:'Operative',email:e};document.getElementById('aStatus').textContent='Active Operative';document.getElementById('aName').textContent='Operative';document.getElementById('aEmail').textContent=e;m.style.color='var(--text4)';m.textContent='Welcome back.';setTimeout(closeAuth,1400);}
+function doRegister(){var n=document.getElementById('rName').value.trim(),e=document.getElementById('rEmail').value.trim(),p=document.getElementById('rPass').value,m=document.getElementById('rMsg');if(!n||!e||!p){m.style.color='var(--accent)';m.textContent='Please fill all fields.';return;}if(!e.includes('@')){m.style.color='var(--accent)';m.textContent='Invalid email.';return;}if(p.length<6){m.style.color='var(--accent)';m.textContent='Password too short.';return;}pending={name:n,email:e};vCode='';for(var i=0;i<6;i++)vCode+='0123456789'[Math.floor(Math.random()*10)];document.getElementById('pReg').style.display='none';document.getElementById('pVerify').style.display='block';document.getElementById('vInfo').textContent='Code sent to '+e+'. Demo: '+vCode;for(var j=0;j<6;j++)document.getElementById('d'+j).value='';document.getElementById('d0').focus();}
+function nextD(i){var v=document.getElementById('d'+i).value;if(v&&i<5)document.getElementById('d'+(i+1)).focus();}
+function doVerify(){var s='';for(var i=0;i<6;i++)s+=document.getElementById('d'+i).value;var m=document.getElementById('vMsg');if(s.length<6){m.style.color='var(--accent)';m.textContent='Enter all 6 digits.';return;}if(s===vCode){user=pending;document.getElementById('aStatus').textContent='Active Operative';document.getElementById('aName').textContent=pending.name;document.getElementById('aEmail').textContent=pending.email;m.style.color='var(--text4)';m.textContent='Welcome, '+pending.name+'.';setTimeout(closeAuth,1400);}else{m.style.color='var(--accent)';m.textContent='Incorrect code.';for(var i=0;i<6;i++)document.getElementById('d'+i).value='';document.getElementById('d0').focus();}}
+function resendCode(){vCode='';for(var i=0;i<6;i++)vCode+='0123456789'[Math.floor(Math.random()*10)];document.getElementById('vInfo').textContent='New code. Demo: '+vCode;document.getElementById('vMsg').textContent='';for(var j=0;j<6;j++)document.getElementById('d'+j).value='';document.getElementById('d0').focus();showT('New code sent');}
+function tFaq(btn){var b=btn.nextElementSibling,open=b.classList.contains('open');document.querySelectorAll('.faq-ans.open').forEach(function(el){el.classList.remove('open');});document.querySelectorAll('.faq-b.open').forEach(function(el){el.classList.remove('open');});if(!open){b.classList.add('open');btn.classList.add('open');}}
+function showT(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('on');setTimeout(function(){t.classList.remove('on');},2600);}
+function doNL(){var e=document.getElementById('nlEmail'),m=document.getElementById('nlMsg');if(!e||!m)return;if(!e.value.trim().includes('@')){m.style.color='var(--accent)';m.textContent='Please enter a valid address.';return;}m.style.color='var(--text4)';m.textContent='Welcome to the realm, operative.';e.value='';}
+function doNLAlt(eid,mid){var e=document.getElementById(eid),m=document.getElementById(mid);if(!e||!m)return;if(!e.value.trim().includes('@')){m.style.color='var(--accent)';m.textContent='Please enter a valid address.';return;}m.style.color='var(--text4)';m.textContent='Welcome to the realm, operative.';e.value='';}
+function doContact(){var n=document.getElementById('cName').value.trim(),e=document.getElementById('cEmail').value.trim(),s=document.getElementById('cSubject').value,msg=document.getElementById('cMsg').value.trim(),r=document.getElementById('cResp');if(!n||!e||!s||!msg){r.style.color='var(--accent)';r.textContent='Please fill all fields.';return;}r.style.color='var(--text4)';r.textContent='Your transmission has been received. We will respond within 24 hours.';}
+
+function initCanvas(){var c=document.getElementById('hc');if(!c)return;var ctx=c.getContext('2d');function resize(){c.width=c.offsetWidth;c.height=c.offsetHeight;}resize();window.addEventListener('resize',resize);var pts=[];for(var i=0;i<42;i++)pts.push({x:Math.random()*c.width,y:Math.random()*c.height,vx:(Math.random()-.5)*.2,vy:(Math.random()-.5)*.2,r:Math.random()*1.2+.4,o:Math.random()*.2+.06});function draw(){ctx.clearRect(0,0,c.width,c.height);pts.forEach(function(p){p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=c.width;if(p.x>c.width)p.x=0;if(p.y<0)p.y=c.height;if(p.y>c.height)p.y=0;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(184,144,90,'+p.o+')';ctx.fill();});requestAnimationFrame(draw);}draw();}
+
+// Inject home footer
+document.getElementById('home-footer').innerHTML=footerHTML();
+injectFooter('lore-footer');
+injectFooter('about-footer');
+injectFooter('faq-footer');
+injectFooter('contact-footer');
+document.getElementById('nc-home').classList.add('on');
+setTimeout(initCanvas,100);
+</script>
+</body>
+</html>
