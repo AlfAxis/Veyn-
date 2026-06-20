@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>VEYNÉ — Cealis Veyne Official Boutique</title>
+<title>Veyné — Cealis Veyne Official Boutique</title>
+<meta property="og:type" content="website"><meta property="og:site_name" content="Veyné"><meta property="og:title" content="Veyné — Cealis Veyne Official Boutique"><meta property="og:description" content="Gothic military luxury. The Sovereign Collection — Order // 001. Clothing, accessories and collectibles by Cealis Veyne."><meta property="og:image" content="https://veynestore.com/logo.png"><meta property="og:url" content="https://veynestore.com"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Veyné — Cealis Veyne Official Boutique"><meta name="twitter:description" content="Gothic military luxury. The Sovereign Collection — Order // 001. Clothing, accessories and collectibles by Cealis Veyne."><meta name="twitter:image" content="https://veynestore.com/logo.png">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a0808'/%3E%3Ctext x='16' y='25' font-family='Georgia,serif' font-size='24' fill='%23f2eee8' text-anchor='middle' font-weight='400'%3EV%3C/text%3E%3C/svg%3E"><link rel="icon" type="image/png" href="logo.png">
 <meta name="description" content="The official boutique of Cealis Veyne. Gothic military luxury — The Razorbill. Order // 001."/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet"/>
 <style>
@@ -26,7 +28,7 @@ img{display:block;max-width:100%;}
 .nav-left{display:flex;align-items:center;}
 .hbtn{background:none;border:none;padding:.5rem;color:#8a7868;display:flex;align-items:center;justify-content:center;transition:color .25s;width:38px;height:38px;}
 .hbtn:hover{color:#f5f0e8;}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:24px;letter-spacing:14px;color:#f5f0e8;font-weight:300;position:absolute;left:50%;transform:translateX(-50%);text-decoration:none;white-space:nowrap;}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:24px;letter-spacing:14px;color:#f5f0e8;font-weight:300;position:absolute;left:50%;transform:translateX(-50%);text-decoration:none;}.nav-logo-img{height:24px;width:auto;filter:invert(1);opacity:.9;transition:opacity .3s;vertical-align:middle;}.nav-logo-img:hover{opacity:1;white-space:nowrap;}
 .nav-logo em{font-style:italic;color:var(--gold);}
 .nav-right{display:flex;align-items:stretch;}
 .nr-svc{background:none;border:none;border-left:none;padding:0 1.1rem;color:#6a5a48;font-size:8.5px;letter-spacing:2.5px;text-transform:uppercase;display:flex;align-items:center;gap:.5rem;transition:color .25s;height:var(--nav-h);text-decoration:none;}
@@ -450,7 +452,7 @@ img{display:block;max-width:100%;}
       <svg width="20" height="14" viewBox="0 0 20 14" fill="none"><rect y="0" width="20" height="1.5" fill="currentColor"/><rect y="6" width="14" height="1.5" fill="currentColor"/><rect y="12" width="20" height="1.5" fill="currentColor"/></svg>
     </button>
   </div>
-  <a href="index.html" class="nav-logo">VEY<em>N</em>É</a>
+  <a href="index.html" class="nav-logo" aria-label="Veyné home"><img src="logo.png" alt="Veyné" class="nav-logo-img" onerror="this.style.display='none';document.getElementById('nl-txt').style.display='block';"><span id="nl-txt" style="display:none;">Veyné</span></a>
   <div class="nav-right">
     <a href="contact.html" class="nr-svc">
       <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M8 1a6 6 0 0 0-6 6v1.5A1.5 1.5 0 0 0 3.5 10H5V7a3 3 0 1 1 6 0v3h1.5A1.5 1.5 0 0 0 14 8.5V7A6 6 0 0 0 8 1Z" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
@@ -483,7 +485,7 @@ img{display:block;max-width:100%;}
 <!-- Side Menu -->
 <div class="side-ov" id="side-ov">
   <div class="side-panel">
-    <div class="side-hd"><span class="side-logo">VEYNÉ</span><button class="side-x" onclick="toggleSide()">✕</button></div>
+    <div class="side-hd"><span class="side-logo">Veyné</span><button class="side-x" onclick="toggleSide()">✕</button></div>
     <p class="side-sec">Collections</p>
     <a href="men.html" class="slink">Men <span>›</span></a>
     <a href="women.html" class="slink">Women <span>›</span></a>
@@ -861,7 +863,7 @@ img{display:block;max-width:100%;}
     </div>
   </div>
   <div class="foot-bot">
-    <p class="foot-copy">© <span id="year"></span> Veyné — Cealis Veyne — The Razorbill · Order // 001</p>
+    <p class="foot-copy">© <span id="year"></span> Veyné — Veyné — Cealis Veyne · Order // 001</p>
     <p class="foot-copy"><a href="#top">Back to top ↑</a></p>
   </div>
 </footer>
@@ -987,5 +989,21 @@ updateCartBadge();initCanvas();buildFeatured();initReveal();
 </script>
 <div id="cookie-b" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#0a0808;border-top:0.5px solid #2c2820;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;z-index:600;flex-wrap:wrap;"><p style="font-size:10px;color:var(--text4);letter-spacing:.5px;line-height:1.9;max-width:680px;">Veyné uses local storage to save your cart, wishlist and session. By continuing you accept this. <a href="faq.html" style="color:var(--accent);text-decoration:none;letter-spacing:.5px;">Privacy Policy</a></p><button onclick="acceptCookies()" style="padding:.6rem 1.6rem;background:var(--accent);border:none;color:#f2eee8;font-size:8px;letter-spacing:3px;text-transform:uppercase;cursor:pointer;flex-shrink:0;white-space:nowrap;">Accept</button></div>
 <script>if(!localStorage.getItem("veyne-cookies")){var cb=document.getElementById("cookie-b");if(cb)cb.style.display="flex";}function acceptCookies(){localStorage.setItem("veyne-cookies","1");var cb=document.getElementById("cookie-b");if(cb){cb.style.transition="opacity .3s";cb.style.opacity="0";setTimeout(function(){cb.style.display="none";},300);}}</script>
-</body>
+<script id="veyne-transition">
+(function(){
+  var going=false;
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a[href]');
+    if(!a||going)return;
+    var href=a.getAttribute('href');
+    if(!href||href.startsWith('#')||href.startsWith('javascript')||href.startsWith('mailto')||a.target==='_blank')return;
+    if(href.startsWith('http')&&!href.includes('veynestore.com'))return;
+    e.preventDefault();
+    going=true;
+    document.body.style.transition='opacity .22s ease';
+    document.body.style.opacity='0';
+    setTimeout(function(){window.location.href=href;},230);
+  });
+})();
+</script></body>
 </html>
