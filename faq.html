@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>FAQ — VEYNÉ</title>
+<meta name="description" content="Frequently asked questions — Veyné store support and information."/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{--bg:#faf6f0;--bg2:#f0e8d6;--dark:#0a0806;--dark2:#160e06;--dark3:#221408;--accent:#7c2c2c;--gold:#b8905a;--gold2:#946e38;--gold3:#d4b07c;--text:#180e06;--text2:#3a2a16;--text3:#6a5438;--text4:#9a8468;--border:#c8bca8;--border2:#b8a890;--nav-h:62px;}
+html,body{font-family:'Raleway',sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;}
+button,input{font-family:'Raleway',sans-serif;cursor:pointer;}
+.ann{background:var(--dark2);overflow:hidden;padding:.52rem 0;}.ann-inner{display:flex;gap:4rem;animation:annS 28s linear infinite;white-space:nowrap;}@keyframes annS{to{transform:translateX(-50%);}}
+.ann-inner span{font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;}.ann-dot{color:#3a2010;font-size:5px;vertical-align:middle;}
+.nav{background:var(--dark);border-bottom:0.5px solid #2a1e10;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;position:sticky;top:0;z-index:200;}
+.nav-left{display:flex;align-items:center;}.hbtn{background:none;border:none;padding:.5rem;color:#c8b898;display:flex;align-items:center;justify-content:center;transition:color .2s;width:38px;height:38px;}.hbtn:hover{color:#f5f0e8;}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:26px;letter-spacing:12px;color:#f5f0e8;font-weight:300;position:absolute;left:50%;transform:translateX(-50%);text-decoration:none;}.nav-logo em{font-style:italic;color:var(--gold);}
+.nav-right{display:flex;align-items:stretch;}.nr-svc{background:none;border:none;border-left:0.5px solid #2a1e10;padding:0 1rem;color:#8a7868;font-size:9px;letter-spacing:2px;text-transform:uppercase;display:flex;align-items:center;gap:.5rem;transition:color .2s;height:var(--nav-h);text-decoration:none;}.nr-svc:hover{color:#c8b898;}
+.nicon{background:none;border:none;border-left:0.5px solid #2a1e10;padding:0 .85rem;color:#8a7868;display:flex;align-items:center;justify-content:center;position:relative;transition:color .2s;height:var(--nav-h);min-width:44px;font-size:20px;text-decoration:none;}.nicon:hover{color:#f5f0e8;}
+.nbadge{position:absolute;top:10px;right:6px;min-width:16px;height:16px;background:var(--accent);border-radius:8px;font-size:8px;color:#fff;display:none;align-items:center;justify-content:center;padding:0 3px;font-weight:500;}
+.nav-cats{background:var(--dark);border-bottom:0.5px solid #2a1e10;display:flex;justify-content:center;overflow-x:auto;}.nav-cats::-webkit-scrollbar{display:none;}
+.ncat{background:none;border:none;border-bottom:2px solid transparent;color:#8a7868;font-size:9px;letter-spacing:3px;text-transform:uppercase;padding:.82rem 1.2rem;white-space:nowrap;transition:all .25s;text-decoration:none;display:inline-flex;align-items:center;}.ncat:hover{color:#f5f0e8;border-bottom-color:var(--gold);}
+.side-ov{display:none;position:fixed;inset:0;z-index:300;}.side-ov.open{display:flex;background:rgba(10,8,6,.72);}
+.side-panel{background:var(--dark);width:290px;height:100%;display:flex;flex-direction:column;animation:sideIn .3s ease;overflow-y:auto;}@keyframes sideIn{from{transform:translateX(-100%);}to{transform:translateX(0);}}
+.side-hd{padding:1.3rem 1.6rem;border-bottom:0.5px solid #2a1e10;display:flex;justify-content:space-between;align-items:center;}.side-logo{font-family:'Cormorant Garamond',serif;font-size:16px;letter-spacing:7px;color:#f0e8dc;}
+.side-x{background:none;border:none;color:#6a5a48;font-size:22px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;}.side-x:hover{color:#f0e8dc;}
+.side-sec{padding:1.1rem 1.6rem .4rem;font-size:9px;letter-spacing:5px;color:var(--gold2);text-transform:uppercase;}
+.slink{display:flex;justify-content:space-between;align-items:center;width:100%;padding:.82rem 1.6rem;background:none;border:none;border-bottom:0.5px solid #1e1610;font-size:12px;letter-spacing:1.5px;color:#8a7868;text-align:left;transition:all .2s;font-family:'Cormorant Garamond',serif;text-decoration:none;}.slink:hover{background:#1e160e;color:#f0e8dc;padding-left:2.2rem;}
+.side-ft{margin-top:auto;padding:1.4rem 1.6rem;border-top:0.5px solid #1e1610;display:flex;gap:.8rem;}
+.sftb{flex:1;padding:.7rem;font-size:9px;letter-spacing:3px;text-transform:uppercase;border:0.5px solid #3a2a18;background:transparent;color:#6a5a48;transition:all .25s;text-decoration:none;text-align:center;display:block;}.sftb.prim{background:var(--gold);color:var(--dark);border-color:var(--gold);}
+.cart-drawer{position:fixed;top:0;right:-440px;width:420px;height:100%;background:#fff;z-index:300;transition:right .35s ease;display:flex;flex-direction:column;border-left:0.5px solid var(--border);}.cart-drawer.open{right:0;box-shadow:-4px 0 24px rgba(10,8,6,.15);}
+.cart-dh{padding:1.3rem 1.6rem;background:var(--dark);display:flex;justify-content:space-between;align-items:center;flex-shrink:0;}.cart-dh-t{font-family:'Cormorant Garamond',serif;font-size:17px;letter-spacing:5px;color:#f0e8dc;}.cart-dh-x{background:none;border:none;color:#8a7868;font-size:22px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;}.cart-dh-x:hover{color:#f0e8dc;}
+.cart-body{flex:1;overflow-y:auto;}.cart-bi{padding:1rem 1.6rem;}.cart-empty{font-size:12px;color:#9a8468;text-align:center;padding:3rem 1.6rem;font-family:'Cormorant Garamond',serif;font-style:italic;line-height:1.9;}
+.cart-ft{border-top:0.5px solid #e8dfc8;background:#f8f3ea;padding:1.4rem 1.6rem;flex-shrink:0;}.cart-tot{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1.2rem;}.cart-tot-l{font-size:10px;letter-spacing:3px;color:#6a5438;text-transform:uppercase;}.cart-tot-v{font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:2px;color:var(--accent);}
+.cart-co{width:100%;padding:.88rem;background:var(--dark);color:#f0e8dc;border:none;font-size:9px;letter-spacing:4px;text-transform:uppercase;}
+.cart-ov{position:fixed;inset:0;background:rgba(10,8,6,.4);z-index:299;display:none;}.cart-ov.on{display:block;}
+.breadcrumb{padding:.8rem 2rem;background:var(--bg2);border-bottom:0.5px solid var(--border);display:flex;gap:.5rem;align-items:center;font-size:10px;letter-spacing:2px;color:var(--text4);text-transform:uppercase;flex-wrap:wrap;}
+.breadcrumb a{color:var(--text4);text-decoration:none;}.breadcrumb a:hover{color:var(--text);}.breadcrumb-sep{color:var(--border2);}
+/* FAQ SPECIFIC */
+.faq-hero{background:var(--dark2);padding:5.5rem 2rem;text-align:center;}
+.fh-eye{font-size:9px;letter-spacing:8px;color:var(--gold2);text-transform:uppercase;display:block;margin-bottom:1rem;}
+.fh-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,7vw,60px);font-weight:300;letter-spacing:12px;color:#f5f0e8;}
+.fh-sub{font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;letter-spacing:4px;color:var(--gold2);margin-top:.8rem;}
+.faq-body{max-width:860px;margin:0 auto;padding:5rem 2rem;}
+.faq-sec{margin-bottom:4rem;}
+.faq-sec-title{font-size:9px;letter-spacing:6px;color:var(--accent);text-transform:uppercase;display:block;margin-bottom:1.5rem;padding-bottom:.8rem;border-bottom:0.5px solid var(--border);}
+.faq-item{border-bottom:0.5px solid var(--border);overflow:hidden;}
+.faq-q{width:100%;background:none;border:none;text-align:left;padding:1.2rem 0;display:flex;justify-content:space-between;align-items:center;cursor:pointer;gap:1rem;}
+.faq-q-t{font-family:'Cormorant Garamond',serif;font-size:clamp(14px,1.8vw,17px);font-weight:300;letter-spacing:1.5px;color:var(--text);line-height:1.5;transition:color .2s;}
+.faq-q:hover .faq-q-t{color:var(--accent);}
+.faq-q-icon{font-size:18px;color:var(--text4);flex-shrink:0;transition:transform .3s;}
+.faq-item.open .faq-q-icon{transform:rotate(45deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease;}
+.faq-item.open .faq-a{max-height:400px;}
+.faq-a-inner{padding:0 0 1.4rem;font-size:12px;color:var(--text3);line-height:2.2;letter-spacing:.3px;}
+.faq-a-inner a{color:var(--accent);text-decoration:none;}.faq-a-inner a:hover{text-decoration:underline;}
+.faq-cta{background:var(--bg2);padding:4rem 2rem;text-align:center;border-top:0.5px solid var(--border);}
+.faq-cta-t{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,3vw,28px);font-weight:300;letter-spacing:5px;color:var(--text);margin-bottom:.8rem;}
+.faq-cta-s{font-size:11px;color:var(--text4);letter-spacing:2px;margin-bottom:2rem;}
+.btn{padding:.85rem 2.2rem;font-size:9px;letter-spacing:4px;text-transform:uppercase;border:0.5px solid;transition:all .3s;display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;}
+.btn-d{background:var(--dark2);color:#f0e8dc;border-color:var(--dark2);}.btn-d:hover{background:var(--dark3);}
+.footer{background:var(--dark);}.foot-m{padding:4.5rem 2rem 3rem;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;border-bottom:0.5px solid #181208;}
+.foot-brand{font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:8px;color:#f0e8dc;font-weight:300;margin-bottom:.8rem;}.foot-tag{font-family:'Cormorant Garamond',serif;font-size:12px;font-style:italic;color:#3c2010;line-height:2.2;}
+.foot-h{font-size:9px;letter-spacing:4px;color:#6a2828;text-transform:uppercase;margin-bottom:1.3rem;}.foot-l{list-style:none;}.foot-l li a{font-size:11px;color:#4a3018;margin-bottom:.7rem;display:block;letter-spacing:.5px;transition:color .25s;text-decoration:none;padding:.15rem 0;}.foot-l li a:hover{color:var(--gold);}
+.foot-soc{display:flex;gap:.5rem;margin-top:1.5rem;flex-wrap:wrap;}.fsoc{background:none;border:0.5px solid #2a1e10;color:#4a3018;font-size:11px;padding:.5rem .8rem;transition:all .25s;letter-spacing:1px;text-decoration:none;display:inline-block;}.fsoc:hover{border-color:#6a5040;color:var(--gold);}
+.foot-bot{padding:1.5rem 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}.foot-copy{font-size:9px;color:#221408;letter-spacing:2px;text-transform:uppercase;}
+@media(max-width:700px){.foot-m{grid-template-columns:1fr 1fr;}.cart-drawer{width:100%;}.nr-svc .svc-lbl{display:none;}}
+</style>
+</head>
+<body>
+<div class="ann"><div class="ann-inner"><span>Complimentary shipping on orders over €75</span><span class="ann-dot">✦</span><span>Order // 001 · First Limited Edition</span><span class="ann-dot">✦</span><span>Worldwide delivery available</span><span class="ann-dot">✦</span><span>Returns within 30 days</span><span class="ann-dot">✦</span><span>Complimentary shipping on orders over €75</span><span class="ann-dot">✦</span><span>Order // 001 · First Limited Edition</span><span class="ann-dot">✦</span><span>Worldwide delivery available</span><span class="ann-dot">✦</span><span>Returns within 30 days</span><span class="ann-dot">✦</span></div></div>
+<nav class="nav">
+  <div class="nav-left"><button class="hbtn" onclick="toggleSide()"><svg width="20" height="14" viewBox="0 0 20 14" fill="none"><rect y="0" width="20" height="2" fill="currentColor"/><rect y="6" width="20" height="2" fill="currentColor"/><rect y="12" width="20" height="2" fill="currentColor"/></svg></button></div>
+  <a href="index.html" class="nav-logo">VEY<em>N</em>É</a>
+  <div class="nav-right">
+    <a href="contact.html" class="nr-svc"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1a6 6 0 0 0-6 6v1.5A1.5 1.5 0 0 0 3.5 10H5V7a3 3 0 1 1 6 0v3h1.5A1.5 1.5 0 0 0 14 8.5V7A6 6 0 0 0 8 1Z" stroke="currentColor" stroke-width="1.2" fill="none"/></svg><span class="svc-lbl">Client Services</span></a>
+    <a href="wishlist.html" class="nicon"><svg width="20" height="18" viewBox="0 0 20 18" fill="none"><path d="M10 16S2 11 2 5.5A4.5 4.5 0 0 1 10 3.8 4.5 4.5 0 0 1 18 5.5C18 11 10 16 10 16Z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></a>
+    <button class="nicon" onclick="toggleCart()"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 2h2l2.4 9.6A2 2 0 0 0 8.3 13h7.4a2 2 0 0 0 1.9-1.4L19 6H5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8.5" cy="16.5" r="1.5" fill="currentColor"/><circle cx="15.5" cy="16.5" r="1.5" fill="currentColor"/></svg><span class="nbadge" id="cb">0</span></button>
+    <a href="account.html" class="nicon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="4" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M2 18c0-4 3.6-6 8-6s8 2 8 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg></a>
+  </div>
+</nav>
+<div class="nav-cats">
+  <a href="index.html" class="ncat">Home</a><a href="men.html" class="ncat">Men</a><a href="women.html" class="ncat">Women</a><a href="kids.html" class="ncat">Young Sovereign</a><a href="accessories.html" class="ncat">Accessories</a><a href="collectibles.html" class="ncat">Collectibles</a><a href="lore.html" class="ncat">The Lore</a><a href="about.html" class="ncat">About</a>
+</div>
+<div class="side-ov" id="side-ov">
+  <div class="side-panel">
+    <div class="side-hd"><span class="side-logo">VEYNÉ</span><button class="side-x" onclick="toggleSide()">✕</button></div>
+    <p class="side-sec">Collections</p>
+    <a href="men.html" class="slink">Men <span>›</span></a><a href="women.html" class="slink">Women <span>›</span></a><a href="kids.html" class="slink">Young Sovereign <span>›</span></a><a href="accessories.html" class="slink">Accessories <span>›</span></a><a href="collectibles.html" class="slink">Collectibles <span>›</span></a>
+    <p class="side-sec">The Realm</p>
+    <a href="lore.html" class="slink">The Lore <span>›</span></a><a href="about.html" class="slink">About Cealis Veyne <span>›</span></a><a href="contact.html" class="slink">Client Services <span>›</span></a><a href="faq.html" class="slink">FAQ &amp; Support <span>›</span></a>
+    <div class="side-ft"><a href="account.html" class="sftb prim">Sign In</a><a href="account.html" class="sftb">Create Account</a></div>
+  </div>
+  <div style="flex:1;cursor:pointer;" onclick="toggleSide()"></div>
+</div>
+<div class="cart-ov" id="cart-ov" onclick="toggleCart()"></div>
+<div class="cart-drawer" id="cart-drawer">
+  <div class="cart-dh"><span class="cart-dh-t">Your Order</span><button class="cart-dh-x" onclick="toggleCart()">✕</button></div>
+  <div class="cart-body"><div class="cart-bi" id="cart-bd"><p class="cart-empty">Your order is empty.<br/>Begin your collection.</p></div></div>
+  <div id="cart-ft" style="display:none;" class="cart-ft">
+    <div class="cart-tot"><span class="cart-tot-l">Order Total</span><span class="cart-tot-v" id="cart-total">€ 0.00</span></div>
+    <button class="cart-co">Proceed to Checkout</button>
+  </div>
+</div>
+
+<div class="faq-hero">
+  <span class="fh-eye">Support &amp; Information</span>
+  <h1 class="fh-title">FAQ</h1>
+  <p class="fh-sub">Answers from the realm — everything you need to know</p>
+</div>
+<div class="breadcrumb"><a href="index.html">Home</a><span class="breadcrumb-sep">›</span><span>FAQ</span></div>
+
+<div class="faq-body">
+  <div class="faq-sec">
+    <span class="faq-sec-title">Orders &amp; Shipping</span>
+    <div class="faq-item"><button class="faq-q" onclick="tog(this)"><span class="faq-q-t">How long does shipping take?</span><span class="faq-q-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Standard shipping takes 5–10 business days within Europe, and 10–18 business days for international orders. Express shipping (2–4 business days) is available at checkout for most destinations.</div></div></div>
+    <div class="faq-item"><button class="faq-q" onclick="tog(this)"><span class="faq-q-t">Do you offer free shipping?</span><span class="faq-q-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Yes — complimentary shipping is available on all orders over €75. Orders below this threshold incur a flat shipping fee displayed at checkout.</div></div></div>
+    <div class="faq-item"><button class="faq-q" onclick="tog(this)"><span class="faq-q-t">Do you ship worldwide?</span><span class="faq-q-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Yes. The realm delivers worldwide. Shipping rates and estimated delivery times for your destination will be displayed at checkout. Please note that customs duties may apply for orders outside the EU.</div></div></div>
+    <div class="faq-item"><button class="faq-q" onclick="tog(this)"><span class="faq-q-t">How do I track my order?</span><span class="faq-q-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Once your order has been dispatched, you will receive a confirmation email with a tracking number. You can use this number on the carrier's website to follow your parcel's journey to the realm.</div></div></div>
+    <div class="faq-item"><button class="faq-q" onclick="tog(this)"><span class="faq-q-t">Can I change or cancel my order?</span><span class="faq-q-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Orders can be modified or cancelled within 2 hours of placement. After this window, the order enters fulfilment and cannot be changed. Please <a href="contact.html">contact Client Services</a> immediately if you need to make a change.</div></div></div>
+  </div>
+
+  <div class="faq-sec">
+    <span class="faq-sec-title">Returns &amp; Exchanges</span>
+    <div class="faq-item"><button class="faq-q" onclick="tog(this)"><span class="faq-q-t">What is your return policy?</span><span class="faq-q-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">We accept returns within 30 days of delivery. Items must be unworn, unwashed, and in their original condition with all tags attached. Collectibles, plushies, and limited edition items are final sale.</div></div></div>
+    <div class="faq-item"><button class="faq-q" onclick="tog(this)"><span class="faq-q-t">How do I initiate a return?</span><span class="faq-q-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Contact our <a href="contact.html">Client Services</a> team with your order number and reason for return. We will provide a prepaid return label and instructions within 24 hours.</div></div></div>
+    <div class="faq-item"><button class="faq-q" onclick="tog(this)"><span class="faq-q-t">When will I receive my refund?</span><span class="faq-q-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Refunds are processed within 5–7 business days of receiving the returned item. The amount will be credited to your original payment method. You will receive a confirmation email once the refund has been issued.</div></div></div>
+    <div class="faq-item"><button class="faq-q" onclick="tog(this)"><span class="faq-q-t">Can I exchange for a different size?</span><span class="faq-q-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Yes. Exchanges for a different size of the same item are available within 30 days, subject to stock availability. Please contact Client Services to arrange an exchange.</div></div></div>
+  </div>
+
+  <div class="faq-sec">
+    <span class="faq-sec-title">Products &amp; Sizing</span>
+    <div class="faq-item"><button class="faq-q" onclick="tog(this)"><span class="faq-q-t">How do I find my size?</span><span class="faq-q-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Each product page includes a detailed sizing guide. Veyné garments are generally true to size with a slight oversized silhouette for most pieces. When in doubt, we recommend sizing up for the ideal sovereign drape.</div></div></div>
+    <div class="faq-item"><button class="faq-q" onclick="tog(this)"><span class="faq-q-t">Are the products limited edition?</span><span class="faq-q-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Order // 001 is the first Sovereign Collection. All items in this collection are produced in limited quantities. Once sold out, they will not be restocked — though future collections may revisit certain designs.</div></div></div>
+    <div class="faq-item"><button class="faq-q" onclick="tog(this)"><span class="faq-q-t">How do I care for my Veyné garments?</span><span class="faq-q-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Most garments should be cold-washed inside out and hung to dry. Embroidered pieces should be washed on a delicate cycle. Full care instructions are printed on the garment label. Treat them as the sovereign pieces they are.</div></div></div>
+    <div class="faq-item"><button class="faq-q" onclick="tog(this)"><span class="faq-q-t">Are the plushies safe for children?</span><span class="faq-q-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Yes. All Veyné plushies are made to EN71 European safety standards and are suitable for children aged 3 and above. They are made from non-toxic materials with securely attached components.</div></div></div>
+  </div>
+
+  <div class="faq-sec">
+    <span class="faq-sec-title">Account &amp; Orders</span>
+    <div class="faq-item"><button class="faq-q" onclick="tog(this)"><span class="faq-q-t">Do I need an account to order?</span><span class="faq-q-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Currently all orders are processed through our Client Services team. Creating an account allows you to save your wishlist and receive early access to new drops and lore reveals.</div></div></div>
+    <div class="faq-item"><button class="faq-q" onclick="tog(this)"><span class="faq-q-t">How do I join the realm (newsletter)?</span><span class="faq-q-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Scroll to the bottom of any collection page and enter your email in the "Join the Realm" section. As an operative, you will receive first access to new drops, lore reveals, and exclusive pieces before they go public.</div></div></div>
+  </div>
+</div>
+
+<div class="faq-cta">
+  <p class="faq-cta-t">Still have questions?</p>
+  <p class="faq-cta-s">Our operatives respond within 24 hours.</p>
+  <a href="contact.html" class="btn btn-d">Contact Client Services</a>
+</div>
+
+<footer class="footer">
+  <div class="foot-m">
+    <div><p class="foot-brand">VEYNÉ</p><p class="foot-tag">The Shadow Sovereign.<br/>The Razorbill.<br/>The Hunt Continues.</p><div class="foot-soc"><a href="#" class="fsoc">Twitch</a><a href="#" class="fsoc">YouTube</a><a href="#" class="fsoc">TikTok</a><a href="#" class="fsoc">Instagram</a></div></div>
+    <div><p class="foot-h">Collections</p><ul class="foot-l"><li><a href="men.html">Men</a></li><li><a href="women.html">Women</a></li><li><a href="kids.html">Young Sovereign</a></li><li><a href="accessories.html">Accessories</a></li><li><a href="collectibles.html">Collectibles</a></li></ul></div>
+    <div><p class="foot-h">The Realm</p><ul class="foot-l"><li><a href="lore.html">The Lore</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Client Services</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
+    <div><p class="foot-h">Support</p><ul class="foot-l"><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Shipping</a></li><li><a href="contact.html">Returns</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+  </div>
+  <div class="foot-bot"><p class="foot-copy">© Veyné — Cealis Veyne · Order // 001</p><p class="foot-copy">The Shadow Walks. The Warden Watches.</p></div>
+</footer>
+<script>
+var cart=JSON.parse(localStorage.getItem('veyne-cart')||'[]');
+function updateCartBadge(){var cnt=cart.reduce(function(a,x){return a+x.qty;},0);var cb=document.getElementById('cb');if(cb){cb.textContent=cnt;cnt>0?cb.style.display='flex':cb.style.display='none';}}
+function toggleCart(){var c=document.getElementById('cart-drawer'),o=document.getElementById('cart-ov');c.classList.toggle('open');o.classList.toggle('on');}
+function toggleSide(){document.getElementById('side-ov').classList.toggle('open');}
+function tog(btn){var item=btn.closest('.faq-item');var wasOpen=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(function(i){i.classList.remove('open');});if(!wasOpen)item.classList.add('open');}
+updateCartBadge();
+</script>
+</body>
+</html>

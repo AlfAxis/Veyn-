@@ -9,218 +9,306 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 :root{
---bg:#faf6f0;--bg2:#f0e8d6;--bg3:#e4d8c4;
---dark:#0a0806;--dark2:#160e06;--dark3:#221408;
---accent:#7c2c2c;--accent2:#5c1e1e;
---gold:#b8905a;--gold2:#946e38;--gold3:#d4b07c;
---text:#180e06;--text2:#3a2a16;--text3:#6a5438;--text4:#9a8468;--text5:#c4b098;
---border:#c8bca8;--border2:#b8a890;--border3:#a89878;
---nav-h:62px;
+  --bg:#faf6f0;--bg2:#f0e8d6;--bg3:#e4d8c4;
+  --dark:#0a0806;--dark2:#160e06;--dark3:#221408;
+  --accent:#7c2c2c;--accent2:#5c1e1e;
+  --gold:#b8905a;--gold2:#946e38;--gold3:#d4b07c;
+  --text:#180e06;--text2:#3a2a16;--text3:#6a5438;--text4:#9a8468;--text5:#c4b098;
+  --border:#c8bca8;--border2:#b8a890;--border3:#a89878;
+  --nav-h:62px;
 }
-html,body{font-family:'Raleway',sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;}
-button,input{font-family:'Raleway',sans-serif;cursor:pointer;}
+html{scroll-behavior:smooth;}
+body{font-family:'Raleway',sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;}
+button,input,select{font-family:'Raleway',sans-serif;cursor:pointer;}
+img{display:block;max-width:100%;}
 
-/* ANNOUNCEMENT */
-.ann{background:var(--dark2);overflow:hidden;padding:.52rem 0;}
-.ann-inner{display:flex;gap:4rem;animation:annS 28s linear infinite;white-space:nowrap;}
+/* ── ANNOUNCEMENT ── */
+.ann{background:var(--dark);overflow:hidden;padding:.55rem 0;}
+.ann-inner{display:flex;gap:5rem;animation:annS 30s linear infinite;white-space:nowrap;}
 @keyframes annS{to{transform:translateX(-50%);}}
-.ann-inner span{font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;}
-.ann-dot{color:#3a2010;font-size:5px;vertical-align:middle;}
+.ann-inner span{font-size:9px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;}
+.ann-dot{color:#2a1e10;font-size:5px;vertical-align:middle;}
 
-/* NAV */
-.nav{background:var(--dark);border-bottom:0.5px solid #2a1e10;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;position:sticky;top:0;z-index:200;}
+/* ── NAVIGATION ── */
+.nav{background:var(--dark);border-bottom:0.5px solid #1e1610;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;position:sticky;top:0;z-index:200;}
 .nav-left{display:flex;align-items:center;}
-.hbtn{background:none;border:none;padding:.5rem;color:#c8b898;display:flex;align-items:center;justify-content:center;transition:color .2s;width:38px;height:38px;}
+.hbtn{background:none;border:none;padding:.5rem;color:#8a7868;display:flex;align-items:center;justify-content:center;transition:color .25s;width:38px;height:38px;}
 .hbtn:hover{color:#f5f0e8;}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:26px;letter-spacing:12px;color:#f5f0e8;font-weight:300;cursor:pointer;position:absolute;left:50%;transform:translateX(-50%);text-decoration:none;}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:24px;letter-spacing:14px;color:#f5f0e8;font-weight:300;position:absolute;left:50%;transform:translateX(-50%);text-decoration:none;white-space:nowrap;}
 .nav-logo em{font-style:italic;color:var(--gold);}
 .nav-right{display:flex;align-items:stretch;}
-.nr-svc{background:none;border:none;border-left:0.5px solid #2a1e10;padding:0 1rem;color:#8a7868;font-size:9px;letter-spacing:2px;text-transform:uppercase;display:flex;align-items:center;gap:.5rem;transition:color .2s;height:var(--nav-h);text-decoration:none;}
+.nr-svc{background:none;border:none;border-left:0.5px solid #1e1610;padding:0 1.1rem;color:#6a5a48;font-size:8.5px;letter-spacing:2.5px;text-transform:uppercase;display:flex;align-items:center;gap:.5rem;transition:color .25s;height:var(--nav-h);text-decoration:none;}
 .nr-svc:hover{color:#c8b898;}
-.nicon{background:none;border:none;border-left:0.5px solid #2a1e10;padding:0 .85rem;color:#8a7868;display:flex;align-items:center;justify-content:center;position:relative;transition:color .2s;height:var(--nav-h);min-width:44px;font-size:20px;text-decoration:none;}
+.nicon{background:none;border:none;border-left:0.5px solid #1e1610;padding:0 .9rem;color:#6a5a48;display:flex;align-items:center;justify-content:center;position:relative;transition:color .25s;height:var(--nav-h);min-width:44px;font-size:20px;text-decoration:none;}
 .nicon:hover{color:#f5f0e8;}
-.nbadge{position:absolute;top:10px;right:6px;min-width:16px;height:16px;background:var(--accent);border-radius:8px;font-size:8px;color:#fff;display:none;align-items:center;justify-content:center;padding:0 3px;font-weight:500;}
-.nav-cats{background:var(--dark);border-bottom:0.5px solid #2a1e10;display:flex;justify-content:center;overflow-x:auto;}
-.nav-cats::-webkit-scrollbar{display:none;}
-.ncat{background:none;border:none;border-bottom:2px solid transparent;color:#8a7868;font-size:9px;letter-spacing:3px;text-transform:uppercase;padding:.82rem 1.2rem;white-space:nowrap;transition:all .25s;text-decoration:none;display:inline-flex;align-items:center;}
-.ncat:hover,.ncat.on{color:#f5f0e8;border-bottom-color:var(--gold);}
+.nbadge{position:absolute;top:11px;right:7px;min-width:15px;height:15px;background:var(--accent);border-radius:8px;font-size:7.5px;color:#fff;display:none;align-items:center;justify-content:center;padding:0 3px;font-weight:600;}
 
-/* SIDE MENU */
+/* ── CATEGORY NAV ── */
+.nav-cats{background:var(--dark);border-bottom:0.5px solid #1e1610;display:flex;justify-content:center;overflow-x:auto;}
+.nav-cats::-webkit-scrollbar{display:none;}
+.ncat{background:none;border:none;border-bottom:1.5px solid transparent;color:#6a5a48;font-size:8.5px;letter-spacing:3.5px;text-transform:uppercase;padding:.9rem 1.3rem;white-space:nowrap;transition:all .3s;text-decoration:none;display:inline-flex;align-items:center;}
+.ncat:hover,.ncat.on{color:#f0e8dc;border-bottom-color:var(--gold);}
+
+/* ── SIDE MENU ── */
 .side-ov{display:none;position:fixed;inset:0;z-index:300;}
-.side-ov.open{display:flex;background:rgba(10,8,6,.72);}
-.side-panel{background:var(--dark);width:290px;height:100%;display:flex;flex-direction:column;animation:sideIn .3s ease;overflow-y:auto;}
-@keyframes sideIn{from{transform:translateX(-100%);}to{transform:translateX(0);}}
-.side-hd{padding:1.3rem 1.6rem;border-bottom:0.5px solid #2a1e10;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;}
-.side-logo{font-family:'Cormorant Garamond',serif;font-size:16px;letter-spacing:7px;color:#f0e8dc;}
-.side-x{background:none;border:none;color:#6a5a48;font-size:22px;display:flex;align-items:center;justify-content:center;width:32px;height:32px;transition:color .2s;}
+.side-ov.open{display:flex;background:rgba(10,8,6,.75);}
+.side-panel{background:var(--dark);width:300px;height:100%;display:flex;flex-direction:column;overflow-y:auto;transform:translateX(-100%);transition:transform .35s cubic-bezier(.19,1,.22,1);}
+.side-ov.open .side-panel{transform:translateX(0);}
+.side-hd{padding:1.4rem 1.7rem;border-bottom:0.5px solid #1e1610;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;}
+.side-logo{font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:8px;color:#f0e8dc;}
+.side-x{background:none;border:none;color:#6a5a48;font-size:20px;display:flex;align-items:center;justify-content:center;width:32px;height:32px;transition:color .2s;}
 .side-x:hover{color:#f0e8dc;}
-.side-sec{padding:1.1rem 1.6rem .4rem;font-size:9px;letter-spacing:5px;color:var(--gold2);text-transform:uppercase;}
-.slink{display:flex;justify-content:space-between;align-items:center;width:100%;padding:.82rem 1.6rem;background:none;border:none;border-bottom:0.5px solid #1e1610;font-size:12px;letter-spacing:1.5px;color:#8a7868;text-align:left;transition:all .2s;font-family:'Cormorant Garamond',serif;text-decoration:none;}
-.slink:hover{background:#1e160e;color:#f0e8dc;padding-left:2.2rem;}
-.side-ft{margin-top:auto;padding:1.4rem 1.6rem;border-top:0.5px solid #1e1610;display:flex;gap:.8rem;flex-shrink:0;}
-.sftb{flex:1;padding:.7rem;font-size:9px;letter-spacing:3px;text-transform:uppercase;border:0.5px solid #3a2a18;background:transparent;color:#6a5a48;transition:all .25s;}
+.side-sec{padding:1.2rem 1.7rem .5rem;font-size:8px;letter-spacing:5px;color:var(--gold2);text-transform:uppercase;}
+.slink{display:flex;justify-content:space-between;align-items:center;width:100%;padding:.9rem 1.7rem;background:none;border:none;border-bottom:0.5px solid #1a1410;font-size:11.5px;letter-spacing:2px;color:#7a6858;text-align:left;transition:all .25s;font-family:'Cormorant Garamond',serif;text-decoration:none;}
+.slink:hover{background:#1a120a;color:#f0e8dc;padding-left:2.4rem;}
+.side-ft{margin-top:auto;padding:1.5rem 1.7rem;border-top:0.5px solid #1a1410;display:flex;gap:.8rem;flex-shrink:0;}
+.sftb{flex:1;padding:.75rem;font-size:8.5px;letter-spacing:3px;text-transform:uppercase;border:0.5px solid #3a2a18;background:transparent;color:#6a5a48;transition:all .25s;text-decoration:none;text-align:center;display:block;}
 .sftb.prim{background:var(--gold);color:var(--dark);border-color:var(--gold);}
 .sftb:hover{border-color:#8a7868;color:#c8b898;}
 .sftb.prim:hover{background:var(--gold3);}
 
-/* CART DRAWER */
-.cart-drawer{position:fixed;top:0;right:-440px;width:420px;height:100%;background:#fff;z-index:300;transition:right .35s ease;display:flex;flex-direction:column;border-left:0.5px solid var(--border);}
-.cart-drawer.open{right:0;box-shadow:-4px 0 24px rgba(10,8,6,.15);}
-.cart-dh{padding:1.3rem 1.6rem;background:var(--dark);display:flex;justify-content:space-between;align-items:center;flex-shrink:0;}
-.cart-dh-t{font-family:'Cormorant Garamond',serif;font-size:17px;letter-spacing:5px;color:#f0e8dc;}
-.cart-dh-x{background:none;border:none;color:#8a7868;font-size:22px;display:flex;align-items:center;justify-content:center;width:32px;height:32px;transition:color .2s;}
+/* ── CART DRAWER ── */
+.cart-drawer{position:fixed;top:0;right:-460px;width:440px;height:100%;background:#fff;z-index:300;transition:right .38s cubic-bezier(.19,1,.22,1);display:flex;flex-direction:column;box-shadow:-8px 0 40px rgba(10,8,6,0);}
+.cart-drawer.open{right:0;box-shadow:-8px 0 40px rgba(10,8,6,.18);}
+.cart-dh{padding:1.4rem 1.7rem;background:var(--dark);display:flex;justify-content:space-between;align-items:center;flex-shrink:0;}
+.cart-dh-t{font-family:'Cormorant Garamond',serif;font-size:16px;letter-spacing:6px;color:#f0e8dc;}
+.cart-dh-x{background:none;border:none;color:#8a7868;font-size:20px;display:flex;align-items:center;justify-content:center;width:32px;height:32px;transition:color .2s;}
 .cart-dh-x:hover{color:#f0e8dc;}
 .cart-body{flex:1;overflow-y:auto;}
-.cart-bi{padding:1rem 1.6rem;}
-.cart-line{display:flex;justify-content:space-between;padding:1rem 0;border-bottom:0.5px solid #f0ead8;gap:1rem;}
+.cart-bi{padding:1.2rem 1.7rem;}
+.cart-line{display:flex;justify-content:space-between;padding:1.1rem 0;border-bottom:0.5px solid #f0ead8;gap:1rem;align-items:flex-start;}
 .cart-li{flex:1;min-width:0;}
 .cart-ln{font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:1px;color:#180e06;}
-.cart-lm{font-size:10px;color:#9a8468;letter-spacing:1px;margin-top:3px;}
-.cart-qty-row{display:flex;align-items:center;gap:.5rem;margin-top:.6rem;}
+.cart-lm{font-size:9.5px;color:#9a8468;letter-spacing:1px;margin-top:3px;text-transform:uppercase;}
+.cart-qty-row{display:flex;align-items:center;gap:.5rem;margin-top:.7rem;}
 .cqb{background:none;border:0.5px solid #c8bca8;width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:16px;color:#6a5438;transition:all .2s;line-height:1;}
-.cqb:hover{background:#f0e8d6;}
+.cqb:hover{background:#f0e8d6;border-color:#a89878;}
 .cart-qty-n{font-family:'Cormorant Garamond',serif;font-size:14px;color:#180e06;min-width:22px;text-align:center;}
 .cart-lr{display:flex;flex-direction:column;align-items:flex-end;gap:.5rem;flex-shrink:0;}
-.cart-lp{font-family:'Cormorant Garamond',serif;font-size:14px;color:#3a2a16;}
-.cart-lx{background:none;border:none;color:#c4b098;font-size:16px;transition:color .2s;}
+.cart-lp{font-family:'Cormorant Garamond',serif;font-size:14px;color:#3a2a16;letter-spacing:1px;}
+.cart-lx{background:none;border:none;color:#c4b098;font-size:15px;transition:color .2s;}
 .cart-lx:hover{color:var(--accent);}
-.cart-empty{font-size:12px;color:#9a8468;text-align:center;padding:3rem 1.6rem;font-family:'Cormorant Garamond',serif;font-style:italic;line-height:1.9;}
-.cart-ft{border-top:0.5px solid #e8dfc8;background:#f8f3ea;padding:1.4rem 1.6rem;flex-shrink:0;}
-.cart-ship{font-size:10px;color:#9a8468;letter-spacing:1px;margin-bottom:.8rem;text-align:center;}
-.cart-tot{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1.2rem;}
-.cart-tot-l{font-size:10px;letter-spacing:3px;color:#6a5438;text-transform:uppercase;}
-.cart-tot-v{font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:2px;color:var(--accent);}
-.cart-co{width:100%;padding:.88rem;background:var(--dark);color:#f0e8dc;border:none;font-size:9px;letter-spacing:4px;text-transform:uppercase;transition:background .3s;}
+.cart-empty{font-size:12px;color:#9a8468;text-align:center;padding:4rem 1.7rem;font-family:'Cormorant Garamond',serif;font-style:italic;line-height:2.2;}
+.cart-ft{border-top:0.5px solid #ede5d4;background:#f8f3ea;padding:1.5rem 1.7rem;flex-shrink:0;}
+.cart-ship{font-size:9px;color:#9a8468;letter-spacing:1.5px;margin-bottom:.9rem;text-align:center;text-transform:uppercase;}
+.cart-tot{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1.3rem;}
+.cart-tot-l{font-size:9px;letter-spacing:3px;color:#6a5438;text-transform:uppercase;}
+.cart-tot-v{font-family:'Cormorant Garamond',serif;font-size:24px;letter-spacing:2px;color:var(--accent);}
+.cart-co{width:100%;padding:.95rem;background:var(--dark);color:#f0e8dc;border:none;font-size:8.5px;letter-spacing:4px;text-transform:uppercase;transition:background .3s;cursor:pointer;}
 .cart-co:hover{background:var(--dark3);}
-.cart-ov{position:fixed;inset:0;background:rgba(10,8,6,.4);z-index:299;display:none;}
+.cart-ov{position:fixed;inset:0;background:rgba(10,8,6,.45);z-index:299;display:none;}
 .cart-ov.on{display:block;}
 
-/* BUTTONS */
-.btn{padding:.85rem 2.2rem;font-size:9px;letter-spacing:4px;text-transform:uppercase;border:0.5px solid;transition:all .3s;display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;}
+/* ── HERO ── */
+.hero{min-height:100vh;background:var(--dark2);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem;position:relative;overflow:hidden;}
+.hero canvas{position:absolute;inset:0;pointer-events:none;width:100%;height:100%;}
+.hero-ornament{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+.hero-ornament svg{width:100%;height:100%;opacity:.06;}
+.hero-c{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;max-width:900px;}
+.h-eyebrow{font-size:8.5px;letter-spacing:10px;color:var(--gold2);text-transform:uppercase;margin-bottom:2.5rem;opacity:0;animation:fu .9s ease forwards .3s;}
+.h-title{font-family:'Cormorant Garamond',serif;font-size:clamp(72px,14vw,140px);font-weight:300;letter-spacing:clamp(16px,3vw,32px);color:#f5f0e8;line-height:.85;opacity:0;animation:fu .9s ease forwards .5s;}
+.h-title em{font-style:italic;color:var(--gold);display:block;font-size:.55em;letter-spacing:.2em;margin-top:.1em;}
+.h-rule{width:0;height:0.5px;background:linear-gradient(90deg,transparent,var(--gold2),transparent);margin:2.5rem auto;animation:rg 1s ease forwards .9s;}
+@keyframes rg{to{width:120px;}}
+.h-quote{font-family:'Cormorant Garamond',serif;font-size:clamp(15px,2vw,18px);font-style:italic;color:#5a4838;line-height:2.2;max-width:480px;opacity:0;animation:fu .9s ease forwards 1.1s;letter-spacing:.5px;}
+.h-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:3rem;opacity:0;animation:fu .9s ease forwards 1.3s;}
+.h-scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.6rem;opacity:0;animation:fu .9s ease forwards 2s;}
+.h-scroll-line{width:0.5px;height:40px;background:linear-gradient(to bottom,var(--gold2),transparent);}
+.h-scroll-txt{font-size:8px;letter-spacing:5px;color:#3c2a18;text-transform:uppercase;}
+@keyframes fu{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+
+/* ── BUTTONS ── */
+.btn{padding:.9rem 2.4rem;font-size:8.5px;letter-spacing:4.5px;text-transform:uppercase;border:0.5px solid;transition:all .35s;display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;cursor:pointer;}
 .btn-p{background:#f5f0e8;color:var(--dark2);border-color:#f5f0e8;}
 .btn-p:hover{background:var(--gold3);border-color:var(--gold3);}
-.btn-g{background:transparent;color:#f0ebe0;border-color:#3a2e22;}
-.btn-g:hover{border-color:#c8b898;}
+.btn-g{background:transparent;color:#b8a898;border-color:#3a2e22;}
+.btn-g:hover{border-color:#8a7868;color:#f0e8dc;}
 .btn-d{background:var(--dark2);color:#f0e8dc;border-color:var(--dark2);}
 .btn-d:hover{background:var(--dark3);}
 .btn-o{background:transparent;color:var(--text);border-color:var(--border2);}
 .btn-o:hover{border-color:var(--text);}
 
-/* TICKER */
-.ticker{background:var(--accent2);padding:.65rem 0;overflow:hidden;}
-.tick-inner{display:flex;gap:4rem;animation:tick 22s linear infinite;white-space:nowrap;}
+/* ── TICKER ── */
+.ticker{background:var(--accent2);padding:.7rem 0;overflow:hidden;}
+.tick-inner{display:flex;gap:5rem;animation:tick 24s linear infinite;white-space:nowrap;}
 @keyframes tick{to{transform:translateX(-50%);}}
-.tick-inner span{font-size:9px;letter-spacing:5px;color:#f0d0c0;text-transform:uppercase;}
-.tdot{color:#9a5040;font-size:5px;vertical-align:middle;}
+.tick-inner span{font-size:8.5px;letter-spacing:5px;color:#f0d0c0;text-transform:uppercase;}
+.tdot{color:#8a3828;font-size:4px;vertical-align:middle;}
 
-/* HERO */
-.hero{min-height:88vh;background:var(--dark2);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4rem 2rem;position:relative;overflow:hidden;}
-.hero canvas{position:absolute;inset:0;pointer-events:none;width:100%;height:100%;}
-.hero-c{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;}
-.h-eye{font-size:9px;letter-spacing:8px;color:var(--gold);text-transform:uppercase;margin-bottom:1.5rem;opacity:0;animation:fu .9s ease forwards .4s;}
-.h-t{font-family:'Cormorant Garamond',serif;font-size:clamp(56px,11vw,98px);font-weight:300;letter-spacing:16px;color:#f5f0e8;line-height:.9;margin-bottom:.4rem;opacity:0;animation:fu .9s ease forwards .6s;}
-.h-s{font-family:'Cormorant Garamond',serif;font-size:clamp(11px,1.8vw,14px);font-style:italic;letter-spacing:7px;color:var(--gold2);margin-bottom:2rem;opacity:0;animation:fu .9s ease forwards .8s;}
-.h-rule{width:0;height:0.5px;background:var(--gold2);margin:0 auto 2rem;animation:rg .8s ease forwards 1s;}
-@keyframes rg{to{width:52px;}}
-.h-q{font-family:'Cormorant Garamond',serif;font-size:clamp(14px,2.2vw,18px);font-style:italic;color:#7a6858;line-height:2.1;max-width:460px;opacity:0;animation:fu .9s ease forwards 1.2s;}
-.h-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2.5rem;opacity:0;animation:fu .9s ease forwards 1.4s;}
-@keyframes fu{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+/* ── REVEAL ANIMATION ── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
 
-/* SECTIONS */
-.sec{padding:5rem 2rem;}
-.sec-hd{text-align:center;margin-bottom:3.5rem;}
-.eye{font-size:9px;letter-spacing:6px;color:var(--accent);text-transform:uppercase;display:block;margin-bottom:1rem;}
-.stitle{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4vw,40px);font-weight:300;letter-spacing:4px;color:var(--text);line-height:1.2;}
-.srule{width:36px;height:0.5px;background:var(--border2);margin:1.2rem auto 0;}
+/* ── EDITORIAL COLLECTION PANELS ── */
+.editorial-panels{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-top:0.5px solid var(--border);}
+.ep{position:relative;overflow:hidden;min-height:580px;display:flex;flex-direction:column;justify-content:flex-end;padding:2.8rem;text-decoration:none;cursor:pointer;}
+.ep-bg{position:absolute;inset:0;background:var(--dark2);transition:transform .8s cubic-bezier(.19,1,.22,1);}
+.ep:hover .ep-bg{transform:scale(1.04);}
+.ep-svg{position:absolute;inset:0;pointer-events:none;transition:transform .8s cubic-bezier(.19,1,.22,1);}
+.ep:hover .ep-svg{transform:scale(1.06);}
+.ep-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,6,2,.92) 0%,rgba(10,6,2,.2) 60%,transparent 100%);z-index:1;transition:opacity .4s;}
+.ep-c{position:relative;z-index:2;}
+.ep-eye{font-size:8.5px;letter-spacing:5px;color:var(--gold2);text-transform:uppercase;display:block;margin-bottom:.7rem;}
+.ep-title{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4vw,36px);font-weight:300;letter-spacing:4px;color:#f5f0e8;line-height:1.15;margin-bottom:1rem;}
+.ep-cta{font-size:8.5px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:.6rem;transition:gap .35s;}
+.ep:hover .ep-cta{gap:1.2rem;}
+.ep-num{position:absolute;top:2rem;right:2rem;font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:3px;color:#2a1e14;z-index:2;}
 
-/* CATEGORY GRID */
-.cat-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:1px;background:var(--border);}
-.cc{background:var(--bg);overflow:hidden;transition:background .3s;text-decoration:none;display:block;}
+/* ── SECTION DEFAULTS ── */
+.sec{padding:6rem 2rem;}
+.sec-alt{background:var(--bg2);}
+.sec-dark{background:var(--dark2);}
+.sec-hd{text-align:center;margin-bottom:4rem;}
+.eyebrow{font-size:8.5px;letter-spacing:7px;color:var(--accent);text-transform:uppercase;display:block;margin-bottom:1.1rem;}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4.5vw,44px);font-weight:300;letter-spacing:5px;color:var(--text);line-height:1.2;}
+.sec-title-lt{color:#f5f0e8;}
+.sec-sub{font-size:11.5px;color:var(--text3);letter-spacing:1px;margin-top:1rem;line-height:2;}
+.sec-rule{width:36px;height:0.5px;background:var(--border2);margin:1.4rem auto 0;}
+.sec-rule-gold{background:var(--gold2);}
+
+/* ── FEATURED STRIP (horizontal scroll) ── */
+.featured-strip{padding:4rem 0 4rem 2rem;border-top:0.5px solid var(--border);overflow:hidden;}
+.featured-strip-hd{display:flex;justify-content:space-between;align-items:center;padding-right:2rem;margin-bottom:2.5rem;}
+.featured-strip-title{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3.5vw,32px);font-weight:300;letter-spacing:5px;color:var(--text);}
+.featured-scroll{display:flex;gap:1.5rem;overflow-x:auto;padding-right:2rem;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;cursor:grab;}
+.featured-scroll::-webkit-scrollbar{display:none;}
+.featured-scroll:active{cursor:grabbing;}
+.fc{flex:0 0 260px;scroll-snap-align:start;position:relative;}
+.fc-img{aspect-ratio:3/4;background:var(--dark2);overflow:hidden;position:relative;}
+.fc-img svg{width:100%;height:100%;position:absolute;inset:0;transition:transform .6s cubic-bezier(.19,1,.22,1);}
+.fc:hover .fc-img svg{transform:scale(1.06);}
+.fc-ov{position:absolute;inset:0;background:rgba(10,8,6,.7);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .35s;}
+.fc:hover .fc-ov{opacity:1;}
+.fc-ov-btn{font-size:8px;letter-spacing:4px;text-transform:uppercase;color:#f0e8dc;border:0.5px solid rgba(240,232,220,.5);padding:.65rem 1.4rem;}
+.fc-badge{position:absolute;top:10px;left:10px;background:var(--accent);color:#faf6f0;font-size:7.5px;letter-spacing:2.5px;padding:3px 10px;text-transform:uppercase;z-index:2;}
+.fc-bd{padding:.9rem .2rem 1.2rem;}
+.fc-tag{font-size:8.5px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:.3rem;}
+.fc-name{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:300;letter-spacing:1.5px;color:var(--text);margin-bottom:.3rem;text-decoration:none;display:block;}
+.fc-name:hover{color:var(--accent);}
+.fc-price{font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--text3);}
+
+/* ── CATEGORY GRID ── */
+.cat-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0;background:var(--border);}
+.cc{background:var(--bg);overflow:hidden;transition:background .35s;text-decoration:none;display:block;position:relative;}
 .cc:hover{background:var(--bg2);}
-.cc-img{aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
-.cc-img svg{transition:transform .6s ease;}
-.cc:hover .cc-img svg{transform:scale(1.05);}
-.cc-ov{position:absolute;bottom:0;left:0;right:0;background:rgba(22,14,6,.92);padding:.65rem 1rem;opacity:0;transition:opacity .3s;display:flex;justify-content:space-between;align-items:center;}
+.cc-img{aspect-ratio:3/4;position:relative;overflow:hidden;}
+.cc-img-bg{position:absolute;inset:0;transition:transform .7s cubic-bezier(.19,1,.22,1);}
+.cc:hover .cc-img-bg{transform:scale(1.06);}
+.cc-img svg{position:absolute;inset:0;width:100%;height:100%;}
+.cc-ov{position:absolute;inset:0;background:rgba(10,6,2,.72);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .35s;}
 .cc:hover .cc-ov{opacity:1;}
-.cc-ov span{font-size:9px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;}
-.cc-bd{padding:1.2rem 1.5rem 1.8rem;}
-.cc-tag{font-size:9px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:.4rem;}
-.cc-name{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:300;letter-spacing:2px;color:var(--text);margin-bottom:.3rem;}
+.cc-ov-t{font-size:8.5px;letter-spacing:4px;text-transform:uppercase;color:#f5f0e8;border-bottom:0.5px solid var(--gold);padding-bottom:4px;}
+.cc-bd{padding:1.3rem 1.5rem 2rem;}
+.cc-tag{font-size:8px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:.4rem;}
+.cc-name{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;letter-spacing:2px;color:var(--text);margin-bottom:.3rem;}
 .cc-price{font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--text3);}
 
-/* EDITORIAL */
-.ed-pair{display:grid;grid-template-columns:1fr 1fr;border:0.5px solid var(--border);}
-.edp{min-height:420px;display:flex;flex-direction:column;justify-content:flex-end;padding:2.5rem;position:relative;overflow:hidden;text-decoration:none;display:flex;}
-.edp svg{position:absolute;top:50%;left:50%;transform:translate(-50%,-58%);transition:transform .6s ease;}
-.edp:hover svg{transform:translate(-50%,-61%) scale(1.04);}
-.edp-dk{background:var(--dark2);}
-.edp-lt{background:var(--bg2);}
-.edp-tag{font-size:9px;letter-spacing:4px;text-transform:uppercase;margin-bottom:.5rem;}
-.edp-dk .edp-tag{color:var(--gold2);}
-.edp-lt .edp-tag{color:var(--accent);}
-.edp-title{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,3vw,26px);font-weight:300;letter-spacing:3px;margin-bottom:.9rem;line-height:1.3;}
-.edp-dk .edp-title{color:#f0e8dc;}
+/* ── EDITORIAL PAIR ── */
+.ed-pair{display:grid;grid-template-columns:1fr 1fr;}
+.edp{min-height:580px;display:flex;flex-direction:column;justify-content:flex-end;padding:3rem;position:relative;overflow:hidden;text-decoration:none;}
+.edp-bg{position:absolute;inset:0;transition:transform .8s cubic-bezier(.19,1,.22,1);}
+.edp:hover .edp-bg{transform:scale(1.04);}
+.edp-svg{position:absolute;inset:0;pointer-events:none;}
+.edp-ov-dk{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,6,2,.9) 0%,rgba(10,6,2,.1) 70%,transparent 100%);}
+.edp-ov-lt{position:absolute;inset:0;background:linear-gradient(to top,rgba(240,232,214,.95) 0%,rgba(240,232,214,.3) 60%,transparent 100%);}
+.edp-c{position:relative;z-index:2;}
+.edp-eye{font-size:8.5px;letter-spacing:5px;text-transform:uppercase;margin-bottom:.6rem;display:block;}
+.edp-dk .edp-eye{color:var(--gold2);}
+.edp-lt .edp-eye{color:var(--accent);}
+.edp-title{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3.5vw,32px);font-weight:300;letter-spacing:3px;margin-bottom:1rem;line-height:1.25;}
+.edp-dk .edp-title{color:#f5f0e8;}
 .edp-lt .edp-title{color:var(--text);}
-.edp-cta{font-size:9px;letter-spacing:4px;text-transform:uppercase;display:inline-flex;align-items:center;gap:.5rem;transition:gap .3s;}
+.edp-cta{font-size:8.5px;letter-spacing:4.5px;text-transform:uppercase;display:inline-flex;align-items:center;gap:.6rem;transition:gap .35s;}
 .edp-dk .edp-cta{color:var(--gold);}
 .edp-lt .edp-cta{color:var(--accent);}
-.edp:hover .edp-cta{gap:1rem;}
+.edp:hover .edp-cta{gap:1.3rem;}
 
-/* LORE */
-.lore-b{background:var(--dark3);padding:6rem 2rem;text-align:center;}
-.lore-q{font-family:'Cormorant Garamond',serif;font-size:clamp(17px,2.8vw,22px);font-style:italic;color:var(--gold);max-width:640px;margin:0 auto;line-height:2.4;letter-spacing:2px;}
+/* ── LORE ── */
+.lore-b{background:var(--dark3);padding:8rem 2rem;text-align:center;position:relative;overflow:hidden;}
+.lore-lines{position:absolute;inset:0;opacity:.04;pointer-events:none;}
+.lore-eye{font-size:8.5px;letter-spacing:8px;color:#6a2828;text-transform:uppercase;display:block;margin-bottom:2rem;}
+.lore-q{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,3vw,24px);font-style:italic;color:var(--gold);max-width:640px;margin:0 auto;line-height:2.5;letter-spacing:1.5px;}
 .lore-q em{font-style:normal;color:#6a2828;}
-.lore-sig{font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;color:#3c2010;margin-top:2rem;letter-spacing:3px;}
+.lore-rule{width:0;height:0.5px;background:var(--gold2);margin:2.5rem auto;animation:none;}
+.lore-rule.visible{animation:rg .8s ease forwards;}
+.lore-sig{font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;color:#2e1a0a;margin-top:2rem;letter-spacing:3px;}
 
-/* STATS */
-.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));background:var(--dark2);}
-.stat{padding:2.8rem 2rem;text-align:center;border-right:0.5px solid #221810;}
+/* ── STATS ── */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);background:var(--dark);}
+.stat{padding:3.5rem 2rem;text-align:center;border-right:0.5px solid #141008;position:relative;}
 .stat:last-child{border-right:none;}
-.stat-n{font-family:'Cormorant Garamond',serif;font-size:36px;color:#f0e8dc;letter-spacing:4px;}
-.stat-l{font-size:9px;letter-spacing:3px;color:#4a3420;text-transform:uppercase;margin-top:.5rem;}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:42px;color:#f5f0e8;letter-spacing:4px;line-height:1;}
+.stat-rule{width:24px;height:0.5px;background:var(--gold2);margin:.8rem auto;}
+.stat-l{font-size:8.5px;letter-spacing:4px;color:#4a3420;text-transform:uppercase;}
 
-/* NEWSLETTER */
-.nl-b{background:var(--bg2);padding:5.5rem 2rem;text-align:center;border-top:0.5px solid var(--border);}
-.nl-t{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,4vw,36px);font-weight:300;letter-spacing:5px;color:var(--text);}
-.nl-s{font-size:11px;color:var(--text3);letter-spacing:2px;margin:1rem 0 2.2rem;line-height:1.8;}
-.nl-f{display:flex;max-width:420px;margin:0 auto;}
-.nl-in{flex:1;padding:.9rem 1.2rem;border:0.5px solid var(--border2);border-right:none;background:var(--bg);font-size:11px;color:var(--text);outline:none;}
+/* ── PHILOSOPHY ── */
+.philosophy{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;background:var(--border);}
+.ph-card{background:var(--bg);padding:3.5rem 2.5rem;}
+.ph-n{font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--border);letter-spacing:2px;margin-bottom:1.4rem;line-height:1;}
+.ph-title{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,2.5vw,22px);font-weight:300;letter-spacing:2px;color:var(--text);margin-bottom:1rem;}
+.ph-p{font-size:12px;color:var(--text3);line-height:2.3;letter-spacing:.3px;}
+
+/* ── NEWSLETTER ── */
+.nl-b{background:var(--bg2);padding:7rem 2rem;text-align:center;border-top:0.5px solid var(--border);position:relative;overflow:hidden;}
+.nl-deco{position:absolute;inset:0;pointer-events:none;opacity:.04;}
+.nl-eye{font-size:8.5px;letter-spacing:7px;color:var(--accent);text-transform:uppercase;display:block;margin-bottom:1.2rem;}
+.nl-t{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,5vw,48px);font-weight:300;letter-spacing:6px;color:var(--text);line-height:1.1;}
+.nl-s{font-size:11.5px;color:var(--text3);letter-spacing:1.5px;margin:1.3rem 0 2.8rem;line-height:2;}
+.nl-f{display:flex;max-width:460px;margin:0 auto;}
+.nl-in{flex:1;padding:1rem 1.3rem;border:0.5px solid var(--border2);border-right:none;background:var(--bg);font-size:11px;color:var(--text);outline:none;transition:border-color .2s;}
+.nl-in:focus{border-color:var(--text3);}
 .nl-in::placeholder{color:var(--border3);font-size:10px;letter-spacing:2px;}
-.nl-go{padding:.9rem 1.6rem;background:var(--dark2);border:0.5px solid var(--dark2);font-size:9px;letter-spacing:3px;color:#f0e8dc;text-transform:uppercase;transition:background .3s;flex-shrink:0;}
+.nl-go{padding:1rem 1.8rem;background:var(--dark2);border:0.5px solid var(--dark2);font-size:8.5px;letter-spacing:3.5px;color:#f0e8dc;text-transform:uppercase;transition:background .3s;flex-shrink:0;cursor:pointer;}
 .nl-go:hover{background:var(--accent2);}
-.nl-msg{font-size:10px;letter-spacing:2px;margin-top:.8rem;min-height:18px;color:var(--text4);}
+.nl-msg{font-size:10px;letter-spacing:2px;margin-top:.9rem;min-height:18px;color:var(--text4);}
 
-/* FOOTER */
+/* ── FOOTER ── */
 .footer{background:var(--dark);}
-.foot-m{padding:4.5rem 2rem 3rem;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;border-bottom:0.5px solid #181208;}
-.foot-brand{font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:8px;color:#f0e8dc;font-weight:300;margin-bottom:.8rem;}
-.foot-tag{font-family:'Cormorant Garamond',serif;font-size:12px;font-style:italic;color:#3c2010;line-height:2.2;}
-.foot-h{font-size:9px;letter-spacing:4px;color:#6a2828;text-transform:uppercase;margin-bottom:1.3rem;}
-.foot-l{list-style:none;}
-.foot-l li a{font-size:11px;color:#4a3018;margin-bottom:.7rem;display:block;letter-spacing:.5px;transition:color .25s;text-decoration:none;padding:.15rem 0;}
-.foot-l li a:hover{color:var(--gold);}
-.foot-soc{display:flex;gap:.5rem;margin-top:1.5rem;flex-wrap:wrap;}
-.fsoc{background:none;border:0.5px solid #2a1e10;color:#4a3018;font-size:11px;padding:.5rem .8rem;transition:all .25s;letter-spacing:1px;text-decoration:none;display:inline-block;}
+.foot-top{padding:5rem 2rem 4rem;display:grid;grid-template-columns:2.5fr 1fr 1fr 1fr;gap:3rem;border-bottom:0.5px solid #141008;}
+.foot-brand-n{font-family:'Cormorant Garamond',serif;font-size:24px;letter-spacing:10px;color:#f0e8dc;font-weight:300;margin-bottom:1rem;}
+.foot-brand-t{font-family:'Cormorant Garamond',serif;font-size:12px;font-style:italic;color:#2e1a0a;line-height:2.4;margin-bottom:2rem;}
+.foot-soc{display:flex;gap:.5rem;flex-wrap:wrap;}
+.fsoc{background:none;border:0.5px solid #1e1610;color:#3a2410;font-size:10px;padding:.5rem .9rem;transition:all .25s;letter-spacing:1px;text-decoration:none;display:inline-block;}
 .fsoc:hover{border-color:#6a5040;color:var(--gold);}
-.foot-bot{padding:1.5rem 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
-.foot-copy{font-size:9px;color:#221408;letter-spacing:2px;text-transform:uppercase;}
+.foot-h{font-size:8px;letter-spacing:5px;color:#5a2020;text-transform:uppercase;margin-bottom:1.5rem;}
+.foot-l{list-style:none;}
+.foot-l li{margin-bottom:.2rem;}
+.foot-l li a{font-size:11px;color:#3a2010;display:block;letter-spacing:.5px;transition:all .25s;text-decoration:none;padding:.3rem 0;}
+.foot-l li a:hover{color:var(--gold);padding-left:.5rem;}
+.foot-bot{padding:1.6rem 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.foot-copy{font-size:8.5px;color:#1e1208;letter-spacing:2px;text-transform:uppercase;}
+.foot-copy a{color:#2e1a0a;text-decoration:none;transition:color .2s;}
+.foot-copy a:hover{color:var(--gold2);}
 
-/* TOAST */
-.toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(10px);background:var(--dark2);color:#f0e8dc;padding:.72rem 2rem;font-size:9px;letter-spacing:3px;text-transform:uppercase;opacity:0;transition:all .35s ease;white-space:nowrap;pointer-events:none;z-index:500;border:0.5px solid #3a2818;}
+/* ── TOAST ── */
+.toast{position:fixed;bottom:2.5rem;left:50%;transform:translateX(-50%) translateY(12px);background:var(--dark);color:#f0e8dc;padding:.8rem 2.2rem;font-size:8.5px;letter-spacing:3px;text-transform:uppercase;opacity:0;transition:all .4s ease;white-space:nowrap;pointer-events:none;z-index:500;border:0.5px solid #3a2818;box-shadow:0 8px 32px rgba(10,8,6,.3);}
 .toast.on{opacity:1;transform:translateX(-50%) translateY(0);}
 
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .editorial-panels{grid-template-columns:1fr;}
+  .ep{min-height:380px;}
+  .stats{grid-template-columns:1fr 1fr;}
+  .ed-pair{grid-template-columns:1fr;}
+  .philosophy{grid-template-columns:1fr;}
+  .foot-top{grid-template-columns:1fr 1fr;}
+}
 @media(max-width:700px){
-.stats{grid-template-columns:1fr 1fr;}
-.foot-m{grid-template-columns:1fr 1fr;}
-.ed-pair{grid-template-columns:1fr;}
-.h-btns{flex-direction:column;align-items:center;}
-.cart-drawer{width:100%;}
-.nr-svc .svc-lbl{display:none;}
+  .h-btns{flex-direction:column;align-items:center;}
+  .cart-drawer{width:100%;right:-100%;}
+  .nr-svc .svc-lbl{display:none;}
+  .foot-top{grid-template-columns:1fr;}
+  .cat-g{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:480px){
+  .cat-g{grid-template-columns:1fr;}
+  .stats{grid-template-columns:1fr 1fr;}
 }
 </style>
 </head>
 <body>
 
+<!-- Announcement -->
 <div class="ann">
   <div class="ann-inner">
     <span>Complimentary shipping on orders over €75</span><span class="ann-dot">✦</span>
@@ -234,27 +322,28 @@ button,input{font-family:'Raleway',sans-serif;cursor:pointer;}
   </div>
 </div>
 
+<!-- Navigation -->
 <nav class="nav">
   <div class="nav-left">
     <button class="hbtn" onclick="toggleSide()" aria-label="Menu">
-      <svg width="20" height="14" viewBox="0 0 20 14" fill="none"><rect y="0" width="20" height="2" fill="currentColor"/><rect y="6" width="20" height="2" fill="currentColor"/><rect y="12" width="20" height="2" fill="currentColor"/></svg>
+      <svg width="20" height="14" viewBox="0 0 20 14" fill="none"><rect y="0" width="20" height="1.5" fill="currentColor"/><rect y="6" width="14" height="1.5" fill="currentColor"/><rect y="12" width="20" height="1.5" fill="currentColor"/></svg>
     </button>
   </div>
   <a href="index.html" class="nav-logo">VEY<em>N</em>É</a>
   <div class="nav-right">
     <a href="contact.html" class="nr-svc">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1a6 6 0 0 0-6 6v1.5A1.5 1.5 0 0 0 3.5 10H5V7a3 3 0 1 1 6 0v3h1.5A1.5 1.5 0 0 0 14 8.5V7A6 6 0 0 0 8 1Z" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
+      <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M8 1a6 6 0 0 0-6 6v1.5A1.5 1.5 0 0 0 3.5 10H5V7a3 3 0 1 1 6 0v3h1.5A1.5 1.5 0 0 0 14 8.5V7A6 6 0 0 0 8 1Z" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
       <span class="svc-lbl">Client Services</span>
     </a>
     <a href="wishlist.html" class="nicon" aria-label="Wishlist">
-      <svg width="20" height="18" viewBox="0 0 20 18" fill="none"><path d="M10 16S2 11 2 5.5A4.5 4.5 0 0 1 10 3.8 4.5 4.5 0 0 1 18 5.5C18 11 10 16 10 16Z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+      <svg width="20" height="18" viewBox="0 0 20 18" fill="none"><path d="M10 16S2 11 2 5.5A4.5 4.5 0 0 1 10 3.8 4.5 4.5 0 0 1 18 5.5C18 11 10 16 10 16Z" stroke="currentColor" stroke-width="1.3" fill="none"/></svg>
     </a>
     <button class="nicon" onclick="toggleCart()" aria-label="Cart">
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 2h2l2.4 9.6A2 2 0 0 0 8.3 13h7.4a2 2 0 0 0 1.9-1.4L19 6H5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8.5" cy="16.5" r="1.5" fill="currentColor"/><circle cx="15.5" cy="16.5" r="1.5" fill="currentColor"/></svg>
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 2h2l2.4 9.6A2 2 0 0 0 8.3 13h7.4a2 2 0 0 0 1.9-1.4L19 6H5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><circle cx="8.5" cy="16.5" r="1.4" fill="currentColor"/><circle cx="15.5" cy="16.5" r="1.4" fill="currentColor"/></svg>
       <span class="nbadge" id="cb">0</span>
     </button>
     <a href="account.html" class="nicon" aria-label="Account">
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="4" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M2 18c0-4 3.6-6 8-6s8 2 8 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="3.8" stroke="currentColor" stroke-width="1.3" fill="none"/><path d="M2 18c0-4 3.6-6 8-6s8 2 8 6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" fill="none"/></svg>
     </a>
   </div>
 </nav>
@@ -270,13 +359,10 @@ button,input{font-family:'Raleway',sans-serif;cursor:pointer;}
   <a href="about.html" class="ncat">About</a>
 </div>
 
-<!-- SIDE MENU -->
+<!-- Side Menu -->
 <div class="side-ov" id="side-ov">
   <div class="side-panel">
-    <div class="side-hd">
-      <span class="side-logo">VEYNÉ</span>
-      <button class="side-x" onclick="toggleSide()">✕</button>
-    </div>
+    <div class="side-hd"><span class="side-logo">VEYNÉ</span><button class="side-x" onclick="toggleSide()">✕</button></div>
     <p class="side-sec">Collections</p>
     <a href="men.html" class="slink">Men <span>›</span></a>
     <a href="women.html" class="slink">Women <span>›</span></a>
@@ -296,7 +382,7 @@ button,input{font-family:'Raleway',sans-serif;cursor:pointer;}
   <div style="flex:1;cursor:pointer;" onclick="toggleSide()"></div>
 </div>
 
-<!-- CART DRAWER -->
+<!-- Cart -->
 <div class="cart-ov" id="cart-ov" onclick="toggleCart()"></div>
 <div class="cart-drawer" id="cart-drawer">
   <div class="cart-dh">
@@ -314,95 +400,309 @@ button,input{font-family:'Raleway',sans-serif;cursor:pointer;}
 <!-- HERO -->
 <section class="hero">
   <canvas id="hc"></canvas>
+  <div class="hero-ornament">
+    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+      <circle cx="200" cy="150" r="300" fill="none" stroke="#b8905a" stroke-width="0.5"/>
+      <circle cx="1240" cy="750" r="400" fill="none" stroke="#b8905a" stroke-width="0.5"/>
+      <circle cx="720" cy="450" r="600" fill="none" stroke="#b8905a" stroke-width="0.3"/>
+      <line x1="0" y1="450" x2="1440" y2="450" stroke="#b8905a" stroke-width="0.3"/>
+    </svg>
+  </div>
   <div class="hero-c">
-    <p class="h-eye">Cealis Veyne — Official Boutique</p>
-    <h1 class="h-t">VEYNÉ</h1>
-    <p class="h-s">The Sovereign Collection · Order // 001</p>
+    <p class="h-eyebrow">Cealis Veyne — Official Boutique</p>
+    <h1 class="h-title">VEYNÉ<em>Order // 001</em></h1>
     <div class="h-rule"></div>
-    <p class="h-q">"I don't seek power.<br/>I claim what is mine."</p>
+    <p class="h-quote">"I don't seek power.<br/>I claim what is mine."</p>
     <div class="h-btns">
       <a href="men.html" class="btn btn-p">Discover the Collection</a>
       <a href="lore.html" class="btn btn-g">Enter the Lore</a>
     </div>
   </div>
+  <div class="h-scroll">
+    <div class="h-scroll-line"></div>
+    <span class="h-scroll-txt">Scroll</span>
+  </div>
 </section>
 
+<!-- Ticker -->
 <div class="ticker">
   <div class="tick-inner">
-    <span>Men</span><span class="tdot">✦</span><span>Women</span><span class="tdot">✦</span><span>Young Sovereign</span><span class="tdot">✦</span><span>Accessories</span><span class="tdot">✦</span><span>Collectibles</span><span class="tdot">✦</span><span>The Warden Watches</span><span class="tdot">✦</span><span>Loyalty is not given. It is proven.</span><span class="tdot">✦</span><span>Order // 001</span><span class="tdot">✦</span>
-    <span>Men</span><span class="tdot">✦</span><span>Women</span><span class="tdot">✦</span><span>Young Sovereign</span><span class="tdot">✦</span><span>Accessories</span><span class="tdot">✦</span><span>Collectibles</span><span class="tdot">✦</span><span>The Warden Watches</span><span class="tdot">✦</span><span>Loyalty is not given. It is proven.</span><span class="tdot">✦</span><span>Order // 001</span><span class="tdot">✦</span>
+    <span>Men</span><span class="tdot">✦</span><span>Women</span><span class="tdot">✦</span><span>Young Sovereign</span><span class="tdot">✦</span><span>Accessories</span><span class="tdot">✦</span><span>Collectibles</span><span class="tdot">✦</span><span>The Warden Watches</span><span class="tdot">✦</span><span>Loyalty is not given — It is proven</span><span class="tdot">✦</span><span>Order // 001</span><span class="tdot">✦</span>
+    <span>Men</span><span class="tdot">✦</span><span>Women</span><span class="tdot">✦</span><span>Young Sovereign</span><span class="tdot">✦</span><span>Accessories</span><span class="tdot">✦</span><span>Collectibles</span><span class="tdot">✦</span><span>The Warden Watches</span><span class="tdot">✦</span><span>Loyalty is not given — It is proven</span><span class="tdot">✦</span><span>Order // 001</span><span class="tdot">✦</span>
   </div>
 </div>
 
+<!-- Editorial Collection Panels -->
+<div class="editorial-panels">
+  <a href="men.html" class="ep reveal">
+    <div class="ep-bg" style="background:var(--dark2);"></div>
+    <svg class="ep-svg" viewBox="0 0 500 700" preserveAspectRatio="xMidYMid slice">
+      <rect x="120" y="60" width="260" height="380" rx="2" fill="#1e1610" stroke="#2a1e10" stroke-width="1"/>
+      <path d="M120 140 L60 168 L60 340 L120 320" fill="#181208" stroke="#221810" stroke-width="1"/>
+      <path d="M380 140 L440 168 L440 340 L380 320" fill="#181208" stroke="#221810" stroke-width="1"/>
+      <path d="M145 90 L355 90" stroke="#7c2c2c" stroke-width="1.5"/>
+      <path d="M160 110 L340 110" stroke="#3a2010" stroke-width="0.5"/>
+      <rect x="190" y="440" width="60" height="200" rx="1" fill="#181208" stroke="#221810" stroke-width="0.5"/>
+      <rect x="250" y="440" width="60" height="200" rx="1" fill="#181208" stroke="#221810" stroke-width="0.5"/>
+      <circle cx="250" cy="80" r="40" fill="#0e0c08" stroke="#2a1e10" stroke-width="0.5"/>
+      <path d="M200 300 Q250 280 300 300" stroke="#b8905a" stroke-width="0.8" fill="none"/>
+    </svg>
+    <div class="ep-ov"></div>
+    <div class="ep-c">
+      <span class="ep-eye">New Season</span>
+      <p class="ep-title">The Sovereign<br/>Man</p>
+      <span class="ep-cta">Explore Men ›</span>
+    </div>
+    <span class="ep-num">I</span>
+  </a>
+  <a href="women.html" class="ep reveal" style="transition-delay:.1s;">
+    <div class="ep-bg" style="background:#1a1610;"></div>
+    <svg class="ep-svg" viewBox="0 0 500 700" preserveAspectRatio="xMidYMid slice">
+      <path d="M160 40 Q250 10 340 40 L370 280 Q250 250 130 280 Z" fill="#c8bca8" stroke="#b8ac98" stroke-width="1"/>
+      <path d="M130 280 Q70 320 90 580 L180 580 L180 300" fill="#c8bca8" stroke="#b8ac98" stroke-width="1"/>
+      <path d="M370 280 Q430 320 410 580 L320 580 L320 300" fill="#c8bca8" stroke="#b8ac98" stroke-width="1"/>
+      <path d="M180 580 Q190 650 200 680 L300 680 Q310 650 320 580" fill="#c8bca8" stroke="#b8ac98" stroke-width="1"/>
+      <path d="M178 80 Q250 55 322 80" stroke="#7c2c2c" stroke-width="1.5" fill="none"/>
+      <path d="M165 140 Q250 115 335 140" stroke="#2a1e10" stroke-width="0.5" fill="none"/>
+    </svg>
+    <div class="ep-ov"></div>
+    <div class="ep-c">
+      <span class="ep-eye">Exclusive Drop</span>
+      <p class="ep-title">The Sovereign<br/>Woman</p>
+      <span class="ep-cta">Explore Women ›</span>
+    </div>
+    <span class="ep-num">II</span>
+  </a>
+  <a href="collectibles.html" class="ep reveal" style="transition-delay:.2s;">
+    <div class="ep-bg" style="background:#16120e;"></div>
+    <svg class="ep-svg" viewBox="0 0 500 700" preserveAspectRatio="xMidYMid slice">
+      <ellipse cx="250" cy="400" rx="150" ry="200" fill="#2a1e14" stroke="#3a2820" stroke-width="1"/>
+      <ellipse cx="250" cy="220" rx="95" ry="120" fill="#221810" stroke="#2a2010" stroke-width="1"/>
+      <ellipse cx="210" cy="195" rx="24" ry="24" fill="#f0e8dc" opacity="0.9"/>
+      <ellipse cx="290" cy="195" rx="24" ry="24" fill="#f0e8dc" opacity="0.9"/>
+      <ellipse cx="213" cy="193" rx="10" ry="12" fill="#1a1208"/>
+      <ellipse cx="293" cy="193" rx="10" ry="12" fill="#1a1208"/>
+      <ellipse cx="250" cy="400" rx="55" ry="55" fill="#7c2c2c" opacity="0.45"/>
+      <path d="M200 320 Q250 305 300 320" stroke="#b8905a" stroke-width="1" fill="none"/>
+      <path d="M195 100 Q250 60 305 100" stroke="#b8905a" stroke-width="0.8" fill="none"/>
+    </svg>
+    <div class="ep-ov"></div>
+    <div class="ep-c">
+      <span class="ep-eye">Limited Objects</span>
+      <p class="ep-title">Realm<br/>Collectibles</p>
+      <span class="ep-cta">Explore Collectibles ›</span>
+    </div>
+    <span class="ep-num">III</span>
+  </a>
+</div>
+
+<!-- New Arrivals Featured Strip -->
+<div class="featured-strip">
+  <div class="featured-strip-hd">
+    <div>
+      <span class="eyebrow" style="text-align:left;display:block;">New This Season</span>
+      <h2 class="featured-strip-title">New Arrivals</h2>
+    </div>
+    <a href="men.html" class="btn btn-o">View All</a>
+  </div>
+  <div class="featured-scroll" id="featured-scroll"></div>
+</div>
+
+<!-- Shop by Category -->
 <section class="sec">
-  <div class="sec-hd"><span class="eye">Explore</span><h2 class="stitle">Shop by Category</h2><div class="srule"></div></div>
+  <div class="sec-hd reveal">
+    <span class="eyebrow">Explore</span>
+    <h2 class="sec-title">Shop by Category</h2>
+    <div class="sec-rule"></div>
+  </div>
   <div class="cat-g">
-    <a href="men.html" class="cc">
-      <div class="cc-img" style="background:#1e1610;"><svg width="72" height="112" viewBox="0 0 72 112" fill="none"><rect x="14" y="10" width="44" height="56" rx="1" fill="#2a1e14" stroke="#3a2820" stroke-width="0.5"/><path d="M14 28 L4 34 L4 58 L14 55" fill="#221810" stroke="#2a2010" stroke-width="0.5"/><path d="M58 28 L68 34 L68 58 L58 55" fill="#221810" stroke="#2a2010" stroke-width="0.5"/><rect x="18" y="66" width="13" height="38" fill="#221810" stroke="#2a2010" stroke-width="0.5"/><rect x="41" y="66" width="13" height="38" fill="#221810" stroke="#2a2010" stroke-width="0.5"/><path d="M20 20 L52 20" stroke="#7c2c2c" stroke-width="0.6"/></svg>
-      <div class="cc-ov"><span>Shop Men</span><span style="color:var(--gold);font-size:16px;">›</span></div></div>
+    <a href="men.html" class="cc reveal">
+      <div class="cc-img">
+        <div class="cc-img-bg" style="background:#1e1610;"></div>
+        <svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice">
+          <rect x="60" y="40" width="180" height="240" rx="2" fill="#2a1e14" stroke="#3a2820" stroke-width="0.5"/>
+          <path d="M60 100 L20 118 L20 210 L60 196" fill="#221810" stroke="#2a2010" stroke-width="0.5"/>
+          <path d="M240 100 L280 118 L280 210 L240 196" fill="#221810" stroke="#2a2010" stroke-width="0.5"/>
+          <rect x="80" y="280" width="52" height="110" rx="1" fill="#221810" stroke="#2a2010" stroke-width="0.5"/>
+          <rect x="168" y="280" width="52" height="110" rx="1" fill="#221810" stroke="#2a2010" stroke-width="0.5"/>
+          <path d="M80 68 L220 68" stroke="#7c2c2c" stroke-width="1.5"/>
+          <path d="M86 85 L214 85" stroke="#2a1e10" stroke-width="0.5"/>
+          <path d="M100 160 Q150 144 200 160" stroke="#b8905a" stroke-width="0.8" fill="none"/>
+        </svg>
+        <div class="cc-ov"><span class="cc-ov-t">Shop Men</span></div>
+      </div>
       <div class="cc-bd"><p class="cc-tag">Men</p><p class="cc-name">The Sovereign Man</p><p class="cc-price">From € 29.99</p></div>
     </a>
-    <a href="women.html" class="cc">
-      <div class="cc-img" style="background:#1a1610;"><svg width="64" height="112" viewBox="0 0 64 112" fill="none"><path d="M18 8 Q32 4 46 8 L50 48 Q32 44 14 48 Z" fill="#c8bca8" stroke="#b8ac98" stroke-width="0.5"/><path d="M14 48 Q6 54 8 90 L20 90 L20 52" fill="#c8bca8" stroke="#b8ac98" stroke-width="0.5"/><path d="M50 48 Q58 54 56 90 L44 90 L44 52" fill="#c8bca8" stroke="#b8ac98" stroke-width="0.5"/><path d="M20 90 Q22 108 24 112 L40 112 Q42 108 44 90" fill="#c8bca8" stroke="#b8ac98" stroke-width="0.5"/><path d="M22 18 Q32 15 42 18" stroke="#7c2c2c" stroke-width="0.6" fill="none"/></svg>
-      <div class="cc-ov"><span>Shop Women</span><span style="color:var(--gold);font-size:16px;">›</span></div></div>
+    <a href="women.html" class="cc reveal" style="transition-delay:.05s;">
+      <div class="cc-img">
+        <div class="cc-img-bg" style="background:#1a1610;"></div>
+        <svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice">
+          <path d="M90 30 Q150 8 210 30 L230 190 Q150 170 70 190 Z" fill="#c8bca8" stroke="#b8ac98" stroke-width="0.5"/>
+          <path d="M70 190 Q34 212 40 360 L94 360 L94 200" fill="#c8bca8" stroke="#b8ac98" stroke-width="0.5"/>
+          <path d="M230 190 Q266 212 260 360 L206 360 L206 200" fill="#c8bca8" stroke="#b8ac98" stroke-width="0.5"/>
+          <path d="M94 360 Q102 390 108 400 L192 400 Q198 390 206 360" fill="#c8bca8" stroke="#b8ac98" stroke-width="0.5"/>
+          <path d="M96 58 Q150 38 204 58" stroke="#7c2c2c" stroke-width="1.5" fill="none"/>
+          <path d="M84 90 Q150 70 216 90" stroke="#2a1e10" stroke-width="0.5" fill="none"/>
+        </svg>
+        <div class="cc-ov"><span class="cc-ov-t">Shop Women</span></div>
+      </div>
       <div class="cc-bd"><p class="cc-tag">Women</p><p class="cc-name">The Sovereign Woman</p><p class="cc-price">From € 34.99</p></div>
     </a>
-    <a href="kids.html" class="cc">
-      <div class="cc-img" style="background:#1c1810;"><svg width="60" height="94" viewBox="0 0 60 94" fill="none"><rect x="14" y="12" width="32" height="34" rx="1" fill="#2a1e14" stroke="#3a2820" stroke-width="0.5"/><path d="M14 22 L5 27 L5 42 L14 40" fill="#221810" stroke="#2a2010" stroke-width="0.5"/><path d="M46 22 L55 27 L55 42 L46 40" fill="#221810" stroke="#2a2010" stroke-width="0.5"/><rect x="17" y="46" width="10" height="32" fill="#221810" stroke="#2a2010" stroke-width="0.5"/><rect x="33" y="46" width="10" height="32" fill="#221810" stroke="#2a2010" stroke-width="0.5"/><path d="M18 18 L42 18" stroke="#b8905a" stroke-width="0.5"/><circle cx="30" cy="8" r="5" fill="#2a1e14" stroke="#3a2820" stroke-width="0.5"/></svg>
-      <div class="cc-ov"><span>Young Sovereign</span><span style="color:var(--gold);font-size:16px;">›</span></div></div>
+    <a href="kids.html" class="cc reveal" style="transition-delay:.1s;">
+      <div class="cc-img">
+        <div class="cc-img-bg" style="background:#1c1810;"></div>
+        <svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice">
+          <circle cx="150" cy="52" r="36" fill="#2a1e14" stroke="#3a2820" stroke-width="0.5"/>
+          <rect x="74" y="88" width="152" height="170" rx="2" fill="#2a1e14" stroke="#3a2820" stroke-width="0.5"/>
+          <path d="M74 126 L34 142 L34 216 L74 204" fill="#221810" stroke="#2a2010" stroke-width="0.5"/>
+          <path d="M226 126 L266 142 L266 216 L226 204" fill="#221810" stroke="#2a2010" stroke-width="0.5"/>
+          <rect x="88" y="258" width="48" height="120" rx="1" fill="#221810" stroke="#2a2010" stroke-width="0.5"/>
+          <rect x="164" y="258" width="48" height="120" rx="1" fill="#221810" stroke="#2a2010" stroke-width="0.5"/>
+          <path d="M92 112 L208 112" stroke="#b8905a" stroke-width="1.2"/>
+        </svg>
+        <div class="cc-ov"><span class="cc-ov-t">Young Sovereign</span></div>
+      </div>
       <div class="cc-bd"><p class="cc-tag">Young Sovereign</p><p class="cc-name">Little Warriors</p><p class="cc-price">From € 19.99</p></div>
     </a>
-    <a href="accessories.html" class="cc">
-      <div class="cc-img" style="background:#181410;"><svg width="74" height="74" viewBox="0 0 74 74" fill="none"><circle cx="37" cy="37" r="22" fill="#2a1e14" stroke="#3a2820" stroke-width="0.5"/><circle cx="37" cy="37" r="14" fill="#221810" stroke="#2a2010" stroke-width="0.5"/><circle cx="37" cy="37" r="5" fill="#7c2c2c" opacity="0.55"/><path d="M23 23 L13 13" stroke="#3a2820" stroke-width="0.5"/><path d="M51 23 L61 13" stroke="#3a2820" stroke-width="0.5"/></svg>
-      <div class="cc-ov"><span>Shop Accessories</span><span style="color:var(--gold);font-size:16px;">›</span></div></div>
+    <a href="accessories.html" class="cc reveal" style="transition-delay:.15s;">
+      <div class="cc-img">
+        <div class="cc-img-bg" style="background:#181410;"></div>
+        <svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice">
+          <circle cx="150" cy="180" r="100" fill="#2a1e14" stroke="#3a2820" stroke-width="0.5"/>
+          <circle cx="150" cy="180" r="65" fill="#221810" stroke="#2a2010" stroke-width="0.5"/>
+          <circle cx="150" cy="180" r="28" fill="#7c2c2c" opacity="0.5"/>
+          <path d="M72 108 L42 78" stroke="#2a1e14" stroke-width="1.5"/>
+          <path d="M228 108 L258 78" stroke="#2a1e14" stroke-width="1.5"/>
+          <path d="M150 80 L150 40" stroke="#b8905a" stroke-width="1.2"/>
+          <ellipse cx="150" cy="36" rx="12" ry="8" fill="#b8905a" opacity="0.6"/>
+          <path d="M95 200 Q150 182 205 200" stroke="#b8905a" stroke-width="0.8" fill="none"/>
+        </svg>
+        <div class="cc-ov"><span class="cc-ov-t">Shop Accessories</span></div>
+      </div>
       <div class="cc-bd"><p class="cc-tag">Accessories</p><p class="cc-name">The Arsenal</p><p class="cc-price">From € 12.99</p></div>
     </a>
-    <a href="collectibles.html" class="cc">
-      <div class="cc-img" style="background:#16120e;"><svg width="68" height="90" viewBox="0 0 68 90" fill="none"><ellipse cx="34" cy="54" rx="22" ry="28" fill="#2a1e14" stroke="#3a2820" stroke-width="0.5"/><ellipse cx="34" cy="35" rx="14" ry="17" fill="#221810" stroke="#2a2010" stroke-width="0.5"/><ellipse cx="27" cy="30" rx="3.5" ry="3.5" fill="#f0e8dc" opacity="0.85"/><ellipse cx="41" cy="30" rx="3.5" ry="3.5" fill="#f0e8dc" opacity="0.85"/><ellipse cx="34" cy="55" rx="7" ry="7" fill="#7c2c2c" opacity="0.5"/></svg>
-      <div class="cc-ov"><span>Shop Collectibles</span><span style="color:var(--gold);font-size:16px;">›</span></div></div>
+    <a href="collectibles.html" class="cc reveal" style="transition-delay:.2s;">
+      <div class="cc-img">
+        <div class="cc-img-bg" style="background:#16120e;"></div>
+        <svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice">
+          <ellipse cx="150" cy="260" rx="110" ry="130" fill="#2a1e14" stroke="#3a2820" stroke-width="0.5"/>
+          <ellipse cx="150" cy="145" rx="70" ry="85" fill="#221810" stroke="#2a2010" stroke-width="0.5"/>
+          <ellipse cx="118" cy="125" rx="16" ry="18" fill="#f0e8dc" opacity="0.9"/>
+          <ellipse cx="182" cy="125" rx="16" ry="18" fill="#f0e8dc" opacity="0.9"/>
+          <ellipse cx="119" cy="124" rx="7" ry="9" fill="#1a1208"/>
+          <ellipse cx="183" cy="124" rx="7" ry="9" fill="#1a1208"/>
+          <ellipse cx="150" cy="262" rx="38" ry="38" fill="#7c2c2c" opacity="0.45"/>
+          <path d="M116 190 Q150 178 184 190" stroke="#b8905a" stroke-width="0.8" fill="none"/>
+        </svg>
+        <div class="cc-ov"><span class="cc-ov-t">Shop Collectibles</span></div>
+      </div>
       <div class="cc-bd"><p class="cc-tag">Collectibles</p><p class="cc-name">Realm Objects</p><p class="cc-price">From € 19.99</p></div>
     </a>
   </div>
 </section>
 
-<div class="ed-pair" style="margin:0 2rem;">
-  <a href="men.html" class="edp edp-dk">
-    <svg width="96" height="130" viewBox="0 0 96 130" fill="none"><rect x="20" y="8" width="56" height="76" rx="1" fill="#3a2820" stroke="#4a3830" stroke-width="0.5"/><path d="M20 33 L5 40 L5 74 L20 70" fill="#2a1e14" stroke="#3a2820" stroke-width="0.5"/><path d="M76 33 L91 40 L91 74 L76 70" fill="#2a1e14" stroke="#3a2820" stroke-width="0.5"/><path d="M30 22 L66 22" stroke="#7c2c2c" stroke-width="0.6"/></svg>
-    <p class="edp-tag">New Season</p><p class="edp-title">The Sovereign<br/>Man</p><span class="edp-cta">Explore Men ›</span>
+<!-- Editorial Pair -->
+<div class="ed-pair">
+  <a href="men.html" class="edp edp-dk reveal">
+    <div class="edp-bg" style="background:var(--dark2);"></div>
+    <svg class="edp-svg" viewBox="0 0 600 580" preserveAspectRatio="xMidYMid slice">
+      <rect x="140" y="40" width="320" height="440" rx="2" fill="#1e1610" stroke="#2a1e10" stroke-width="1"/>
+      <path d="M140 140 L60 170 L60 380 L140 350" fill="#181208" stroke="#221810" stroke-width="0.8"/>
+      <path d="M460 140 L540 170 L540 380 L460 350" fill="#181208" stroke="#221810" stroke-width="0.8"/>
+      <path d="M170 68 L430 68" stroke="#7c2c2c" stroke-width="2"/>
+      <path d="M180 90 L420 90" stroke="#2a1e10" stroke-width="0.5"/>
+      <path d="M200 250 Q300 224 400 250" stroke="#b8905a" stroke-width="1" fill="none"/>
+      <rect x="210" y="480" width="70" height="80" rx="1" fill="#181208" stroke="#221810" stroke-width="0.5"/>
+      <rect x="320" y="480" width="70" height="80" rx="1" fill="#181208" stroke="#221810" stroke-width="0.5"/>
+    </svg>
+    <div class="edp-ov-dk"></div>
+    <div class="edp-c">
+      <span class="edp-eye">New Season</span>
+      <p class="edp-title">The Sovereign<br/>Man — Spring 2025</p>
+      <span class="edp-cta">Explore Men ›</span>
+    </div>
   </a>
-  <a href="women.html" class="edp edp-lt">
-    <svg width="82" height="130" viewBox="0 0 82 130" fill="none"><path d="M22 8 Q41 3 60 8 L65 54 Q41 49 17 54 Z" fill="#c8bca4" stroke="#b8ac94" stroke-width="0.5"/><path d="M17 54 Q8 60 10 100 L24 100 L24 58" fill="#c8bca4" stroke="#b8ac94" stroke-width="0.5"/><path d="M65 54 Q74 60 72 100 L58 100 L58 58" fill="#c8bca4" stroke="#b8ac94" stroke-width="0.5"/><path d="M24 100 Q26 116 28 120 L54 120 Q56 116 58 100" fill="#c8bca4" stroke="#b8ac94" stroke-width="0.5"/></svg>
-    <p class="edp-tag">Exclusive Drop</p><p class="edp-title">The Sovereign<br/>Woman</p><span class="edp-cta">Explore Women ›</span>
+  <a href="women.html" class="edp edp-lt reveal" style="transition-delay:.1s;">
+    <div class="edp-bg" style="background:var(--bg2);"></div>
+    <svg class="edp-svg" viewBox="0 0 600 580" preserveAspectRatio="xMidYMid slice">
+      <path d="M160 30 Q300 -5 440 30 L478 270 Q300 240 122 270 Z" fill="#c8bca4" stroke="#b8ac94" stroke-width="0.8"/>
+      <path d="M122 270 Q52 308 68 520 L168 520 L168 288" fill="#c8bca4" stroke="#b8ac94" stroke-width="0.8"/>
+      <path d="M478 270 Q548 308 532 520 L432 520 L432 288" fill="#c8bca4" stroke="#b8ac94" stroke-width="0.8"/>
+      <path d="M168 520 Q182 568 192 580 L408 580 Q418 568 432 520" fill="#c8bca4" stroke="#b8ac94" stroke-width="0.8"/>
+      <path d="M192 70 Q300 44 408 70" stroke="#7c2c2c" stroke-width="2" fill="none"/>
+      <path d="M164 116 Q300 90 436 116" stroke="#2a1e10" stroke-width="0.5" fill="none"/>
+    </svg>
+    <div class="edp-ov-lt"></div>
+    <div class="edp-c">
+      <span class="edp-eye">Exclusive Drop</span>
+      <p class="edp-title">The Sovereign<br/>Woman — Spring 2025</p>
+      <span class="edp-cta">Explore Women ›</span>
+    </div>
   </a>
 </div>
 
-<div class="lore-b" style="margin-top:2rem;">
-  <span class="eye" style="color:#6a2828;">The Lore</span>
-  <p class="lore-q">Born from the depths of the northern seas,<br/>the razorbill was chosen by the Sovereign<br/>as a symbol of <em>unwavering loyalty</em>.</p>
-  <p class="lore-sig">— Cealis Veyne</p>
-  <a href="lore.html" class="btn btn-g" style="margin-top:2.5rem;">Read the Full Lore</a>
+<!-- Lore -->
+<div class="lore-b">
+  <div class="lore-lines">
+    <svg width="100%" height="100%" viewBox="0 0 1440 500"><circle cx="720" cy="250" r="400" fill="none" stroke="#b8905a" stroke-width="0.5"/><circle cx="720" cy="250" r="280" fill="none" stroke="#b8905a" stroke-width="0.5"/></svg>
+  </div>
+  <span class="lore-eye reveal">The Lore</span>
+  <p class="lore-q reveal" style="transition-delay:.1s;">Born from the depths of the northern seas,<br/>the razorbill was chosen by the Sovereign<br/>as a symbol of <em>unwavering loyalty</em>.</p>
+  <div class="lore-rule reveal" style="width:52px;height:0.5px;background:var(--gold2);margin:2.5rem auto;"></div>
+  <p class="lore-sig reveal" style="transition-delay:.2s;">— Cealis Veyne</p>
+  <a href="lore.html" class="btn btn-g reveal" style="margin-top:3rem;transition-delay:.3s;">Read the Full Lore</a>
 </div>
 
+<!-- Stats -->
 <div class="stats">
-  <div class="stat"><div class="stat-n">001</div><div class="stat-l">First Edition</div></div>
-  <div class="stat"><div class="stat-n">VI</div><div class="stat-l">Collections</div></div>
-  <div class="stat"><div class="stat-n">∞</div><div class="stat-l">The Realm</div></div>
-  <div class="stat"><div class="stat-n">I</div><div class="stat-l">Sovereign</div></div>
+  <div class="stat reveal"><div class="stat-n">001</div><div class="stat-rule"></div><div class="stat-l">First Edition</div></div>
+  <div class="stat reveal" style="transition-delay:.1s;"><div class="stat-n">VI</div><div class="stat-rule"></div><div class="stat-l">Collections</div></div>
+  <div class="stat reveal" style="transition-delay:.2s;"><div class="stat-n">∞</div><div class="stat-rule"></div><div class="stat-l">The Realm</div></div>
+  <div class="stat reveal" style="transition-delay:.3s;"><div class="stat-n">I</div><div class="stat-rule"></div><div class="stat-l">Sovereign</div></div>
 </div>
 
+<!-- Philosophy -->
+<section class="sec" style="padding-top:0;padding-bottom:0;">
+  <div class="philosophy">
+    <div class="ph-card reveal">
+      <div class="ph-n">I</div>
+      <h3 class="ph-title">Elegance Without Apology</h3>
+      <p class="ph-p">Every piece is designed to feel luxurious without needing to announce it. The Sovereign does not seek validation — the quality speaks when the wearer enters.</p>
+    </div>
+    <div class="ph-card reveal" style="transition-delay:.1s;background:var(--bg2);">
+      <div class="ph-n">II</div>
+      <h3 class="ph-title">Mystery as Identity</h3>
+      <p class="ph-p">The most powerful presence is often the quietest. Veyné designs for those who understand that depth is more compelling than volume.</p>
+    </div>
+    <div class="ph-card reveal" style="transition-delay:.2s;">
+      <div class="ph-n">III</div>
+      <h3 class="ph-title">Loyalty to the Craft</h3>
+      <p class="ph-p">The Razorbill chose its sovereign freely and held that choice absolutely. Every Veyné piece carries that same unflinching commitment to craft and character.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter -->
 <div class="nl-b">
-  <span class="eye">The Order</span>
-  <h2 class="nl-t">Join the Realm</h2>
-  <p class="nl-s">First access to new drops, lore reveals, and exclusive sovereign pieces.</p>
-  <div class="nl-f"><input class="nl-in" type="email" id="nlEmail" placeholder="Transmission address"/><button class="nl-go" onclick="doNL()">Enter</button></div>
+  <div class="nl-deco">
+    <svg width="100%" height="100%"><circle cx="50%" cy="50%" r="300" fill="none" stroke="#b8905a" stroke-width="1"/></svg>
+  </div>
+  <span class="nl-eye reveal">The Order</span>
+  <h2 class="nl-t reveal" style="transition-delay:.1s;">Join the Realm</h2>
+  <p class="nl-s reveal" style="transition-delay:.2s;">First access to new drops, lore reveals, and exclusive sovereign pieces.</p>
+  <div class="nl-f reveal" style="transition-delay:.3s;">
+    <input class="nl-in" type="email" id="nlEmail" placeholder="Transmission address"/>
+    <button class="nl-go" onclick="doNL()">Enter</button>
+  </div>
   <p class="nl-msg" id="nlMsg"></p>
 </div>
 
+<!-- Footer -->
 <footer class="footer">
-  <div class="foot-m">
+  <div class="foot-top">
     <div>
-      <p class="foot-brand">VEYNÉ</p>
-      <p class="foot-tag">The Shadow Sovereign.<br/>The Razorbill.<br/>The Hunt Continues.</p>
+      <p class="foot-brand-n">VEYNÉ</p>
+      <p class="foot-brand-t">The Shadow Sovereign.<br/>The Razorbill.<br/>The Hunt Continues.</p>
       <div class="foot-soc">
         <a href="#" class="fsoc">Twitch</a>
         <a href="#" class="fsoc">YouTube</a>
@@ -435,20 +735,20 @@ button,input{font-family:'Raleway',sans-serif;cursor:pointer;}
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="contact.html">Shipping</a></li>
         <li><a href="contact.html">Returns</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="faq.html">Privacy</a></li>
+        <li><a href="contact.html">Privacy</a></li>
       </ul>
     </div>
   </div>
   <div class="foot-bot">
-    <p class="foot-copy">© Veyné — Cealis Veyne — The Razorbill · Order // 001</p>
-    <p class="foot-copy">The Shadow Walks. The Warden Watches.</p>
+    <p class="foot-copy">© <span id="year"></span> Veyné — Cealis Veyne — The Razorbill · Order // 001</p>
+    <p class="foot-copy"><a href="#top">Back to top ↑</a></p>
   </div>
 </footer>
 
 <div class="toast" id="toast"></div>
 
 <script>
+/* ── CART ── */
 var cart=JSON.parse(localStorage.getItem('veyne-cart')||'[]');
 function saveCart(){localStorage.setItem('veyne-cart',JSON.stringify(cart));}
 function updateCartBadge(){var cnt=cart.reduce(function(a,x){return a+x.qty;},0);var cb=document.getElementById('cb');if(cb){cb.textContent=cnt;cnt>0?cb.style.display='flex':cb.style.display='none';}}
@@ -456,12 +756,51 @@ function toggleCart(){var c=document.getElementById('cart-drawer'),o=document.ge
 function renderCart(){var bd=document.getElementById('cart-bd'),ft=document.getElementById('cart-ft');if(!bd)return;if(!cart.length){bd.innerHTML='<p class="cart-empty">Your order is empty.<br/>Begin your collection.</p>';if(ft)ft.style.display='none';return;}bd.innerHTML=cart.map(function(item,i){return '<div class="cart-line"><div class="cart-li"><div class="cart-ln">'+item.name+'</div><div class="cart-lm">'+item.tag+'</div><div class="cart-qty-row"><button class="cqb" onclick="chQty('+i+',-1)">−</button><span class="cart-qty-n">'+item.qty+'</span><button class="cqb" onclick="chQty('+i+',1)">+</button></div></div><div class="cart-lr"><button class="cart-lx" onclick="rmCart('+i+')">✕</button><span class="cart-lp">€ '+(parseFloat(item.price)*item.qty).toFixed(2)+'</span></div></div>';}).join('');var total=cart.reduce(function(a,x){return a+parseFloat(x.price)*x.qty;},0);var tv=document.getElementById('cart-total');if(tv)tv.textContent='€ '+total.toFixed(2);if(ft)ft.style.display='block';}
 function chQty(i,d){if(cart[i]){cart[i].qty+=d;if(cart[i].qty<1)cart.splice(i,1);}saveCart();updateCartBadge();renderCart();}
 function rmCart(i){cart.splice(i,1);saveCart();updateCartBadge();renderCart();}
+
+/* ── SIDE MENU ── */
 function toggleSide(){document.getElementById('side-ov').classList.toggle('open');}
+
+/* ── TOAST ── */
 function showT(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('on');setTimeout(function(){t.classList.remove('on');},2600);}
+
+/* ── NEWSLETTER ── */
 function doNL(){var e=document.getElementById('nlEmail'),m=document.getElementById('nlMsg');if(!e.value.trim().includes('@')){m.style.color='var(--accent)';m.textContent='Please enter a valid address.';return;}m.style.color='var(--text4)';m.textContent='Welcome to the realm, operative.';e.value='';}
-function initCanvas(){var c=document.getElementById('hc');if(!c)return;var ctx=c.getContext('2d');function resize(){c.width=c.offsetWidth;c.height=c.offsetHeight;}resize();window.addEventListener('resize',resize);var pts=[];for(var i=0;i<42;i++)pts.push({x:Math.random()*c.width,y:Math.random()*c.height,vx:(Math.random()-.5)*.2,vy:(Math.random()-.5)*.2,r:Math.random()*1.2+.4,o:Math.random()*.2+.06});function draw(){ctx.clearRect(0,0,c.width,c.height);pts.forEach(function(p){p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=c.width;if(p.x>c.width)p.x=0;if(p.y<0)p.y=c.height;if(p.y>c.height)p.y=0;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(184,144,90,'+p.o+')';ctx.fill();});requestAnimationFrame(draw);}draw();}
-updateCartBadge();
-initCanvas();
+
+/* ── CANVAS ── */
+function initCanvas(){var c=document.getElementById('hc');if(!c)return;var ctx=c.getContext('2d');function resize(){c.width=c.offsetWidth;c.height=c.offsetHeight;}resize();window.addEventListener('resize',resize);var pts=[];for(var i=0;i<60;i++)pts.push({x:Math.random()*c.width,y:Math.random()*c.height,vx:(Math.random()-.5)*.18,vy:(Math.random()-.5)*.18,r:Math.random()*1.4+.3,o:Math.random()*.18+.04});function draw(){ctx.clearRect(0,0,c.width,c.height);pts.forEach(function(p){p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=c.width;if(p.x>c.width)p.x=0;if(p.y<0)p.y=c.height;if(p.y>c.height)p.y=0;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(184,144,90,'+p.o+')';ctx.fill();});requestAnimationFrame(draw);}draw();}
+
+/* ── FEATURED STRIP ── */
+var featuredProducts=[
+  {id:2,name:'Shadow Overcoat',tag:'Men — Outerwear',price:89.99,badge:'New',bg:'#1a1610',svgPath:'<rect x="40" y="20" width="220" height="300" rx="2" fill="#2a1e14" stroke="#3a2820" stroke-width="0.8"/><path d="M40 80 L4 96 L4 240 L40 228" fill="#221810" stroke="#2a2010" stroke-width="0.5"/><path d="M260 80 L296 96 L296 240 L260 228" fill="#221810" stroke="#2a2010" stroke-width="0.5"/><path d="M60 44 L240 44" stroke="#7c2c2c" stroke-width="1.5"/>'},
+  {id:7,name:'Shadow Cape Jacket',tag:'Men — Outerwear',price:124.99,badge:'New',bg:'#1a1410',svgPath:'<path d="M80 24 Q150 8 220 24 L240 56 L150 64 L60 56 Z" fill="#2a1e14" stroke="#3a2820" stroke-width="0.8"/><path d="M60 56 Q20 72 24 240 L90 240 Q84 96 150 88 Q216 96 210 240 L276 240 Q280 72 240 56" fill="#2a1e14" stroke="#3a2820" stroke-width="0.6"/><path d="M96 72 Q150 58 204 72" stroke="#b8905a" stroke-width="0.8" fill="none"/>'},
+  {id:101,name:'Sovereign Gown',tag:'Women — Dresses',price:129.99,badge:'New',bg:'#1a1610',svgPath:'<path d="M90 20 Q150 4 210 20 L230 140 Q150 124 70 140 Z" fill="#c8bca8" stroke="#b8ac98" stroke-width="0.5"/><path d="M70 140 Q30 160 40 340 L100 340 L100 152" fill="#c8bca8" stroke="#b8ac98" stroke-width="0.5"/><path d="M230 140 Q270 160 260 340 L200 340 L200 152" fill="#c8bca8" stroke="#b8ac98" stroke-width="0.5"/>'},
+  {id:204,name:'Razorbill Plushie',tag:'Collectibles',price:24.99,badge:'New',bg:'#16120e',svgPath:'<ellipse cx="150" cy="190" rx="90" ry="110" fill="#2a1e14" stroke="#3a2820" stroke-width="0.5"/><ellipse cx="150" cy="90" rx="58" ry="70" fill="#221810" stroke="#2a2010" stroke-width="0.5"/><ellipse cx="120" cy="74" rx="14" ry="14" fill="#f0e8dc" opacity="0.9"/><ellipse cx="180" cy="74" rx="14" ry="14" fill="#f0e8dc" opacity="0.9"/><ellipse cx="150" cy="192" rx="30" ry="30" fill="#7c2c2c" opacity="0.45"/>'},
+  {id:304,name:'Sovereign Chain',tag:'Accessories — Jewellery',price:44.99,badge:'New',bg:'#1c1810',svgPath:'<circle cx="150" cy="160" r="70" fill="#2a1e14" stroke="#b8905a" stroke-width="1.5"/><circle cx="150" cy="160" r="42" fill="#221810" stroke="#2a2010" stroke-width="0.5"/><path d="M150 90 L150 60" stroke="#b8905a" stroke-width="2.5"/><path d="M130 62 L170 62" stroke="#b8905a" stroke-width="1.5"/>'}
+];
+function buildFeatured(){
+  var s=document.getElementById('featured-scroll');
+  if(!s)return;
+  s.innerHTML=featuredProducts.map(function(p){
+    return '<div class="fc"><div class="fc-img" style="background:'+p.bg+';">'+(p.badge?'<span class="fc-badge">'+p.badge+'</span>':'')+'<svg viewBox="0 0 300 400" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">'+p.svgPath+'</svg><div class="fc-ov"><a href="product.html?id='+p.id+'" class="fc-ov-btn">View Product</a></div></div><div class="fc-bd"><p class="fc-tag">'+p.tag+'</p><a href="product.html?id='+p.id+'" class="fc-name">'+p.name+'</a><p class="fc-price">€ '+p.price.toFixed(2)+'</p></div></div>';
+  }).join('');
+  /* drag to scroll */
+  var isDown=false,startX,scrollLeft;
+  s.addEventListener('mousedown',function(e){isDown=true;startX=e.pageX-s.offsetLeft;scrollLeft=s.scrollLeft;});
+  s.addEventListener('mouseleave',function(){isDown=false;});
+  s.addEventListener('mouseup',function(){isDown=false;});
+  s.addEventListener('mousemove',function(e){if(!isDown)return;e.preventDefault();var x=e.pageX-s.offsetLeft;s.scrollLeft=scrollLeft-(x-startX);});
+}
+
+/* ── SCROLL REVEAL ── */
+function initReveal(){
+  var els=document.querySelectorAll('.reveal');
+  var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:.12});
+  els.forEach(function(el){io.observe(el);});
+}
+
+/* ── INIT ── */
+document.getElementById('year').textContent=new Date().getFullYear();
+updateCartBadge();initCanvas();buildFeatured();initReveal();
 </script>
 </body>
 </html>

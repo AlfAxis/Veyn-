@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Account — VEYNÉ</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{--bg:#faf6f0;--bg2:#f0e8d6;--dark:#0a0806;--dark2:#160e06;--dark3:#221408;--accent:#7c2c2c;--accent2:#5c1e1e;--gold:#b8905a;--gold2:#946e38;--gold3:#d4b07c;--text:#180e06;--text2:#3a2a16;--text3:#6a5438;--text4:#9a8468;--border:#c8bca8;--border2:#b8a890;--nav-h:62px;}
+html,body{font-family:'Raleway',sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;}
+button,input{font-family:'Raleway',sans-serif;cursor:pointer;}
+.ann{background:var(--dark2);overflow:hidden;padding:.52rem 0;}.ann-inner{display:flex;gap:4rem;animation:annS 28s linear infinite;white-space:nowrap;}@keyframes annS{to{transform:translateX(-50%);}}
+.ann-inner span{font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;}.ann-dot{color:#3a2010;font-size:5px;vertical-align:middle;}
+.nav{background:var(--dark);border-bottom:0.5px solid #2a1e10;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;position:sticky;top:0;z-index:200;}
+.nav-left{display:flex;align-items:center;}.hbtn{background:none;border:none;padding:.5rem;color:#c8b898;display:flex;align-items:center;justify-content:center;transition:color .2s;width:38px;height:38px;}.hbtn:hover{color:#f5f0e8;}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:26px;letter-spacing:12px;color:#f5f0e8;font-weight:300;position:absolute;left:50%;transform:translateX(-50%);text-decoration:none;}.nav-logo em{font-style:italic;color:var(--gold);}
+.nav-right{display:flex;align-items:stretch;}.nr-svc{background:none;border:none;border-left:0.5px solid #2a1e10;padding:0 1rem;color:#8a7868;font-size:9px;letter-spacing:2px;text-transform:uppercase;display:flex;align-items:center;gap:.5rem;transition:color .2s;height:var(--nav-h);text-decoration:none;}.nr-svc:hover{color:#c8b898;}
+.nicon{background:none;border:none;border-left:0.5px solid #2a1e10;padding:0 .85rem;color:#8a7868;display:flex;align-items:center;justify-content:center;position:relative;transition:color .2s;height:var(--nav-h);min-width:44px;font-size:20px;text-decoration:none;}.nicon:hover{color:#f5f0e8;}
+.nbadge{position:absolute;top:10px;right:6px;min-width:16px;height:16px;background:var(--accent);border-radius:8px;font-size:8px;color:#fff;display:none;align-items:center;justify-content:center;padding:0 3px;font-weight:500;}
+.nav-cats{background:var(--dark);border-bottom:0.5px solid #2a1e10;display:flex;justify-content:center;overflow-x:auto;}.nav-cats::-webkit-scrollbar{display:none;}
+.ncat{background:none;border:none;border-bottom:2px solid transparent;color:#8a7868;font-size:9px;letter-spacing:3px;text-transform:uppercase;padding:.82rem 1.2rem;white-space:nowrap;transition:all .25s;text-decoration:none;display:inline-flex;align-items:center;}.ncat:hover{color:#f5f0e8;border-bottom-color:var(--gold);}
+.side-ov{display:none;position:fixed;inset:0;z-index:300;}.side-ov.open{display:flex;background:rgba(10,8,6,.72);}
+.side-panel{background:var(--dark);width:290px;height:100%;display:flex;flex-direction:column;animation:sideIn .3s ease;overflow-y:auto;}@keyframes sideIn{from{transform:translateX(-100%);}to{transform:translateX(0);}}
+.side-hd{padding:1.3rem 1.6rem;border-bottom:0.5px solid #2a1e10;display:flex;justify-content:space-between;align-items:center;}.side-logo{font-family:'Cormorant Garamond',serif;font-size:16px;letter-spacing:7px;color:#f0e8dc;}
+.side-x{background:none;border:none;color:#6a5a48;font-size:22px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;}.side-x:hover{color:#f0e8dc;}
+.side-sec{padding:1.1rem 1.6rem .4rem;font-size:9px;letter-spacing:5px;color:var(--gold2);text-transform:uppercase;}
+.slink{display:flex;justify-content:space-between;align-items:center;width:100%;padding:.82rem 1.6rem;background:none;border:none;border-bottom:0.5px solid #1e1610;font-size:12px;letter-spacing:1.5px;color:#8a7868;text-align:left;transition:all .2s;font-family:'Cormorant Garamond',serif;text-decoration:none;}.slink:hover{background:#1e160e;color:#f0e8dc;padding-left:2.2rem;}
+.side-ft{margin-top:auto;padding:1.4rem 1.6rem;border-top:0.5px solid #1e1610;display:flex;gap:.8rem;}
+.sftb{flex:1;padding:.7rem;font-size:9px;letter-spacing:3px;text-transform:uppercase;border:0.5px solid #3a2a18;background:transparent;color:#6a5a48;transition:all .25s;text-decoration:none;text-align:center;display:block;}.sftb.prim{background:var(--gold);color:var(--dark);border-color:var(--gold);}
+.cart-drawer{position:fixed;top:0;right:-440px;width:420px;height:100%;background:#fff;z-index:300;transition:right .35s ease;display:flex;flex-direction:column;border-left:0.5px solid var(--border);}.cart-drawer.open{right:0;box-shadow:-4px 0 24px rgba(10,8,6,.15);}
+.cart-dh{padding:1.3rem 1.6rem;background:var(--dark);display:flex;justify-content:space-between;align-items:center;flex-shrink:0;}.cart-dh-t{font-family:'Cormorant Garamond',serif;font-size:17px;letter-spacing:5px;color:#f0e8dc;}.cart-dh-x{background:none;border:none;color:#8a7868;font-size:22px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;}.cart-dh-x:hover{color:#f0e8dc;}
+.cart-body{flex:1;overflow-y:auto;}.cart-bi{padding:1rem 1.6rem;}.cart-empty{font-size:12px;color:#9a8468;text-align:center;padding:3rem 1.6rem;font-family:'Cormorant Garamond',serif;font-style:italic;line-height:1.9;}
+.cart-ft{border-top:0.5px solid #e8dfc8;background:#f8f3ea;padding:1.4rem 1.6rem;flex-shrink:0;}.cart-tot{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1.2rem;}.cart-tot-l{font-size:10px;letter-spacing:3px;color:#6a5438;text-transform:uppercase;}.cart-tot-v{font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:2px;color:var(--accent);}
+.cart-co{width:100%;padding:.88rem;background:var(--dark);color:#f0e8dc;border:none;font-size:9px;letter-spacing:4px;text-transform:uppercase;}
+.cart-ov{position:fixed;inset:0;background:rgba(10,8,6,.4);z-index:299;display:none;}.cart-ov.on{display:block;}
+.breadcrumb{padding:.8rem 2rem;background:var(--bg2);border-bottom:0.5px solid var(--border);display:flex;gap:.5rem;align-items:center;font-size:10px;letter-spacing:2px;color:var(--text4);text-transform:uppercase;}
+.breadcrumb a{color:var(--text4);text-decoration:none;}.breadcrumb a:hover{color:var(--text);}.breadcrumb-sep{color:var(--border2);}
+/* ACCOUNT SPECIFIC */
+.acc-wrap{display:grid;grid-template-columns:1fr 1fr;min-height:80vh;}
+.acc-panel{padding:5rem 4rem;display:flex;flex-direction:column;justify-content:center;}
+.acc-panel.left{background:var(--dark2);border-right:0.5px solid #2a1810;}
+.acc-panel.right{background:var(--bg);}
+.acc-eye{font-size:9px;letter-spacing:6px;text-transform:uppercase;display:block;margin-bottom:1rem;}
+.acc-panel.left .acc-eye{color:var(--gold2);}
+.acc-panel.right .acc-eye{color:var(--accent);}
+.acc-title{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3vw,32px);font-weight:300;letter-spacing:4px;margin-bottom:.5rem;}
+.acc-panel.left .acc-title{color:#f0e8dc;}
+.acc-panel.right .acc-title{color:var(--text);}
+.acc-rule{width:28px;height:0.5px;margin:.8rem 0 2rem;}
+.acc-panel.left .acc-rule{background:var(--gold2);}
+.acc-panel.right .acc-rule{background:var(--border2);}
+.acc-sub{font-size:12px;letter-spacing:.5px;line-height:2;margin-bottom:2rem;}
+.acc-panel.left .acc-sub{color:#4a3018;}
+.acc-panel.right .acc-sub{color:var(--text3);}
+.field{margin-bottom:1.2rem;}
+.field label{display:block;font-size:9px;letter-spacing:3px;text-transform:uppercase;margin-bottom:.5rem;}
+.acc-panel.left .field label{color:#6a5038;}
+.acc-panel.right .field label{color:var(--text3);}
+.field input{width:100%;padding:.85rem 1rem;border:0.5px solid;font-size:12px;outline:none;transition:border-color .2s;letter-spacing:.5px;}
+.acc-panel.left .field input{background:#0e0a06;border-color:#2a1e10;color:#f0e8dc;}
+.acc-panel.left .field input:focus{border-color:var(--gold2);}
+.acc-panel.right .field input{background:var(--bg);border-color:var(--border2);color:var(--text);}
+.acc-panel.right .field input:focus{border-color:var(--text3);}
+.acc-btn{width:100%;padding:.9rem;border:none;font-size:9px;letter-spacing:4px;text-transform:uppercase;cursor:pointer;transition:all .3s;margin-top:.4rem;}
+.acc-panel.left .acc-btn{background:var(--gold);color:var(--dark);}
+.acc-panel.left .acc-btn:hover{background:var(--gold3);}
+.acc-panel.right .acc-btn{background:var(--dark2);color:#f0e8dc;}
+.acc-panel.right .acc-btn:hover{background:var(--dark3);}
+.acc-msg{font-size:10px;letter-spacing:2px;margin-top:.8rem;min-height:18px;text-align:center;}
+.acc-panel.left .acc-msg{color:var(--gold2);}
+.acc-panel.right .acc-msg{color:var(--text4);}
+.acc-link{font-size:10px;letter-spacing:2px;text-align:center;margin-top:1.2rem;cursor:pointer;transition:opacity .2s;}
+.acc-panel.left .acc-link{color:#4a3018;}
+.acc-panel.right .acc-link{color:var(--text4);}
+.acc-link:hover{opacity:.7;}
+/* SIGNED IN STATE */
+.acc-dashboard{display:none;padding:4rem 2rem;max-width:900px;margin:0 auto;}
+.ad-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:3rem;padding-bottom:2rem;border-bottom:0.5px solid var(--border);}
+.ad-greet{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,3vw,28px);font-weight:300;letter-spacing:4px;color:var(--text);}
+.ad-greet span{color:var(--accent);}
+.ad-signout{background:none;border:0.5px solid var(--border2);padding:.6rem 1.4rem;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--text4);transition:all .2s;}
+.ad-signout:hover{border-color:var(--accent);color:var(--accent);}
+.ad-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+.ad-card{border:0.5px solid var(--border);padding:2rem;}
+.ad-card-title{font-size:9px;letter-spacing:4px;color:var(--accent);text-transform:uppercase;margin-bottom:1rem;padding-bottom:.8rem;border-bottom:0.5px solid var(--border);}
+.ad-empty{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:var(--text4);line-height:2;}
+.ad-stat-row{display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:0.5px solid var(--border);font-size:11px;}
+.ad-stat-label{color:var(--text4);letter-spacing:.5px;}
+.ad-stat-val{font-family:'Cormorant Garamond',serif;color:var(--text2);}
+.footer{background:var(--dark);}.foot-m{padding:4.5rem 2rem 3rem;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;border-bottom:0.5px solid #181208;}
+.foot-brand{font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:8px;color:#f0e8dc;font-weight:300;margin-bottom:.8rem;}.foot-tag{font-family:'Cormorant Garamond',serif;font-size:12px;font-style:italic;color:#3c2010;line-height:2.2;}
+.foot-h{font-size:9px;letter-spacing:4px;color:#6a2828;text-transform:uppercase;margin-bottom:1.3rem;}.foot-l{list-style:none;}.foot-l li a{font-size:11px;color:#4a3018;margin-bottom:.7rem;display:block;letter-spacing:.5px;transition:color .25s;text-decoration:none;padding:.15rem 0;}.foot-l li a:hover{color:var(--gold);}
+.foot-soc{display:flex;gap:.5rem;margin-top:1.5rem;flex-wrap:wrap;}.fsoc{background:none;border:0.5px solid #2a1e10;color:#4a3018;font-size:11px;padding:.5rem .8rem;transition:all .25s;letter-spacing:1px;text-decoration:none;display:inline-block;}.fsoc:hover{border-color:#6a5040;color:var(--gold);}
+.foot-bot{padding:1.5rem 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}.foot-copy{font-size:9px;color:#221408;letter-spacing:2px;text-transform:uppercase;}
+@media(max-width:800px){.acc-wrap{grid-template-columns:1fr;}.acc-panel{padding:4rem 2rem;}.ad-grid{grid-template-columns:1fr;}}
+@media(max-width:700px){.foot-m{grid-template-columns:1fr 1fr;}.cart-drawer{width:100%;}.nr-svc .svc-lbl{display:none;}}
+</style>
+</head>
+<body>
+<div class="ann"><div class="ann-inner"><span>Complimentary shipping on orders over €75</span><span class="ann-dot">✦</span><span>Order // 001 · First Limited Edition</span><span class="ann-dot">✦</span><span>Worldwide delivery available</span><span class="ann-dot">✦</span><span>The Hunt Continues</span><span class="ann-dot">✦</span><span>Complimentary shipping on orders over €75</span><span class="ann-dot">✦</span><span>Order // 001 · First Limited Edition</span><span class="ann-dot">✦</span><span>Worldwide delivery available</span><span class="ann-dot">✦</span><span>The Hunt Continues</span><span class="ann-dot">✦</span></div></div>
+<nav class="nav">
+  <div class="nav-left"><button class="hbtn" onclick="toggleSide()"><svg width="20" height="14" viewBox="0 0 20 14" fill="none"><rect y="0" width="20" height="2" fill="currentColor"/><rect y="6" width="20" height="2" fill="currentColor"/><rect y="12" width="20" height="2" fill="currentColor"/></svg></button></div>
+  <a href="index.html" class="nav-logo">VEY<em>N</em>É</a>
+  <div class="nav-right">
+    <a href="contact.html" class="nr-svc"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1a6 6 0 0 0-6 6v1.5A1.5 1.5 0 0 0 3.5 10H5V7a3 3 0 1 1 6 0v3h1.5A1.5 1.5 0 0 0 14 8.5V7A6 6 0 0 0 8 1Z" stroke="currentColor" stroke-width="1.2" fill="none"/></svg><span class="svc-lbl">Client Services</span></a>
+    <a href="wishlist.html" class="nicon"><svg width="20" height="18" viewBox="0 0 20 18" fill="none"><path d="M10 16S2 11 2 5.5A4.5 4.5 0 0 1 10 3.8 4.5 4.5 0 0 1 18 5.5C18 11 10 16 10 16Z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></a>
+    <button class="nicon" onclick="toggleCart()"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 2h2l2.4 9.6A2 2 0 0 0 8.3 13h7.4a2 2 0 0 0 1.9-1.4L19 6H5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8.5" cy="16.5" r="1.5" fill="currentColor"/><circle cx="15.5" cy="16.5" r="1.5" fill="currentColor"/></svg><span class="nbadge" id="cb">0</span></button>
+    <a href="account.html" class="nicon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="4" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M2 18c0-4 3.6-6 8-6s8 2 8 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg></a>
+  </div>
+</nav>
+<div class="nav-cats">
+  <a href="index.html" class="ncat">Home</a><a href="men.html" class="ncat">Men</a><a href="women.html" class="ncat">Women</a><a href="kids.html" class="ncat">Young Sovereign</a><a href="accessories.html" class="ncat">Accessories</a><a href="collectibles.html" class="ncat">Collectibles</a><a href="lore.html" class="ncat">The Lore</a><a href="about.html" class="ncat">About</a>
+</div>
+<div class="side-ov" id="side-ov">
+  <div class="side-panel">
+    <div class="side-hd"><span class="side-logo">VEYNÉ</span><button class="side-x" onclick="toggleSide()">✕</button></div>
+    <p class="side-sec">Collections</p>
+    <a href="men.html" class="slink">Men <span>›</span></a><a href="women.html" class="slink">Women <span>›</span></a><a href="kids.html" class="slink">Young Sovereign <span>›</span></a><a href="accessories.html" class="slink">Accessories <span>›</span></a><a href="collectibles.html" class="slink">Collectibles <span>›</span></a>
+    <p class="side-sec">The Realm</p>
+    <a href="lore.html" class="slink">The Lore <span>›</span></a><a href="about.html" class="slink">About Cealis Veyne <span>›</span></a><a href="contact.html" class="slink">Client Services <span>›</span></a><a href="faq.html" class="slink">FAQ &amp; Support <span>›</span></a>
+    <div class="side-ft"><a href="account.html" class="sftb prim">Sign In</a><a href="account.html" class="sftb">Create Account</a></div>
+  </div>
+  <div style="flex:1;cursor:pointer;" onclick="toggleSide()"></div>
+</div>
+<div class="cart-ov" id="cart-ov" onclick="toggleCart()"></div>
+<div class="cart-drawer" id="cart-drawer">
+  <div class="cart-dh"><span class="cart-dh-t">Your Order</span><button class="cart-dh-x" onclick="toggleCart()">✕</button></div>
+  <div class="cart-body"><div class="cart-bi" id="cart-bd"><p class="cart-empty">Your order is empty.<br/>Begin your collection.</p></div></div>
+  <div id="cart-ft" style="display:none;" class="cart-ft">
+    <div class="cart-tot"><span class="cart-tot-l">Order Total</span><span class="cart-tot-v" id="cart-total">€ 0.00</span></div>
+    <button class="cart-co">Proceed to Checkout</button>
+  </div>
+</div>
+
+<div class="breadcrumb"><a href="index.html">Home</a><span class="breadcrumb-sep">›</span><span>Account</span></div>
+
+<!-- AUTH PANELS -->
+<div id="auth-panels" class="acc-wrap">
+  <div class="acc-panel left">
+    <span class="acc-eye">Returning Operative</span>
+    <h2 class="acc-title">Sign In</h2>
+    <div class="acc-rule"></div>
+    <p class="acc-sub">Welcome back to the realm. Enter your credentials to access your order history and wishlist.</p>
+    <div class="field"><label>Email Address</label><input type="email" id="si-email" placeholder="your@email.com"/></div>
+    <div class="field"><label>Password</label><input type="password" id="si-pass" placeholder="••••••••"/></div>
+    <button class="acc-btn" onclick="doSignIn()">Enter the Realm</button>
+    <p class="acc-msg" id="si-msg"></p>
+    <p class="acc-link" onclick="document.getElementById('si-msg').textContent='Password reset link sent to your email.'">Forgot your password?</p>
+  </div>
+  <div class="acc-panel right">
+    <span class="acc-eye">New Operative</span>
+    <h2 class="acc-title">Create Account</h2>
+    <div class="acc-rule"></div>
+    <p class="acc-sub">Join the realm. Create your account to track orders, save your wishlist, and receive first access to new drops.</p>
+    <div class="field"><label>Full Name</label><input type="text" id="su-name" placeholder="Your name"/></div>
+    <div class="field"><label>Email Address</label><input type="email" id="su-email" placeholder="your@email.com"/></div>
+    <div class="field"><label>Password</label><input type="password" id="su-pass" placeholder="Create a password (min. 8 characters)"/></div>
+    <button class="acc-btn" onclick="doSignUp()">Join the Realm</button>
+    <p class="acc-msg" id="su-msg"></p>
+  </div>
+</div>
+
+<!-- DASHBOARD (shown after login) -->
+<div id="dashboard" class="acc-dashboard">
+  <div class="ad-header">
+    <p class="ad-greet">Welcome back, <span id="d-name">Operative</span></p>
+    <button class="ad-signout" onclick="signOut()">Sign Out</button>
+  </div>
+  <div class="ad-grid">
+    <div class="ad-card">
+      <p class="ad-card-title">Account Status</p>
+      <div class="ad-stat-row"><span class="ad-stat-label">Operative ID</span><span class="ad-stat-val" id="d-id">VYN-001</span></div>
+      <div class="ad-stat-row"><span class="ad-stat-label">Email</span><span class="ad-stat-val" id="d-email">—</span></div>
+      <div class="ad-stat-row"><span class="ad-stat-label">Realm Status</span><span class="ad-stat-val">Active Sovereign</span></div>
+      <div class="ad-stat-row"><span class="ad-stat-label">Member Since</span><span class="ad-stat-val" id="d-since">—</span></div>
+    </div>
+    <div class="ad-card">
+      <p class="ad-card-title">Order History</p>
+      <p class="ad-empty">No orders yet.<br/>The collection awaits you.</p>
+    </div>
+    <div class="ad-card">
+      <p class="ad-card-title">Saved Wishlist</p>
+      <div id="d-wishlist"><p class="ad-empty">Your wishlist is empty.<br/>Heart items across the collection to save them here.</p></div>
+    </div>
+    <div class="ad-card">
+      <p class="ad-card-title">Quick Links</p>
+      <div style="display:flex;flex-direction:column;gap:.8rem;margin-top:.5rem;">
+        <a href="men.html" style="font-size:11px;color:var(--text3);text-decoration:none;letter-spacing:.5px;transition:color .2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text3)'">→ Shop Men's Collection</a>
+        <a href="women.html" style="font-size:11px;color:var(--text3);text-decoration:none;letter-spacing:.5px;transition:color .2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text3)'">→ Shop Women's Collection</a>
+        <a href="collectibles.html" style="font-size:11px;color:var(--text3);text-decoration:none;letter-spacing:.5px;transition:color .2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text3)'">→ View Collectibles</a>
+        <a href="wishlist.html" style="font-size:11px;color:var(--text3);text-decoration:none;letter-spacing:.5px;transition:color .2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text3)'">→ View Full Wishlist</a>
+        <a href="contact.html" style="font-size:11px;color:var(--text3);text-decoration:none;letter-spacing:.5px;transition:color .2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text3)'">→ Contact Client Services</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="foot-m">
+    <div><p class="foot-brand">VEYNÉ</p><p class="foot-tag">The Shadow Sovereign.<br/>The Razorbill.<br/>The Hunt Continues.</p><div class="foot-soc"><a href="#" class="fsoc">Twitch</a><a href="#" class="fsoc">YouTube</a><a href="#" class="fsoc">TikTok</a><a href="#" class="fsoc">Instagram</a></div></div>
+    <div><p class="foot-h">Collections</p><ul class="foot-l"><li><a href="men.html">Men</a></li><li><a href="women.html">Women</a></li><li><a href="kids.html">Young Sovereign</a></li><li><a href="accessories.html">Accessories</a></li><li><a href="collectibles.html">Collectibles</a></li></ul></div>
+    <div><p class="foot-h">The Realm</p><ul class="foot-l"><li><a href="lore.html">The Lore</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Client Services</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
+    <div><p class="foot-h">Support</p><ul class="foot-l"><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Shipping</a></li><li><a href="contact.html">Returns</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+  </div>
+  <div class="foot-bot"><p class="foot-copy">© Veyné — Cealis Veyne · Order // 001</p><p class="foot-copy">The Shadow Walks. The Warden Watches.</p></div>
+</footer>
+<script>
+var cart=JSON.parse(localStorage.getItem('veyne-cart')||'[]');
+var wishlist=JSON.parse(localStorage.getItem('veyne-wishlist')||'[]');
+function updateCartBadge(){var cnt=cart.reduce(function(a,x){return a+x.qty;},0);var cb=document.getElementById('cb');if(cb){cb.textContent=cnt;cnt>0?cb.style.display='flex':cb.style.display='none';}}
+function toggleCart(){var c=document.getElementById('cart-drawer'),o=document.getElementById('cart-ov');c.classList.toggle('open');o.classList.toggle('on');}
+function toggleSide(){document.getElementById('side-ov').classList.toggle('open');}
+
+function doSignIn(){
+  var em=document.getElementById('si-email').value.trim();
+  var pw=document.getElementById('si-pass').value;
+  var msg=document.getElementById('si-msg');
+  if(!em||!pw){msg.style.color='#7c2c2c';msg.textContent='Please enter your email and password.';return;}
+  if(!em.includes('@')){msg.style.color='#7c2c2c';msg.textContent='Please enter a valid email address.';return;}
+  var stored=JSON.parse(localStorage.getItem('veyne-account')||'null');
+  if(stored&&stored.email===em&&stored.password===pw){
+    localStorage.setItem('veyne-session',JSON.stringify({name:stored.name,email:stored.email,since:stored.since}));
+    showDashboard(stored.name,stored.email,stored.since);
+  } else {
+    msg.style.color='#7c2c2c';msg.textContent='Incorrect credentials. Check your details and try again.';
+  }
+}
+
+function doSignUp(){
+  var n=document.getElementById('su-name').value.trim();
+  var em=document.getElementById('su-email').value.trim();
+  var pw=document.getElementById('su-pass').value;
+  var msg=document.getElementById('su-msg');
+  if(!n||!em||!pw){msg.style.color='#7c2c2c';msg.textContent='Please fill in all fields.';return;}
+  if(!em.includes('@')){msg.style.color='#7c2c2c';msg.textContent='Please enter a valid email address.';return;}
+  if(pw.length<8){msg.style.color='#7c2c2c';msg.textContent='Password must be at least 8 characters.';return;}
+  var since=new Date().toLocaleDateString('en-GB',{year:'numeric',month:'long',day:'numeric'});
+  localStorage.setItem('veyne-account',JSON.stringify({name:n,email:em,password:pw,since:since}));
+  localStorage.setItem('veyne-session',JSON.stringify({name:n,email:em,since:since}));
+  showDashboard(n,em,since);
+}
+
+function showDashboard(name,email,since){
+  document.getElementById('auth-panels').style.display='none';
+  document.getElementById('dashboard').style.display='block';
+  document.getElementById('d-name').textContent=name;
+  document.getElementById('d-email').textContent=email;
+  document.getElementById('d-since').textContent=since;
+  document.getElementById('d-id').textContent='VYN-'+Math.floor(Math.random()*9000+1000);
+  if(wishlist.length){
+    document.getElementById('d-wishlist').innerHTML='<p style="font-size:11px;color:var(--text3);letter-spacing:.5px;">'+wishlist.length+' item'+(wishlist.length!==1?'s':'')+' saved. <a href="wishlist.html" style="color:var(--accent);text-decoration:none;">View wishlist →</a></p>';
+  }
+}
+
+function signOut(){
+  localStorage.removeItem('veyne-session');
+  document.getElementById('auth-panels').style.display='grid';
+  document.getElementById('dashboard').style.display='none';
+}
+
+var session=JSON.parse(localStorage.getItem('veyne-session')||'null');
+if(session){showDashboard(session.name,session.email,session.since);}
+updateCartBadge();
+</script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Collectibles — VEYNÉ</title>
+<meta name="description" content="Realm Objects — collectibles by Cealis Veyne. Limited edition pieces from the sovereign realm."/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{--bg:#faf6f0;--bg2:#f0e8d6;--bg3:#e4d8c4;--dark:#0a0806;--dark2:#160e06;--dark3:#221408;--accent:#7c2c2c;--accent2:#5c1e1e;--gold:#b8905a;--gold2:#946e38;--gold3:#d4b07c;--text:#180e06;--text2:#3a2a16;--text3:#6a5438;--text4:#9a8468;--text5:#c4b098;--border:#c8bca8;--border2:#b8a890;--border3:#a89878;--nav-h:62px;}
+html,body{font-family:'Raleway',sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;}
+button,input,select{font-family:'Raleway',sans-serif;cursor:pointer;}
+.ann{background:var(--dark2);overflow:hidden;padding:.52rem 0;}.ann-inner{display:flex;gap:4rem;animation:annS 28s linear infinite;white-space:nowrap;}@keyframes annS{to{transform:translateX(-50%);}}
+.ann-inner span{font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;}.ann-dot{color:#3a2010;font-size:5px;vertical-align:middle;}
+.nav{background:var(--dark);border-bottom:0.5px solid #2a1e10;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;position:sticky;top:0;z-index:200;}
+.nav-left{display:flex;align-items:center;}.hbtn{background:none;border:none;padding:.5rem;color:#c8b898;display:flex;align-items:center;justify-content:center;transition:color .2s;width:38px;height:38px;}.hbtn:hover{color:#f5f0e8;}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:26px;letter-spacing:12px;color:#f5f0e8;font-weight:300;cursor:pointer;position:absolute;left:50%;transform:translateX(-50%);text-decoration:none;}.nav-logo em{font-style:italic;color:var(--gold);}
+.nav-right{display:flex;align-items:stretch;}.nr-svc{background:none;border:none;border-left:0.5px solid #2a1e10;padding:0 1rem;color:#8a7868;font-size:9px;letter-spacing:2px;text-transform:uppercase;display:flex;align-items:center;gap:.5rem;transition:color .2s;height:var(--nav-h);text-decoration:none;}.nr-svc:hover{color:#c8b898;}
+.nicon{background:none;border:none;border-left:0.5px solid #2a1e10;padding:0 .85rem;color:#8a7868;display:flex;align-items:center;justify-content:center;position:relative;transition:color .2s;height:var(--nav-h);min-width:44px;font-size:20px;text-decoration:none;}.nicon:hover{color:#f5f0e8;}
+.nbadge{position:absolute;top:10px;right:6px;min-width:16px;height:16px;background:var(--accent);border-radius:8px;font-size:8px;color:#fff;display:none;align-items:center;justify-content:center;padding:0 3px;font-weight:500;}
+.nav-cats{background:var(--dark);border-bottom:0.5px solid #2a1e10;display:flex;justify-content:center;overflow-x:auto;}.nav-cats::-webkit-scrollbar{display:none;}
+.ncat{background:none;border:none;border-bottom:2px solid transparent;color:#8a7868;font-size:9px;letter-spacing:3px;text-transform:uppercase;padding:.82rem 1.2rem;white-space:nowrap;transition:all .25s;text-decoration:none;display:inline-flex;align-items:center;}.ncat:hover,.ncat.on{color:#f5f0e8;border-bottom-color:var(--gold);}
+.side-ov{display:none;position:fixed;inset:0;z-index:300;}.side-ov.open{display:flex;background:rgba(10,8,6,.72);}
+.side-panel{background:var(--dark);width:290px;height:100%;display:flex;flex-direction:column;animation:sideIn .3s ease;overflow-y:auto;}@keyframes sideIn{from{transform:translateX(-100%);}to{transform:translateX(0);}}
+.side-hd{padding:1.3rem 1.6rem;border-bottom:0.5px solid #2a1e10;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;}.side-logo{font-family:'Cormorant Garamond',serif;font-size:16px;letter-spacing:7px;color:#f0e8dc;}
+.side-x{background:none;border:none;color:#6a5a48;font-size:22px;display:flex;align-items:center;justify-content:center;width:32px;height:32px;transition:color .2s;}.side-x:hover{color:#f0e8dc;}
+.side-sec{padding:1.1rem 1.6rem .4rem;font-size:9px;letter-spacing:5px;color:var(--gold2);text-transform:uppercase;}
+.slink{display:flex;justify-content:space-between;align-items:center;width:100%;padding:.82rem 1.6rem;background:none;border:none;border-bottom:0.5px solid #1e1610;font-size:12px;letter-spacing:1.5px;color:#8a7868;text-align:left;transition:all .2s;font-family:'Cormorant Garamond',serif;text-decoration:none;}.slink:hover{background:#1e160e;color:#f0e8dc;padding-left:2.2rem;}
+.side-ft{margin-top:auto;padding:1.4rem 1.6rem;border-top:0.5px solid #1e1610;display:flex;gap:.8rem;flex-shrink:0;}
+.sftb{flex:1;padding:.7rem;font-size:9px;letter-spacing:3px;text-transform:uppercase;border:0.5px solid #3a2a18;background:transparent;color:#6a5a48;transition:all .25s;text-decoration:none;text-align:center;display:block;}.sftb.prim{background:var(--gold);color:var(--dark);border-color:var(--gold);}.sftb:hover{border-color:#8a7868;color:#c8b898;}.sftb.prim:hover{background:var(--gold3);}
+.cart-drawer{position:fixed;top:0;right:-440px;width:420px;height:100%;background:#fff;z-index:300;transition:right .35s ease;display:flex;flex-direction:column;border-left:0.5px solid var(--border);}.cart-drawer.open{right:0;box-shadow:-4px 0 24px rgba(10,8,6,.15);}
+.cart-dh{padding:1.3rem 1.6rem;background:var(--dark);display:flex;justify-content:space-between;align-items:center;flex-shrink:0;}.cart-dh-t{font-family:'Cormorant Garamond',serif;font-size:17px;letter-spacing:5px;color:#f0e8dc;}.cart-dh-x{background:none;border:none;color:#8a7868;font-size:22px;display:flex;align-items:center;justify-content:center;width:32px;height:32px;transition:color .2s;}.cart-dh-x:hover{color:#f0e8dc;}
+.cart-body{flex:1;overflow-y:auto;}.cart-bi{padding:1rem 1.6rem;}
+.cart-line{display:flex;justify-content:space-between;padding:1rem 0;border-bottom:0.5px solid #f0ead8;gap:1rem;}.cart-li{flex:1;min-width:0;}.cart-ln{font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:1px;color:#180e06;}.cart-lm{font-size:10px;color:#9a8468;letter-spacing:1px;margin-top:3px;}
+.cart-qty-row{display:flex;align-items:center;gap:.5rem;margin-top:.6rem;}.cqb{background:none;border:0.5px solid #c8bca8;width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:16px;color:#6a5438;transition:all .2s;line-height:1;}.cqb:hover{background:#f0e8d6;}.cart-qty-n{font-family:'Cormorant Garamond',serif;font-size:14px;color:#180e06;min-width:22px;text-align:center;}
+.cart-lr{display:flex;flex-direction:column;align-items:flex-end;gap:.5rem;flex-shrink:0;}.cart-lp{font-family:'Cormorant Garamond',serif;font-size:14px;color:#3a2a16;}.cart-lx{background:none;border:none;color:#c4b098;font-size:16px;transition:color .2s;}.cart-lx:hover{color:var(--accent);}
+.cart-empty{font-size:12px;color:#9a8468;text-align:center;padding:3rem 1.6rem;font-family:'Cormorant Garamond',serif;font-style:italic;line-height:1.9;}
+.cart-ft{border-top:0.5px solid #e8dfc8;background:#f8f3ea;padding:1.4rem 1.6rem;flex-shrink:0;}.cart-ship{font-size:10px;color:#9a8468;letter-spacing:1px;margin-bottom:.8rem;text-align:center;}.cart-tot{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1.2rem;}.cart-tot-l{font-size:10px;letter-spacing:3px;color:#6a5438;text-transform:uppercase;}.cart-tot-v{font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:2px;color:var(--accent);}
+.cart-co{width:100%;padding:.88rem;background:var(--dark);color:#f0e8dc;border:none;font-size:9px;letter-spacing:4px;text-transform:uppercase;transition:background .3s;}.cart-co:hover{background:var(--dark3);}
+.cart-ov{position:fixed;inset:0;background:rgba(10,8,6,.4);z-index:299;display:none;}.cart-ov.on{display:block;}
+.pg-hero{background:var(--dark2);padding:5rem 2rem;text-align:center;position:relative;overflow:hidden;min-height:320px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.pg-hero canvas{position:absolute;inset:0;pointer-events:none;width:100%;height:100%;}.pg-hero-c{position:relative;z-index:2;}
+.pg-eye{font-size:9px;letter-spacing:8px;color:var(--gold2);text-transform:uppercase;display:block;margin-bottom:1rem;}
+.pg-title{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,8vw,72px);font-weight:300;letter-spacing:12px;color:#f5f0e8;line-height:1;}
+.pg-sub{font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;letter-spacing:4px;color:var(--gold2);margin-top:.8rem;}
+.breadcrumb{padding:.8rem 2rem;background:var(--bg2);border-bottom:0.5px solid var(--border);display:flex;gap:.5rem;align-items:center;font-size:10px;letter-spacing:2px;color:var(--text4);text-transform:uppercase;flex-wrap:wrap;}
+.breadcrumb a{color:var(--text4);text-decoration:none;transition:color .2s;}.breadcrumb a:hover{color:var(--text);}.breadcrumb-sep{color:var(--border2);}
+.shop-layout{display:grid;grid-template-columns:220px 1fr;gap:0;border-top:0.5px solid var(--border);}
+.filters{border-right:0.5px solid var(--border);padding:2rem;background:var(--bg);}.filter-title{font-size:9px;letter-spacing:5px;color:var(--accent);text-transform:uppercase;margin-bottom:1.2rem;padding-bottom:.8rem;border-bottom:0.5px solid var(--border);}
+.filter-group{margin-bottom:2rem;}.filter-group-title{font-size:9px;letter-spacing:3px;color:var(--text2);text-transform:uppercase;margin-bottom:.8rem;}
+.filter-option{display:flex;align-items:center;gap:.6rem;padding:.35rem 0;cursor:pointer;}.filter-option input{accent-color:var(--accent);width:14px;height:14px;cursor:pointer;}.filter-option label{font-size:11px;color:var(--text3);letter-spacing:1px;cursor:pointer;transition:color .2s;}.filter-option:hover label{color:var(--text);}
+.filter-clear{font-size:9px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;background:none;border:none;cursor:pointer;margin-top:.5rem;padding:0;transition:opacity .2s;}.filter-clear:hover{opacity:.7;}
+.products-area{padding:2rem;}.products-toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem;}.products-count{font-size:11px;color:var(--text4);letter-spacing:2px;}
+.sort-select{padding:.6rem 1rem;border:0.5px solid var(--border2);background:var(--bg);font-size:10px;letter-spacing:2px;color:var(--text3);outline:none;appearance:none;padding-right:2rem;background-image:url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%239a8468' stroke-width='1'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .7rem center;}
+.pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1px;background:var(--border);}
+.pc{background:var(--bg);transition:background .3s;position:relative;}.pc:hover{background:var(--bg2);}
+.pc-img{aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:pointer;}.pc-img svg{transition:transform .5s;}.pc:hover .pc-img svg{transform:scale(1.06);}
+.pc-bd{padding:1rem 1.2rem 1.6rem;}.pc-tag{font-size:9px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:.3rem;}
+.pc-name{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:300;letter-spacing:1.5px;color:var(--text);margin-bottom:.3rem;cursor:pointer;text-decoration:none;display:block;}.pc-name:hover{color:var(--accent);}
+.pc-price{font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--text3);}
+.pc-actions{display:flex;gap:.5rem;margin-top:.8rem;}.pc-add{flex:1;padding:.6rem;border:0.5px solid var(--border2);background:transparent;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--text4);transition:all .3s;}.pc-add:hover{border-color:var(--dark2);color:var(--text2);}.pc-add.done{border-color:var(--accent);color:var(--accent);}
+.pc-wish{width:36px;border:0.5px solid var(--border2);background:transparent;font-size:17px;display:flex;align-items:center;justify-content:center;transition:all .25s;flex-shrink:0;}.pc-wish:hover,.pc-wish.on{color:var(--accent);border-color:var(--accent);}
+.pc-bdg{position:absolute;top:10px;left:10px;background:var(--accent);color:#faf6f0;font-size:8px;letter-spacing:2px;padding:3px 9px;text-transform:uppercase;z-index:1;}
+.nl-b{background:var(--bg2);padding:5.5rem 2rem;text-align:center;border-top:0.5px solid var(--border);}
+.nl-t{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,4vw,36px);font-weight:300;letter-spacing:5px;color:var(--text);}
+.nl-s{font-size:11px;color:var(--text3);letter-spacing:2px;margin:1rem 0 2.2rem;line-height:1.8;}
+.nl-f{display:flex;max-width:420px;margin:0 auto;}.nl-in{flex:1;padding:.9rem 1.2rem;border:0.5px solid var(--border2);border-right:none;background:var(--bg);font-size:11px;color:var(--text);outline:none;}.nl-in::placeholder{color:var(--border3);font-size:10px;letter-spacing:2px;}
+.nl-go{padding:.9rem 1.6rem;background:var(--dark2);border:0.5px solid var(--dark2);font-size:9px;letter-spacing:3px;color:#f0e8dc;text-transform:uppercase;transition:background .3s;flex-shrink:0;}.nl-go:hover{background:var(--accent2);}
+.nl-msg{font-size:10px;letter-spacing:2px;margin-top:.8rem;min-height:18px;color:var(--text4);}
+.footer{background:var(--dark);}.foot-m{padding:4.5rem 2rem 3rem;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;border-bottom:0.5px solid #181208;}
+.foot-brand{font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:8px;color:#f0e8dc;font-weight:300;margin-bottom:.8rem;}.foot-tag{font-family:'Cormorant Garamond',serif;font-size:12px;font-style:italic;color:#3c2010;line-height:2.2;}
+.foot-h{font-size:9px;letter-spacing:4px;color:#6a2828;text-transform:uppercase;margin-bottom:1.3rem;}.foot-l{list-style:none;}.foot-l li a{font-size:11px;color:#4a3018;margin-bottom:.7rem;display:block;letter-spacing:.5px;transition:color .25s;text-decoration:none;padding:.15rem 0;}.foot-l li a:hover{color:var(--gold);}
+.foot-soc{display:flex;gap:.5rem;margin-top:1.5rem;flex-wrap:wrap;}.fsoc{background:none;border:0.5px solid #2a1e10;color:#4a3018;font-size:11px;padding:.5rem .8rem;transition:all .25s;letter-spacing:1px;text-decoration:none;display:inline-block;}.fsoc:hover{border-color:#6a5040;color:var(--gold);}
+.foot-bot{padding:1.5rem 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}.foot-copy{font-size:9px;color:#221408;letter-spacing:2px;text-transform:uppercase;}
+.toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(10px);background:var(--dark2);color:#f0e8dc;padding:.72rem 2rem;font-size:9px;letter-spacing:3px;text-transform:uppercase;opacity:0;transition:all .35s ease;white-space:nowrap;pointer-events:none;z-index:500;border:0.5px solid #3a2818;}.toast.on{opacity:1;transform:translateX(-50%) translateY(0);}
+@media(max-width:900px){.shop-layout{grid-template-columns:1fr;}.filters{border-right:none;border-bottom:0.5px solid var(--border);display:flex;flex-wrap:wrap;gap:1.5rem;padding:1.5rem;}}
+@media(max-width:700px){.foot-m{grid-template-columns:1fr 1fr;}.cart-drawer{width:100%;}.nr-svc .svc-lbl{display:none;}}
+</style>
+</head>
+<body>
+<div class="ann"><div class="ann-inner"><span>Complimentary shipping on orders over €75</span><span class="ann-dot">✦</span><span>Order // 001 · First Limited Edition</span><span class="ann-dot">✦</span><span>New arrivals this season</span><span class="ann-dot">✦</span><span>Worldwide delivery available</span><span class="ann-dot">✦</span><span>Complimentary shipping on orders over €75</span><span class="ann-dot">✦</span><span>Order // 001 · First Limited Edition</span><span class="ann-dot">✦</span><span>New arrivals this season</span><span class="ann-dot">✦</span><span>Worldwide delivery available</span><span class="ann-dot">✦</span></div></div>
+<nav class="nav">
+  <div class="nav-left"><button class="hbtn" onclick="toggleSide()" aria-label="Menu"><svg width="20" height="14" viewBox="0 0 20 14" fill="none"><rect y="0" width="20" height="2" fill="currentColor"/><rect y="6" width="20" height="2" fill="currentColor"/><rect y="12" width="20" height="2" fill="currentColor"/></svg></button></div>
+  <a href="index.html" class="nav-logo">VEY<em>N</em>É</a>
+  <div class="nav-right">
+    <a href="contact.html" class="nr-svc"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1a6 6 0 0 0-6 6v1.5A1.5 1.5 0 0 0 3.5 10H5V7a3 3 0 1 1 6 0v3h1.5A1.5 1.5 0 0 0 14 8.5V7A6 6 0 0 0 8 1Z" stroke="currentColor" stroke-width="1.2" fill="none"/></svg><span class="svc-lbl">Client Services</span></a>
+    <a href="wishlist.html" class="nicon" aria-label="Wishlist"><svg width="20" height="18" viewBox="0 0 20 18" fill="none"><path d="M10 16S2 11 2 5.5A4.5 4.5 0 0 1 10 3.8 4.5 4.5 0 0 1 18 5.5C18 11 10 16 10 16Z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></a>
+    <button class="nicon" onclick="toggleCart()" aria-label="Cart"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 2h2l2.4 9.6A2 2 0 0 0 8.3 13h7.4a2 2 0 0 0 1.9-1.4L19 6H5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8.5" cy="16.5" r="1.5" fill="currentColor"/><circle cx="15.5" cy="16.5" r="1.5" fill="currentColor"/></svg><span class="nbadge" id="cb">0</span></button>
+    <a href="account.html" class="nicon" aria-label="Account"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="4" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M2 18c0-4 3.6-6 8-6s8 2 8 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg></a>
+  </div>
+</nav>
+<div class="nav-cats">
+  <a href="index.html" class="ncat">Home</a><a href="men.html" class="ncat">Men</a><a href="women.html" class="ncat">Women</a><a href="kids.html" class="ncat">Young Sovereign</a><a href="accessories.html" class="ncat">Accessories</a><a href="collectibles.html" class="ncat on">Collectibles</a><a href="lore.html" class="ncat">The Lore</a><a href="about.html" class="ncat">About</a>
+</div>
+<div class="side-ov" id="side-ov">
+  <div class="side-panel">
+    <div class="side-hd"><span class="side-logo">VEYNÉ</span><button class="side-x" onclick="toggleSide()">✕</button></div>
+    <p class="side-sec">Collections</p>
+    <a href="men.html" class="slink">Men <span>›</span></a><a href="women.html" class="slink">Women <span>›</span></a><a href="kids.html" class="slink">Young Sovereign <span>›</span></a><a href="accessories.html" class="slink">Accessories <span>›</span></a><a href="collectibles.html" class="slink">Collectibles <span>›</span></a>
+    <p class="side-sec">The Realm</p>
+    <a href="lore.html" class="slink">The Lore <span>›</span></a><a href="about.html" class="slink">About Cealis Veyne <span>›</span></a><a href="contact.html" class="slink">Client Services <span>›</span></a><a href="faq.html" class="slink">FAQ &amp; Support <span>›</span></a>
+    <div class="side-ft"><a href="account.html" class="sftb prim">Sign In</a><a href="account.html" class="sftb">Create Account</a></div>
+  </div>
+  <div style="flex:1;cursor:pointer;" onclick="toggleSide()"></div>
+</div>
+<div class="cart-ov" id="cart-ov" onclick="toggleCart()"></div>
+<div class="cart-drawer" id="cart-drawer">
+  <div class="cart-dh"><span class="cart-dh-t">Your Order</span><button class="cart-dh-x" onclick="toggleCart()">✕</button></div>
+  <div class="cart-body"><div class="cart-bi" id="cart-bd"><p class="cart-empty">Your order is empty.<br/>Begin your collection.</p></div></div>
+  <div id="cart-ft" style="display:none;" class="cart-ft">
+    <p class="cart-ship">Complimentary shipping on orders over €75</p>
+    <div class="cart-tot"><span class="cart-tot-l">Order Total</span><span class="cart-tot-v" id="cart-total">€ 0.00</span></div>
+    <button class="cart-co" onclick="alert('Connect Stripe or Shopify for live payments!')">Proceed to Checkout</button>
+  </div>
+</div>
+
+<div class="pg-hero">
+  <canvas id="phc"></canvas>
+  <div class="pg-hero-c">
+    <span class="pg-eye">Veyné Collection</span>
+    <h1 class="pg-title">COLLECTIBLES</h1>
+    <p class="pg-sub">Realm Objects — Limited Edition Pieces</p>
+  </div>
+</div>
+<div class="breadcrumb"><a href="index.html">Home</a><span class="breadcrumb-sep">›</span><span>Collectibles</span></div>
+
+<div class="shop-layout">
+  <aside class="filters">
+    <p class="filter-title">Refine</p>
+    <div class="filter-group">
+      <p class="filter-group-title">Category</p>
+      <div class="filter-option"><input type="checkbox" id="f-all" checked onchange="filterCat('all',this)"/><label for="f-all">All</label></div>
+      <div class="filter-option"><input type="checkbox" id="f-plushies" onchange="filterCat('plushies',this)"/><label for="f-plushies">Plushies</label></div>
+      <div class="filter-option"><input type="checkbox" id="f-prints" onchange="filterCat('prints',this)"/><label for="f-prints">Art Prints</label></div>
+      <div class="filter-option"><input type="checkbox" id="f-statues" onchange="filterCat('statues',this)"/><label for="f-statues">Figures &amp; Statues</label></div>
+      <div class="filter-option"><input type="checkbox" id="f-books" onchange="filterCat('books',this)"/><label for="f-books">Lore Books</label></div>
+    </div>
+    <div class="filter-group">
+      <p class="filter-group-title">Edition</p>
+      <div class="filter-option"><input type="checkbox" id="f-new" onchange="filterNew(this)"/><label for="f-new">New Arrivals</label></div>
+      <div class="filter-option"><input type="checkbox" id="f-limited"/><label for="f-limited">Limited Edition</label></div>
+    </div>
+    <div class="filter-group">
+      <p class="filter-group-title">Price</p>
+      <div class="filter-option"><input type="checkbox" id="fp1" onchange="filterPrice(0,30,this)"/><label for="fp1">Under € 30</label></div>
+      <div class="filter-option"><input type="checkbox" id="fp2" onchange="filterPrice(30,60,this)"/><label for="fp2">€ 30 — € 60</label></div>
+      <div class="filter-option"><input type="checkbox" id="fp3" onchange="filterPrice(60,999,this)"/><label for="fp3">Over € 60</label></div>
+    </div>
+    <button class="filter-clear" onclick="clearFilters()">Clear All Filters</button>
+  </aside>
+  <div class="products-area">
+    <div class="products-toolbar">
+      <span class="products-count" id="prod-count">8 pieces</span>
+      <select class="sort-select" id="sort-select" onchange="sortProducts()">
+        <option value="default">Sort by</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+        <option value="name">Name A–Z</option>
+        <option value="new">New Arrivals First</option>
+      </select>
+    </div>
+    <div class="pg" id="prod-grid"></div>
+  </div>
+</div>
+
+<div class="nl-b">
+  <span style="font-size:9px;letter-spacing:6px;color:var(--accent);text-transform:uppercase;display:block;margin-bottom:1rem;">The Order</span>
+  <h2 class="nl-t">Join the Realm</h2>
+  <p class="nl-s">First access to new drops, lore reveals, and exclusive sovereign pieces.</p>
+  <div class="nl-f"><input class="nl-in" type="email" id="nlEmail" placeholder="Transmission address"/><button class="nl-go" onclick="doNL()">Enter</button></div>
+  <p class="nl-msg" id="nlMsg"></p>
+</div>
+
+<footer class="footer">
+  <div class="foot-m">
+    <div><p class="foot-brand">VEYNÉ</p><p class="foot-tag">The Shadow Sovereign.<br/>The Razorbill.<br/>The Hunt Continues.</p><div class="foot-soc"><a href="#" class="fsoc">Twitch</a><a href="#" class="fsoc">YouTube</a><a href="#" class="fsoc">TikTok</a><a href="#" class="fsoc">Instagram</a></div></div>
+    <div><p class="foot-h">Collections</p><ul class="foot-l"><li><a href="men.html">Men</a></li><li><a href="women.html">Women</a></li><li><a href="kids.html">Young Sovereign</a></li><li><a href="accessories.html">Accessories</a></li><li><a href="collectibles.html">Collectibles</a></li></ul></div>
+    <div><p class="foot-h">The Realm</p><ul class="foot-l"><li><a href="lore.html">The Lore</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Client Services</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
+    <div><p class="foot-h">Support</p><ul class="foot-l"><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Shipping</a></li><li><a href="contact.html">Returns</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+  </div>
+  <div class="foot-bot"><p class="foot-copy">© Veyné — Cealis Veyne — The Razorbill · Order // 001</p><p class="foot-copy">The Shadow Walks. The Warden Watches.</p></div>
+</footer>
+<div class="toast" id="toast"></div>
+
+<script>
+var cart=JSON.parse(localStorage.getItem('veyne-cart')||'[]');
+var wishlist=JSON.parse(localStorage.getItem('veyne-wishlist')||'[]');
+var allProducts=[
+{id:401,name:'Razorbill Warden Plushie',subcat:'plushies',tag:'Collectibles — Plushies',price:24.99,badge:'New',isNew:true,desc:'The official Razorbill Warden plushie. Soft companion from the northern seas.'},
+{id:402,name:'Sovereign Art Print — I',subcat:'prints',tag:'Collectibles — Prints',price:19.99,badge:null,isNew:false,desc:'Limited edition art print: "I don\'t seek power. I claim what is mine." — signed edition.'},
+{id:403,name:'Cealis Veyne Figure',subcat:'statues',tag:'Collectibles — Figures',price:89.99,badge:'New',isNew:true,desc:'Hand-painted resin figure of Cealis Veyne in full sovereign regalia. Limited to 001 units.'},
+{id:404,name:'The Realm Codex',subcat:'books',tag:'Collectibles — Lore Books',price:34.99,badge:null,isNew:false,desc:'A hardcover lore book containing the full history of the Sovereign Realm, the Razorbill, and the Hunt.'},
+{id:405,name:'Razorbill Enamel Pin',subcat:'prints',tag:'Collectibles — Pins',price:12.99,badge:null,isNew:false,desc:'Hard enamel Razorbill pin in black and gold. Comes with a certificate of authenticity.'},
+{id:406,name:'Warden Plushie XL',subcat:'plushies',tag:'Collectibles — Plushies',price:39.99,badge:'New',isNew:true,desc:'Oversized Razorbill Warden plushie. 40cm of sovereign loyalty. Realm-approved.'},
+{id:407,name:'Sovereign Realm Print — II',subcat:'prints',tag:'Collectibles — Prints',price:24.99,badge:null,isNew:false,desc:'Second in the limited series. "The Shadow Walks. The Warden Watches." A4 signed print.'},
+{id:408,name:'Hunt Begins Diorama',subcat:'statues',tag:'Collectibles — Figures',price:119.99,badge:'New',isNew:true,desc:'Limited diorama set: Cealis Veyne and the Razorbill Warden at the edge of the northern seas.'}
+];
+var displayProducts=[...allProducts];
+var bgs=['#16120e','#181410','#1a1610','#1c1810','#14100e','#181210','#1a1410','#161010'];
+var shps=[
+function(){return '<ellipse cx="30" cy="34" rx="18" ry="20" fill="#2a1e14" stroke="#3a2820" stroke-width="0.5"/><ellipse cx="30" cy="20" rx="11" ry="13" fill="#221810" stroke="#2a2010" stroke-width="0.5"/><ellipse cx="23" cy="16" rx="3" ry="3" fill="#f0e8dc" opacity="0.9"/><ellipse cx="37" cy="16" rx="3" ry="3" fill="#f0e8dc" opacity="0.9"/><ellipse cx="30" cy="35" rx="6" ry="6" fill="#7c2c2c" opacity="0.5"/>'},
+function(){return '<rect x="10" y="10" width="40" height="40" fill="#2a1e14" stroke="#3a2820" stroke-width="0.5"/><rect x="14" y="14" width="32" height="32" fill="none" stroke="#b8905a" stroke-width="0.5"/><path d="M22 30 L28 36 L38 24" stroke="#b8905a" stroke-width="1" fill="none"/>'},
+function(){return '<rect x="16" y="10" width="28" height="40" rx="1" fill="#2a1e14" stroke="#3a2820" stroke-width="0.5"/><ellipse cx="30" cy="20" rx="8" ry="10" fill="#221810" stroke="#2a2010" stroke-width="0.4"/><ellipse cx="27" cy="18" rx="2" ry="2" fill="#f0e8dc" opacity="0.85"/><ellipse cx="33" cy="18" rx="2" ry="2" fill="#f0e8dc" opacity="0.85"/><rect x="20" y="44" width="20" height="6" rx="1" fill="#221810" stroke="#3a2820" stroke-width="0.4"/>'},
+function(){return '<rect x="10" y="8" width="40" height="44" rx="2" fill="#2a1e14" stroke="#b8905a" stroke-width="0.7"/><rect x="14" y="14" width="32" height="2" fill="#3a2820"/><rect x="14" y="20" width="28" height="1.5" fill="#3a2820"/><rect x="14" y="26" width="30" height="1.5" fill="#3a2820"/><rect x="14" y="32" width="24" height="1.5" fill="#3a2820"/>'},
+function(){return '<circle cx="30" cy="30" r="18" fill="#2a1e14" stroke="#3a2820" stroke-width="0.5"/><circle cx="30" cy="30" r="12" fill="none" stroke="#b8905a" stroke-width="0.5"/><path d="M30 18 L32 26 L30 28 L28 26 Z" fill="#b8905a" opacity="0.7"/>'},
+function(){return '<ellipse cx="30" cy="32" rx="22" ry="24" fill="#2a1e14" stroke="#3a2820" stroke-width="0.5"/><ellipse cx="30" cy="16" rx="14" ry="16" fill="#221810" stroke="#2a2010" stroke-width="0.5"/><ellipse cx="22" cy="12" rx="4" ry="4" fill="#f0e8dc" opacity="0.9"/><ellipse cx="38" cy="12" rx="4" ry="4" fill="#f0e8dc" opacity="0.9"/>'},
+function(){return '<rect x="10" y="10" width="40" height="40" fill="#2a1e14" stroke="#3a2820" stroke-width="0.5"/><rect x="14" y="14" width="32" height="32" fill="none" stroke="#7c2c2c" stroke-width="0.5"/><rect x="20" y="20" width="6" height="6" fill="#7c2c2c" opacity="0.6"/><rect x="34" y="20" width="6" height="6" fill="#7c2c2c" opacity="0.6"/><rect x="20" y="34" width="6" height="6" fill="#7c2c2c" opacity="0.6"/><rect x="34" y="34" width="6" height="6" fill="#7c2c2c" opacity="0.6"/>'},
+function(){return '<rect x="12" y="16" width="36" height="30" rx="1" fill="#2a1e14" stroke="#3a2820" stroke-width="0.5"/><ellipse cx="30" cy="24" rx="7" ry="9" fill="#221810" stroke="#2a2010" stroke-width="0.4"/><ellipse cx="26" cy="22" rx="2" ry="2" fill="#f0e8dc" opacity="0.8"/><ellipse cx="34" cy="22" rx="2" ry="2" fill="#f0e8dc" opacity="0.8"/><rect x="16" y="46" width="28" height="4" rx="1" fill="#221810" stroke="#3a2820" stroke-width="0.4"/>'}
+];
+function mkSvg(i){return '<svg width="60" height="60" viewBox="0 0 60 60" fill="none" style="background:'+bgs[i%bgs.length]+'">'+shps[i%shps.length]()+'</svg>';}
+function saveCart(){localStorage.setItem('veyne-cart',JSON.stringify(cart));}
+function saveWish(){localStorage.setItem('veyne-wishlist',JSON.stringify(wishlist));}
+function updateCartBadge(){var cnt=cart.reduce(function(a,x){return a+x.qty;},0);var cb=document.getElementById('cb');if(cb){cb.textContent=cnt;cnt>0?cb.style.display='flex':cb.style.display='none';}}
+function renderProducts(list){
+  var g=document.getElementById('prod-grid'),c=document.getElementById('prod-count');
+  if(c)c.textContent=list.length+' piece'+(list.length!==1?'s':'');
+  if(!list.length){g.innerHTML='<div style="padding:3rem;text-align:center;font-size:12px;color:var(--text3);letter-spacing:2px;grid-column:1/-1;font-family:\'Cormorant Garamond\',serif;font-style:italic;">No items match your selection.</div>';return;}
+  g.innerHTML=list.map(function(p){var w=wishlist.includes(p.id);var idx=allProducts.indexOf(p);return '<div class="pc">'+(p.badge?'<span class="pc-bdg">'+p.badge+'</span>':'')+'<div class="pc-img" style="background:'+bgs[idx%bgs.length]+';" onclick="location.href=\'product.html?id='+p.id+'\'">'+mkSvg(idx)+'</div><div class="pc-bd"><p class="pc-tag">'+p.tag+'</p><a href="product.html?id='+p.id+'" class="pc-name">'+p.name+'</a><p class="pc-price">€ '+p.price.toFixed(2)+'</p><div class="pc-actions"><button class="pc-add" id="pa'+p.id+'" onclick="addToCart('+p.id+',this)">Add to Order</button><button class="pc-wish'+(w?' on':'')+'" onclick="tWish('+p.id+',this)">'+(w?'♥':'♡')+'</button></div></div></div>';}).join('');
+}
+function addToCart(id,btn){var p=allProducts.find(function(x){return x.id===id;});if(!p)return;var ex=cart.find(function(i){return i.id===id;});if(ex){ex.qty++;}else{cart.push({id:id,name:p.name,tag:p.tag,price:p.price.toFixed(2),qty:1});}saveCart();updateCartBadge();showT(p.name+' added to your order');if(btn){var o=btn.textContent;btn.textContent='Added ✓';btn.classList.add('done');setTimeout(function(){btn.textContent=o;btn.classList.remove('done');},2200);}openCartD();}
+function tWish(id,btn){var idx=wishlist.indexOf(id);if(idx>-1){wishlist.splice(idx,1);btn.classList.remove('on');btn.textContent='♡';}else{wishlist.push(id);btn.classList.add('on');btn.textContent='♥';}saveWish();showT(idx>-1?'Removed from wishlist':'Added to wishlist');}
+function filterCat(cat,cb){document.querySelectorAll('.filter-group input[type=checkbox]').forEach(function(c){if(c.id.startsWith('f-')&&c!==cb)c.checked=false;});cb.checked=true;displayProducts=cat==='all'?[...allProducts]:allProducts.filter(function(p){return p.subcat===cat;});renderProducts(displayProducts);}
+function filterNew(cb){displayProducts=cb.checked?allProducts.filter(function(p){return p.isNew;}):[...allProducts];renderProducts(displayProducts);}
+function filterPrice(min,max,cb){document.querySelectorAll('[id^=fp]').forEach(function(c){if(c!==cb)c.checked=false;});if(cb.checked){displayProducts=allProducts.filter(function(p){return p.price>=min&&p.price<max;});}else{displayProducts=[...allProducts];}renderProducts(displayProducts);}
+function clearFilters(){document.querySelectorAll('.filters input[type=checkbox]').forEach(function(c){c.checked=false;});document.getElementById('f-all').checked=true;displayProducts=[...allProducts];renderProducts(displayProducts);}
+function sortProducts(){var v=document.getElementById('sort-select').value,arr=[...displayProducts];if(v==='price-asc')arr.sort(function(a,b){return a.price-b.price;});else if(v==='price-desc')arr.sort(function(a,b){return b.price-a.price;});else if(v==='name')arr.sort(function(a,b){return a.name.localeCompare(b.name);});else if(v==='new')arr.sort(function(a,b){return b.isNew-a.isNew;});renderProducts(arr);}
+function openCartD(){document.getElementById('cart-drawer').classList.add('open');document.getElementById('cart-ov').classList.add('on');}
+function toggleCart(){var c=document.getElementById('cart-drawer'),o=document.getElementById('cart-ov');if(c.classList.contains('open')){c.classList.remove('open');o.classList.remove('on');}else{c.classList.add('open');o.classList.add('on');renderCartDrawer();}}
+function renderCartDrawer(){var bd=document.getElementById('cart-bd'),ft=document.getElementById('cart-ft');if(!bd)return;if(!cart.length){bd.innerHTML='<p class="cart-empty">Your order is empty.<br/>Begin your collection.</p>';if(ft)ft.style.display='none';return;}bd.innerHTML=cart.map(function(item,i){return '<div class="cart-line"><div class="cart-li"><div class="cart-ln">'+item.name+'</div><div class="cart-lm">'+item.tag+'</div><div class="cart-qty-row"><button class="cqb" onclick="chQty('+i+',-1)">−</button><span class="cart-qty-n">'+item.qty+'</span><button class="cqb" onclick="chQty('+i+',1)">+</button></div></div><div class="cart-lr"><button class="cart-lx" onclick="rmCart('+i+')">✕</button><span class="cart-lp">€ '+(parseFloat(item.price)*item.qty).toFixed(2)+'</span></div></div>';}).join('');var total=cart.reduce(function(a,x){return a+parseFloat(x.price)*x.qty;},0);var tv=document.getElementById('cart-total');if(tv)tv.textContent='€ '+total.toFixed(2);if(ft)ft.style.display='block';}
+function chQty(i,d){if(cart[i]){cart[i].qty+=d;if(cart[i].qty<1)cart.splice(i,1);}saveCart();updateCartBadge();renderCartDrawer();}
+function rmCart(i){cart.splice(i,1);saveCart();updateCartBadge();renderCartDrawer();}
+function toggleSide(){document.getElementById('side-ov').classList.toggle('open');}
+function showT(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('on');setTimeout(function(){t.classList.remove('on');},2600);}
+function doNL(){var e=document.getElementById('nlEmail'),m=document.getElementById('nlMsg');if(!e.value.trim().includes('@')){m.style.color='var(--accent)';m.textContent='Please enter a valid address.';return;}m.style.color='var(--text4)';m.textContent='Welcome to the realm, operative.';e.value='';}
+function initCanvas(){var c=document.getElementById('phc');if(!c)return;var ctx=c.getContext('2d');function resize(){c.width=c.offsetWidth;c.height=c.offsetHeight;}resize();window.addEventListener('resize',resize);var pts=[];for(var i=0;i<30;i++)pts.push({x:Math.random()*c.width,y:Math.random()*c.height,vx:(Math.random()-.5)*.18,vy:(Math.random()-.5)*.18,r:Math.random()*1.1+.3,o:Math.random()*.18+.05});function draw(){ctx.clearRect(0,0,c.width,c.height);pts.forEach(function(p){p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=c.width;if(p.x>c.width)p.x=0;if(p.y<0)p.y=c.height;if(p.y>c.height)p.y=0;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(184,144,90,'+p.o+')';ctx.fill();});requestAnimationFrame(draw);}draw();}
+renderProducts(allProducts);updateCartBadge();initCanvas();
+</script>
+</body>
+</html>

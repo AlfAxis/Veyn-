@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Product — VEYNÉ</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{--bg:#faf6f0;--bg2:#f0e8d6;--dark:#0a0806;--dark2:#160e06;--dark3:#221408;--accent:#7c2c2c;--accent2:#5c1e1e;--gold:#b8905a;--gold2:#946e38;--gold3:#d4b07c;--text:#180e06;--text2:#3a2a16;--text3:#6a5438;--text4:#9a8468;--border:#c8bca8;--border2:#b8a890;--nav-h:62px;}
+html,body{font-family:'Raleway',sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;}
+button,input,select{font-family:'Raleway',sans-serif;cursor:pointer;}
+.ann{background:var(--dark2);overflow:hidden;padding:.52rem 0;}.ann-inner{display:flex;gap:4rem;animation:annS 28s linear infinite;white-space:nowrap;}@keyframes annS{to{transform:translateX(-50%);}}
+.ann-inner span{font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;}.ann-dot{color:#3a2010;font-size:5px;vertical-align:middle;}
+.nav{background:var(--dark);border-bottom:0.5px solid #2a1e10;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;position:sticky;top:0;z-index:200;}
+.nav-left{display:flex;align-items:center;}.hbtn{background:none;border:none;padding:.5rem;color:#c8b898;display:flex;align-items:center;justify-content:center;transition:color .2s;width:38px;height:38px;}.hbtn:hover{color:#f5f0e8;}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:26px;letter-spacing:12px;color:#f5f0e8;font-weight:300;position:absolute;left:50%;transform:translateX(-50%);text-decoration:none;}.nav-logo em{font-style:italic;color:var(--gold);}
+.nav-right{display:flex;align-items:stretch;}.nr-svc{background:none;border:none;border-left:0.5px solid #2a1e10;padding:0 1rem;color:#8a7868;font-size:9px;letter-spacing:2px;text-transform:uppercase;display:flex;align-items:center;gap:.5rem;transition:color .2s;height:var(--nav-h);text-decoration:none;}.nr-svc:hover{color:#c8b898;}
+.nicon{background:none;border:none;border-left:0.5px solid #2a1e10;padding:0 .85rem;color:#8a7868;display:flex;align-items:center;justify-content:center;position:relative;transition:color .2s;height:var(--nav-h);min-width:44px;font-size:20px;text-decoration:none;}.nicon:hover{color:#f5f0e8;}
+.nbadge{position:absolute;top:10px;right:6px;min-width:16px;height:16px;background:var(--accent);border-radius:8px;font-size:8px;color:#fff;display:none;align-items:center;justify-content:center;padding:0 3px;font-weight:500;}
+.nav-cats{background:var(--dark);border-bottom:0.5px solid #2a1e10;display:flex;justify-content:center;overflow-x:auto;}.nav-cats::-webkit-scrollbar{display:none;}
+.ncat{background:none;border:none;border-bottom:2px solid transparent;color:#8a7868;font-size:9px;letter-spacing:3px;text-transform:uppercase;padding:.82rem 1.2rem;white-space:nowrap;transition:all .25s;text-decoration:none;display:inline-flex;align-items:center;}.ncat:hover{color:#f5f0e8;border-bottom-color:var(--gold);}
+.side-ov{display:none;position:fixed;inset:0;z-index:300;}.side-ov.open{display:flex;background:rgba(10,8,6,.72);}
+.side-panel{background:var(--dark);width:290px;height:100%;display:flex;flex-direction:column;animation:sideIn .3s ease;overflow-y:auto;}@keyframes sideIn{from{transform:translateX(-100%);}to{transform:translateX(0);}}
+.side-hd{padding:1.3rem 1.6rem;border-bottom:0.5px solid #2a1e10;display:flex;justify-content:space-between;align-items:center;}.side-logo{font-family:'Cormorant Garamond',serif;font-size:16px;letter-spacing:7px;color:#f0e8dc;}
+.side-x{background:none;border:none;color:#6a5a48;font-size:22px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;}.side-x:hover{color:#f0e8dc;}
+.side-sec{padding:1.1rem 1.6rem .4rem;font-size:9px;letter-spacing:5px;color:var(--gold2);text-transform:uppercase;}
+.slink{display:flex;justify-content:space-between;align-items:center;width:100%;padding:.82rem 1.6rem;background:none;border:none;border-bottom:0.5px solid #1e1610;font-size:12px;letter-spacing:1.5px;color:#8a7868;text-align:left;transition:all .2s;font-family:'Cormorant Garamond',serif;text-decoration:none;}.slink:hover{background:#1e160e;color:#f0e8dc;padding-left:2.2rem;}
+.side-ft{margin-top:auto;padding:1.4rem 1.6rem;border-top:0.5px solid #1e1610;display:flex;gap:.8rem;}
+.sftb{flex:1;padding:.7rem;font-size:9px;letter-spacing:3px;text-transform:uppercase;border:0.5px solid #3a2a18;background:transparent;color:#6a5a48;transition:all .25s;text-decoration:none;text-align:center;display:block;}.sftb.prim{background:var(--gold);color:var(--dark);border-color:var(--gold);}
+.cart-drawer{position:fixed;top:0;right:-440px;width:420px;height:100%;background:#fff;z-index:300;transition:right .35s ease;display:flex;flex-direction:column;border-left:0.5px solid var(--border);}.cart-drawer.open{right:0;box-shadow:-4px 0 24px rgba(10,8,6,.15);}
+.cart-dh{padding:1.3rem 1.6rem;background:var(--dark);display:flex;justify-content:space-between;align-items:center;flex-shrink:0;}.cart-dh-t{font-family:'Cormorant Garamond',serif;font-size:17px;letter-spacing:5px;color:#f0e8dc;}.cart-dh-x{background:none;border:none;color:#8a7868;font-size:22px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;}.cart-dh-x:hover{color:#f0e8dc;}
+.cart-body{flex:1;overflow-y:auto;}.cart-bi{padding:1rem 1.6rem;}.cart-line{display:flex;justify-content:space-between;padding:1rem 0;border-bottom:0.5px solid #f0ead8;gap:1rem;}.cart-li{flex:1;}.cart-ln{font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:1px;color:#180e06;}.cart-lm{font-size:10px;color:#9a8468;letter-spacing:1px;margin-top:3px;}.cart-qty-row{display:flex;align-items:center;gap:.5rem;margin-top:.6rem;}.cqb{background:none;border:0.5px solid #c8bca8;width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:16px;color:#6a5438;transition:all .2s;}.cqb:hover{background:#f0e8d6;}.cart-qty-n{font-family:'Cormorant Garamond',serif;font-size:14px;color:#180e06;min-width:22px;text-align:center;}.cart-lr{display:flex;flex-direction:column;align-items:flex-end;gap:.5rem;flex-shrink:0;}.cart-lp{font-family:'Cormorant Garamond',serif;font-size:14px;color:#3a2a16;}.cart-lx{background:none;border:none;color:#c4b098;font-size:16px;transition:color .2s;}.cart-lx:hover{color:var(--accent);}
+.cart-empty{font-size:12px;color:#9a8468;text-align:center;padding:3rem 1.6rem;font-family:'Cormorant Garamond',serif;font-style:italic;line-height:1.9;}
+.cart-ft{border-top:0.5px solid #e8dfc8;background:#f8f3ea;padding:1.4rem 1.6rem;flex-shrink:0;}.cart-ship{font-size:10px;color:#9a8468;letter-spacing:1px;margin-bottom:.8rem;text-align:center;}.cart-tot{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1.2rem;}.cart-tot-l{font-size:10px;letter-spacing:3px;color:#6a5438;text-transform:uppercase;}.cart-tot-v{font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:2px;color:var(--accent);}
+.cart-co{width:100%;padding:.88rem;background:var(--dark);color:#f0e8dc;border:none;font-size:9px;letter-spacing:4px;text-transform:uppercase;transition:background .3s;}.cart-co:hover{background:var(--dark3);}
+.cart-ov{position:fixed;inset:0;background:rgba(10,8,6,.4);z-index:299;display:none;}.cart-ov.on{display:block;}
+.breadcrumb{padding:.8rem 2rem;background:var(--bg2);border-bottom:0.5px solid var(--border);display:flex;gap:.5rem;align-items:center;font-size:10px;letter-spacing:2px;color:var(--text4);text-transform:uppercase;flex-wrap:wrap;}
+.breadcrumb a{color:var(--text4);text-decoration:none;transition:color .2s;}.breadcrumb a:hover{color:var(--text);}.breadcrumb-sep{color:var(--border2);}
+/* PRODUCT SPECIFIC */
+.product-wrap{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:0.5px solid var(--border);min-height:70vh;}
+.product-gallery{position:relative;background:var(--dark2);display:flex;align-items:center;justify-content:center;min-height:520px;}
+.product-gallery canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
+.product-gallery-inner{position:relative;z-index:2;text-align:center;}
+.product-badge{position:absolute;top:1.5rem;left:1.5rem;background:var(--accent);color:#faf6f0;font-size:8px;letter-spacing:3px;padding:4px 12px;text-transform:uppercase;z-index:3;}
+.product-info{padding:4rem 3.5rem;display:flex;flex-direction:column;justify-content:center;}
+.pi-eye{font-size:9px;letter-spacing:5px;color:var(--accent);text-transform:uppercase;display:block;margin-bottom:.8rem;}
+.pi-name{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4vw,40px);font-weight:300;letter-spacing:4px;color:var(--text);margin-bottom:.4rem;}
+.pi-price{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,2.5vw,24px);color:var(--text2);letter-spacing:2px;margin-bottom:2rem;}
+.pi-rule{width:28px;height:0.5px;background:var(--border2);margin:1rem 0 2rem;}
+.pi-desc{font-size:13px;color:var(--text3);line-height:2.3;letter-spacing:.3px;margin-bottom:2.5rem;}
+.pi-opt-label{font-size:9px;letter-spacing:4px;color:var(--text2);text-transform:uppercase;margin-bottom:.8rem;display:block;}
+.pi-sizes{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2rem;}
+.pi-size{padding:.55rem 1rem;border:0.5px solid var(--border2);font-size:10px;letter-spacing:2px;color:var(--text3);background:transparent;transition:all .2s;}
+.pi-size:hover,.pi-size.on{border-color:var(--dark2);color:var(--dark2);background:var(--bg2);}
+.pi-actions{display:flex;flex-direction:column;gap:.8rem;}
+.pi-add{padding:1rem;background:var(--dark2);color:#f0e8dc;border:none;font-size:9px;letter-spacing:4px;text-transform:uppercase;transition:background .3s;cursor:pointer;}
+.pi-add:hover{background:var(--dark3);}
+.pi-wish{padding:1rem;background:transparent;border:0.5px solid var(--border2);font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--text4);transition:all .3s;cursor:pointer;}
+.pi-wish:hover,.pi-wish.on{border-color:var(--accent);color:var(--accent);}
+.pi-meta{margin-top:2rem;padding-top:2rem;border-top:0.5px solid var(--border);}
+.pi-meta-row{display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:0.5px solid var(--border);font-size:11px;}
+.pi-meta-label{color:var(--text4);letter-spacing:.5px;}
+.pi-meta-val{font-family:'Cormorant Garamond',serif;color:var(--text2);}
+.related-sec{padding:5rem 2rem;border-top:0.5px solid var(--border);}
+.related-eye{font-size:9px;letter-spacing:6px;color:var(--accent);text-transform:uppercase;display:block;text-align:center;margin-bottom:1rem;}
+.related-title{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3.5vw,32px);font-weight:300;letter-spacing:5px;color:var(--text);text-align:center;margin-bottom:.5rem;}
+.related-rule{width:28px;height:0.5px;background:var(--border2);margin:.8rem auto 3rem;}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1px;background:var(--border);max-width:1000px;margin:0 auto;}
+.rc{background:var(--bg);transition:background .3s;}.rc:hover{background:var(--bg2);}
+.rc-img{aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;cursor:pointer;}.rc-img svg{transition:transform .5s;}.rc:hover .rc-img svg{transform:scale(1.05);}
+.rc-bd{padding:1rem 1.2rem 1.6rem;}.rc-tag{font-size:9px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:.3rem;}
+.rc-name{font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:300;letter-spacing:1.5px;color:var(--text);margin-bottom:.3rem;text-decoration:none;display:block;}.rc-name:hover{color:var(--accent);}
+.rc-price{font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--text3);}
+.toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(10px);background:var(--dark2);color:#f0e8dc;padding:.72rem 2rem;font-size:9px;letter-spacing:3px;text-transform:uppercase;opacity:0;transition:all .35s ease;white-space:nowrap;pointer-events:none;z-index:500;border:0.5px solid #3a2818;}.toast.on{opacity:1;transform:translateX(-50%) translateY(0);}
+.footer{background:var(--dark);}.foot-m{padding:4.5rem 2rem 3rem;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;border-bottom:0.5px solid #181208;}
+.foot-brand{font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:8px;color:#f0e8dc;font-weight:300;margin-bottom:.8rem;}.foot-tag{font-family:'Cormorant Garamond',serif;font-size:12px;font-style:italic;color:#3c2010;line-height:2.2;}
+.foot-h{font-size:9px;letter-spacing:4px;color:#6a2828;text-transform:uppercase;margin-bottom:1.3rem;}.foot-l{list-style:none;}.foot-l li a{font-size:11px;color:#4a3018;margin-bottom:.7rem;display:block;letter-spacing:.5px;transition:color .25s;text-decoration:none;padding:.15rem 0;}.foot-l li a:hover{color:var(--gold);}
+.foot-soc{display:flex;gap:.5rem;margin-top:1.5rem;flex-wrap:wrap;}.fsoc{background:none;border:0.5px solid #2a1e10;color:#4a3018;font-size:11px;padding:.5rem .8rem;transition:all .25s;letter-spacing:1px;text-decoration:none;display:inline-block;}.fsoc:hover{border-color:#6a5040;color:var(--gold);}
+.foot-bot{padding:1.5rem 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}.foot-copy{font-size:9px;color:#221408;letter-spacing:2px;text-transform:uppercase;}
+@media(max-width:900px){.product-wrap{grid-template-columns:1fr;}.product-gallery{min-height:380px;}.product-info{padding:3rem 2rem;}}
+@media(max-width:700px){.foot-m{grid-template-columns:1fr 1fr;}.cart-drawer{width:100%;}.nr-svc .svc-lbl{display:none;}}
+</style>
+</head>
+<body>
+<div class="ann"><div class="ann-inner"><span>Complimentary shipping on orders over €75</span><span class="ann-dot">✦</span><span>Order // 001 · First Limited Edition</span><span class="ann-dot">✦</span><span>Returns within 30 days</span><span class="ann-dot">✦</span><span>Worldwide delivery available</span><span class="ann-dot">✦</span><span>Complimentary shipping on orders over €75</span><span class="ann-dot">✦</span><span>Order // 001 · First Limited Edition</span><span class="ann-dot">✦</span><span>Returns within 30 days</span><span class="ann-dot">✦</span><span>Worldwide delivery available</span><span class="ann-dot">✦</span></div></div>
+<nav class="nav">
+  <div class="nav-left"><button class="hbtn" onclick="toggleSide()"><svg width="20" height="14" viewBox="0 0 20 14" fill="none"><rect y="0" width="20" height="2" fill="currentColor"/><rect y="6" width="20" height="2" fill="currentColor"/><rect y="12" width="20" height="2" fill="currentColor"/></svg></button></div>
+  <a href="index.html" class="nav-logo">VEY<em>N</em>É</a>
+  <div class="nav-right">
+    <a href="contact.html" class="nr-svc"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1a6 6 0 0 0-6 6v1.5A1.5 1.5 0 0 0 3.5 10H5V7a3 3 0 1 1 6 0v3h1.5A1.5 1.5 0 0 0 14 8.5V7A6 6 0 0 0 8 1Z" stroke="currentColor" stroke-width="1.2" fill="none"/></svg><span class="svc-lbl">Client Services</span></a>
+    <a href="wishlist.html" class="nicon"><svg width="20" height="18" viewBox="0 0 20 18" fill="none"><path d="M10 16S2 11 2 5.5A4.5 4.5 0 0 1 10 3.8 4.5 4.5 0 0 1 18 5.5C18 11 10 16 10 16Z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></a>
+    <button class="nicon" onclick="toggleCart()"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 2h2l2.4 9.6A2 2 0 0 0 8.3 13h7.4a2 2 0 0 0 1.9-1.4L19 6H5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8.5" cy="16.5" r="1.5" fill="currentColor"/><circle cx="15.5" cy="16.5" r="1.5" fill="currentColor"/></svg><span class="nbadge" id="cb">0</span></button>
+    <a href="account.html" class="nicon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="4" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M2 18c0-4 3.6-6 8-6s8 2 8 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg></a>
+  </div>
+</nav>
+<div class="nav-cats">
+  <a href="index.html" class="ncat">Home</a><a href="men.html" class="ncat">Men</a><a href="women.html" class="ncat">Women</a><a href="kids.html" class="ncat">Young Sovereign</a><a href="accessories.html" class="ncat">Accessories</a><a href="collectibles.html" class="ncat">Collectibles</a><a href="lore.html" class="ncat">The Lore</a><a href="about.html" class="ncat">About</a>
+</div>
+<div class="side-ov" id="side-ov">
+  <div class="side-panel">
+    <div class="side-hd"><span class="side-logo">VEYNÉ</span><button class="side-x" onclick="toggleSide()">✕</button></div>
+    <p class="side-sec">Collections</p>
+    <a href="men.html" class="slink">Men <span>›</span></a><a href="women.html" class="slink">Women <span>›</span></a><a href="kids.html" class="slink">Young Sovereign <span>›</span></a><a href="accessories.html" class="slink">Accessories <span>›</span></a><a href="collectibles.html" class="slink">Collectibles <span>›</span></a>
+    <p class="side-sec">The Realm</p>
+    <a href="lore.html" class="slink">The Lore <span>›</span></a><a href="about.html" class="slink">About Cealis Veyne <span>›</span></a><a href="contact.html" class="slink">Client Services <span>›</span></a><a href="faq.html" class="slink">FAQ &amp; Support <span>›</span></a>
+    <div class="side-ft"><a href="account.html" class="sftb prim">Sign In</a><a href="account.html" class="sftb">Create Account</a></div>
+  </div>
+  <div style="flex:1;cursor:pointer;" onclick="toggleSide()"></div>
+</div>
+<div class="cart-ov" id="cart-ov" onclick="toggleCart()"></div>
+<div class="cart-drawer" id="cart-drawer">
+  <div class="cart-dh"><span class="cart-dh-t">Your Order</span><button class="cart-dh-x" onclick="toggleCart()">✕</button></div>
+  <div class="cart-body"><div class="cart-bi" id="cart-bd"><p class="cart-empty">Your order is empty.<br/>Begin your collection.</p></div></div>
+  <div id="cart-ft" style="display:none;" class="cart-ft">
+    <p class="cart-ship">Complimentary shipping on orders over €75</p>
+    <div class="cart-tot"><span class="cart-tot-l">Order Total</span><span class="cart-tot-v" id="cart-total">€ 0.00</span></div>
+    <button class="cart-co" onclick="alert('Connect Stripe or Shopify for live payments!')">Proceed to Checkout</button>
+  </div>
+</div>
+
+<div class="breadcrumb" id="breadcrumb"><a href="index.html">Home</a><span class="breadcrumb-sep">›</span><span id="bc-cat">Collection</span><span class="breadcrumb-sep">›</span><span id="bc-name">Product</span></div>
+
+<div class="product-wrap">
+  <div class="product-gallery" id="prod-gallery">
+    <canvas id="pgc"></canvas>
+    <div class="product-gallery-inner" id="gallery-inner"></div>
+  </div>
+  <div class="product-info" id="prod-info"></div>
+</div>
+
+<div class="related-sec">
+  <span class="related-eye">You May Also Like</span>
+  <h2 class="related-title">Continue the Collection</h2>
+  <div class="related-rule"></div>
+  <div class="related-grid" id="related-grid"></div>
+</div>
+
+<footer class="footer">
+  <div class="foot-m">
+    <div><p class="foot-brand">VEYNÉ</p><p class="foot-tag">The Shadow Sovereign.<br/>The Razorbill.<br/>The Hunt Continues.</p><div class="foot-soc"><a href="#" class="fsoc">Twitch</a><a href="#" class="fsoc">YouTube</a><a href="#" class="fsoc">TikTok</a><a href="#" class="fsoc">Instagram</a></div></div>
+    <div><p class="foot-h">Collections</p><ul class="foot-l"><li><a href="men.html">Men</a></li><li><a href="women.html">Women</a></li><li><a href="kids.html">Young Sovereign</a></li><li><a href="accessories.html">Accessories</a></li><li><a href="collectibles.html">Collectibles</a></li></ul></div>
+    <div><p class="foot-h">The Realm</p><ul class="foot-l"><li><a href="lore.html">The Lore</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Client Services</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
+    <div><p class="foot-h">Support</p><ul class="foot-l"><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Shipping</a></li><li><a href="contact.html">Returns</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+  </div>
+  <div class="foot-bot"><p class="foot-copy">© Veyné — Cealis Veyne · Order // 001</p><p class="foot-copy">The Shadow Walks. The Warden Watches.</p></div>
+</footer>
+<div class="toast" id="toast"></div>
+
+<script>
+var cart=JSON.parse(localStorage.getItem('veyne-cart')||'[]');
+var wishlist=JSON.parse(localStorage.getItem('veyne-wishlist')||'[]');
+
+var allProducts=[
+  {id:1,name:'Realm Hoodie',tag:'Men — Apparel',price:54.99,badge:null,isNew:false,desc:'Heavyweight black hoodie with Razorbill back print and Sovereign sleeve detail. Brushed fleece interior. Oversized silhouette.',sizes:['XS','S','M','L','XL','XXL'],bg:'#1e1610',category:'men'},
+  {id:2,name:'Shadow Overcoat',tag:'Men — Outerwear',price:89.99,badge:'New',isNew:true,desc:'Long dark overcoat with subtle military embossing and deep interior pockets. Fully lined. Mid-calf length.',sizes:['S','M','L','XL'],bg:'#1a1610',category:'men'},
+  {id:3,name:'Sovereign Tee',tag:'Men — Apparel',price:29.99,badge:null,isNew:false,desc:'Essential black tee with embroidered Razorbill crest at the chest. 100% heavyweight cotton.',sizes:['XS','S','M','L','XL','XXL'],bg:'#1c1810',category:'men'},
+  {id:4,name:'Combat Trousers',tag:'Men — Bottoms',price:64.99,badge:'New',isNew:true,desc:'Tailored fit tactical trousers with dual side pockets and sovereign emblem hardware.',sizes:['S','M','L','XL','XXL'],bg:'#181410',category:'men'},
+  {id:5,name:'Realm Long Shirt',tag:'Men — Apparel',price:44.99,badge:null,isNew:false,desc:'Oversized long shirt in dark charcoal with subtle Razorbill embossing throughout. Drop-shoulder cut.',sizes:['S','M','L','XL'],bg:'#16120e',category:'men'},
+  {id:6,name:'Sovereign Joggers',tag:'Men — Bottoms',price:54.99,badge:null,isNew:false,desc:'Slim fit joggers with embroidered crest and sovereign drawstring detail.',sizes:['XS','S','M','L','XL','XXL'],bg:'#201810',category:'men'},
+  {id:7,name:'Shadow Cape Jacket',tag:'Men — Outerwear',price:124.99,badge:'New',isNew:true,desc:'Dramatic cape jacket with asymmetric hem and military shoulder structure. Structured internal lining.',sizes:['S','M','L','XL'],bg:'#1a1410',category:'men'},
+  {id:8,name:'Realm Combat Boots',tag:'Men — Footwear',price:94.99,badge:null,isNew:false,desc:'Lace-up combat boots in matte black with Razorbill embossed sole. Full leather upper.',sizes:['38','39','40','41','42','43','44','45'],bg:'#181210',category:'men'},
+  {id:101,name:'Sovereign Gown',tag:'Women — Dresses',price:129.99,badge:'New',isNew:true,desc:'Floor-length dark gown with sculptured shoulders and Razorbill embroidery at the hem.',sizes:['XS','S','M','L','XL'],bg:'#1a1610',category:'women'},
+  {id:102,name:'Shadow Blouse',tag:'Women — Tops',price:44.99,badge:null,isNew:false,desc:'Flowing dark blouse with sheer sleeves and sovereign crest embroidery at the cuff.',sizes:['XS','S','M','L','XL'],bg:'#1c1a10',category:'women'},
+  {id:103,name:'Realm Corset',tag:'Women — Tops',price:69.99,badge:'New',isNew:true,desc:'Structured corset in deep charcoal with gold lacing detail and Razorbill boning.',sizes:['XS','S','M','L'],bg:'#18140e',category:'women'},
+  {id:104,name:'Warden Cape',tag:'Women — Outerwear',price:94.99,badge:null,isNew:false,desc:'Dramatic hooded cape in heavyweight dark wool with Razorbill clasp closure.',sizes:['S','M','L','XL'],bg:'#1e1810',category:'women'},
+  {id:201,name:'Little Warden Hoodie',tag:'Young Sovereign — Tops',price:29.99,badge:'New',isNew:true,desc:'Mini Razorbill hoodie — same design as the adult version, scaled for the little sovereign.',sizes:['2-4','4-6','6-8','8-10','10-12'],bg:'#1c1810',category:'kids'},
+  {id:202,name:'Sovereign Cub Set',tag:'Young Sovereign — Sets',price:44.99,badge:null,isNew:false,desc:'Matching top and jogger set with embroidered Razorbill crest.',sizes:['2-4','4-6','6-8','8-10','10-12'],bg:'#1a1610',category:'kids'},
+  {id:203,name:'Shadow Cape (Kids)',tag:'Young Sovereign — Outerwear',price:54.99,badge:'New',isNew:true,desc:'A mini version of the adult Shadow Cape. Because every sovereign starts somewhere.',sizes:['2-4','4-6','6-8','8-10'],bg:'#181410',category:'kids'},
+  {id:204,name:'Razorbill Plushie',tag:'Young Sovereign — Plushies',price:24.99,badge:'New',isNew:true,desc:'The official Razorbill Warden plushie. Soft, dark, and loyal to whoever holds it.',sizes:['One Size'],bg:'#16120e',category:'kids'},
+  {id:301,name:'Sovereign Tote',tag:'Accessories — Bags',price:54.99,badge:'New',isNew:true,desc:'Heavy canvas tote in deep charcoal with gold Razorbill embossed handle.',sizes:['One Size'],bg:'#181410',category:'accessories'},
+  {id:302,name:'Razorbill Signet Ring',tag:'Accessories — Jewellery',price:34.99,badge:null,isNew:false,desc:'Sterling silver signet ring with engraved Razorbill crest.',sizes:['50','52','54','56','58','60'],bg:'#1a1610',category:'accessories'},
+  {id:303,name:'Shadow Beanie',tag:'Accessories — Headwear',price:24.99,badge:null,isNew:false,desc:'Heavyweight knit beanie in matte black with embroidered Razorbill crest.',sizes:['One Size'],bg:'#16120e',category:'accessories'},
+  {id:304,name:'Sovereign Chain',tag:'Accessories — Jewellery',price:44.99,badge:'New',isNew:true,desc:'Gold-plated chain with Razorbill pendant. 60cm length. Lobster clasp closure.',sizes:['One Size'],bg:'#1c1810',category:'accessories'},
+  {id:401,name:'Razorbill Warden Plushie',tag:'Collectibles — Plushies',price:24.99,badge:'New',isNew:true,desc:'The official Razorbill Warden plushie. Soft companion from the northern seas. 25cm.',sizes:['One Size'],bg:'#16120e',category:'collectibles'},
+  {id:402,name:'Sovereign Art Print — I',tag:'Collectibles — Prints',price:19.99,badge:null,isNew:false,desc:'Limited edition art print. A4 format. Archival quality paper. Signed edition.',sizes:['A4','A3'],bg:'#181410',category:'collectibles'},
+  {id:403,name:'Cealis Veyne Figure',tag:'Collectibles — Figures',price:89.99,badge:'New',isNew:true,desc:'Hand-painted resin figure of Cealis Veyne in full sovereign regalia. 18cm. Limited to 001 units.',sizes:['One Size'],bg:'#1a1610',category:'collectibles'},
+  {id:404,name:'The Realm Codex',tag:'Collectibles — Lore Books',price:34.99,badge:null,isNew:false,desc:'A hardcover lore book containing the full history of the Sovereign Realm. 120 pages.',sizes:['One Size'],bg:'#1c1810',category:'collectibles'}
+];
+
+var bgs=['#1e1610','#1a1610','#1c1810','#181410','#16120e','#201810','#1a1410','#181210'];
+
+function getParam(name){var u=new URLSearchParams(window.location.search);return u.get(name);}
+function saveCart(){localStorage.setItem('veyne-cart',JSON.stringify(cart));}
+function saveWish(){localStorage.setItem('veyne-wishlist',JSON.stringify(wishlist));}
+function updateCartBadge(){var cnt=cart.reduce(function(a,x){return a+x.qty;},0);var cb=document.getElementById('cb');if(cb){cb.textContent=cnt;cnt>0?cb.style.display='flex':cb.style.display='none';}}
+function toggleCart(){var c=document.getElementById('cart-drawer'),o=document.getElementById('cart-ov');if(c.classList.contains('open')){c.classList.remove('open');o.classList.remove('on');}else{c.classList.add('open');o.classList.add('on');renderCartDrawer();}}
+function renderCartDrawer(){var bd=document.getElementById('cart-bd'),ft=document.getElementById('cart-ft');if(!bd)return;if(!cart.length){bd.innerHTML='<p class="cart-empty">Your order is empty.<br/>Begin your collection.</p>';if(ft)ft.style.display='none';return;}bd.innerHTML=cart.map(function(item,i){return '<div class="cart-line"><div class="cart-li"><div class="cart-ln">'+item.name+'</div><div class="cart-lm">'+item.tag+'</div><div class="cart-qty-row"><button class="cqb" onclick="chQty('+i+',-1)">−</button><span class="cart-qty-n">'+item.qty+'</span><button class="cqb" onclick="chQty('+i+',1)">+</button></div></div><div class="cart-lr"><button class="cart-lx" onclick="rmCart('+i+')">✕</button><span class="cart-lp">€ '+(parseFloat(item.price)*item.qty).toFixed(2)+'</span></div></div>';}).join('');var total=cart.reduce(function(a,x){return a+parseFloat(x.price)*x.qty;},0);var tv=document.getElementById('cart-total');if(tv)tv.textContent='€ '+total.toFixed(2);if(ft)ft.style.display='block';}
+function chQty(i,d){if(cart[i]){cart[i].qty+=d;if(cart[i].qty<1)cart.splice(i,1);}saveCart();updateCartBadge();renderCartDrawer();}
+function rmCart(i){cart.splice(i,1);saveCart();updateCartBadge();renderCartDrawer();}
+function toggleSide(){document.getElementById('side-ov').classList.toggle('open');}
+function showT(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('on');setTimeout(function(){t.classList.remove('on');},2600);}
+
+var selectedSize='';
+function selectSize(s,el){selectedSize=s;document.querySelectorAll('.pi-size').forEach(function(b){b.classList.remove('on');});el.classList.add('on');}
+
+function addToCart(p){
+  if(p.sizes.length>1&&p.sizes[0]!=='One Size'&&!selectedSize){showT('Please select a size');return;}
+  var sz=selectedSize||p.sizes[0];
+  var ex=cart.find(function(i){return i.id===p.id&&i.size===sz;});
+  if(ex){ex.qty++;}else{cart.push({id:p.id,name:p.name,tag:p.tag+(sz&&sz!=='One Size'?' · '+sz:''),price:p.price.toFixed(2),size:sz,qty:1});}
+  saveCart();updateCartBadge();showT(p.name+' added to your order');
+  var btn=document.getElementById('add-btn');if(btn){var o=btn.textContent;btn.textContent='Added ✓';setTimeout(function(){btn.textContent=o;},2200);}
+  document.getElementById('cart-drawer').classList.add('open');document.getElementById('cart-ov').classList.add('on');renderCartDrawer();
+}
+
+function toggleWish(p,btn){
+  var idx=wishlist.indexOf(p.id);
+  if(idx>-1){wishlist.splice(idx,1);btn.textContent='♡ Save to Wishlist';btn.classList.remove('on');showT('Removed from wishlist');}
+  else{wishlist.push(p.id);btn.textContent='♥ Saved to Wishlist';btn.classList.add('on');showT('Added to wishlist');}
+  saveWish();
+}
+
+function initCanvas(){var c=document.getElementById('pgc');if(!c)return;var ctx=c.getContext('2d');function resize(){c.width=c.offsetWidth;c.height=c.offsetHeight;}resize();window.addEventListener('resize',resize);var pts=[];for(var i=0;i<28;i++)pts.push({x:Math.random()*c.width,y:Math.random()*c.height,vx:(Math.random()-.5)*.14,vy:(Math.random()-.5)*.14,r:Math.random()*1.2+.4,o:Math.random()*.18+.05});function draw(){ctx.clearRect(0,0,c.width,c.height);pts.forEach(function(p){p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=c.width;if(p.x>c.width)p.x=0;if(p.y<0)p.y=c.height;if(p.y>c.height)p.y=0;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(184,144,90,'+p.o+')';ctx.fill();});requestAnimationFrame(draw);}draw();}
+
+function loadProduct(){
+  var id=parseInt(getParam('id')||'1');
+  var p=allProducts.find(function(x){return x.id===id;})||allProducts[0];
+  document.title=p.name+' — VEYNÉ';
+  document.getElementById('bc-cat').textContent=p.tag.split(' — ')[0];
+  document.getElementById('bc-name').textContent=p.name;
+  if(p.badge){var bdg=document.createElement('div');bdg.className='product-badge';bdg.textContent=p.badge;document.getElementById('prod-gallery').appendChild(bdg);}
+  document.getElementById('gallery-inner').innerHTML='<svg width="120" height="160" viewBox="0 0 120 160" fill="none"><rect x="20" y="20" width="80" height="100" rx="2" fill="#2a1e14" stroke="#3a2820" stroke-width="1"/><rect x="28" y="32" width="64" height="2" fill="#b8905a" opacity="0.6"/><rect x="28" y="42" width="48" height="1.5" fill="#3a2820"/><rect x="28" y="52" width="56" height="1.5" fill="#3a2820"/><circle cx="60" cy="90" r="16" fill="#221810" stroke="#3a2820" stroke-width="0.8"/><circle cx="60" cy="90" r="7" fill="#7c2c2c" opacity="0.5"/><path d="M46 110 L74 110" stroke="#b8905a" stroke-width="0.8"/></svg>';
+  var inWish=wishlist.includes(p.id);
+  var sizesHtml='';
+  if(p.sizes&&p.sizes.length>0&&p.sizes[0]!=='One Size'){sizesHtml='<span class="pi-opt-label">Size</span><div class="pi-sizes">'+p.sizes.map(function(s){return '<button class="pi-size" onclick="selectSize(\''+s+'\',this)">'+s+'</button>';}).join('')+'</div>';}
+  document.getElementById('prod-info').innerHTML=
+    '<span class="pi-eye">'+p.tag+'</span>'+
+    '<h1 class="pi-name">'+p.name+'</h1>'+
+    '<p class="pi-price">€ '+p.price.toFixed(2)+'</p>'+
+    '<div class="pi-rule"></div>'+
+    '<p class="pi-desc">'+p.desc+'</p>'+
+    sizesHtml+
+    '<div class="pi-actions">'+
+      '<button class="pi-add" id="add-btn" onclick="addToCart(allProducts.find(function(x){return x.id==='+p.id+';}))">Add to Order</button>'+
+      '<button class="pi-wish'+(inWish?' on':'')+'" id="wish-btn" onclick="toggleWish(allProducts.find(function(x){return x.id==='+p.id+';}),this)">'+(inWish?'♥ Saved to Wishlist':'♡ Save to Wishlist')+'</button>'+
+    '</div>'+
+    '<div class="pi-meta">'+
+      '<div class="pi-meta-row"><span class="pi-meta-label">Collection</span><span class="pi-meta-val">Order // 001</span></div>'+
+      '<div class="pi-meta-row"><span class="pi-meta-label">Edition</span><span class="pi-meta-val">'+( p.isNew?'New Arrival':'Sovereign Collection')+'</span></div>'+
+      '<div class="pi-meta-row"><span class="pi-meta-label">Shipping</span><span class="pi-meta-val">Free over €75 · Worldwide</span></div>'+
+      '<div class="pi-meta-row"><span class="pi-meta-label">Returns</span><span class="pi-meta-val">30 days — <a href="faq.html" style="color:var(--accent);text-decoration:none;">See policy</a></span></div>'+
+    '</div>';
+  var related=allProducts.filter(function(x){return x.id!==p.id&&x.category===p.category;}).slice(0,4);
+  if(!related.length)related=allProducts.filter(function(x){return x.id!==p.id;}).slice(0,4);
+  document.getElementById('related-grid').innerHTML=related.map(function(r,i){
+    return '<div class="rc"><div class="rc-img" style="background:'+bgs[i%bgs.length]+';" onclick="location.href=\'product.html?id='+r.id+'\'">' +
+    '<svg width="56" height="56" viewBox="0 0 56 56" fill="none"><rect x="10" y="10" width="36" height="36" fill="#2a1e14" stroke="#3a2820" stroke-width="0.5"/><path d="M14 18 L42 18" stroke="#b8905a" stroke-width="0.5"/></svg></div>'+
+    '<div class="rc-bd"><p class="rc-tag">'+r.tag+'</p><a href="product.html?id='+r.id+'" class="rc-name">'+r.name+'</a><p class="rc-price">€ '+r.price.toFixed(2)+'</p></div></div>';
+  }).join('');
+  initCanvas();
+}
+
+loadProduct();updateCartBadge();
+</script>
+</body>
+</html>
