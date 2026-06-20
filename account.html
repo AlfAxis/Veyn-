@@ -1,37 +1,39 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Account — VEYNÉ</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet"/>
+<!-- EmailJS — free email sending from static sites. Sign up at emailjs.com to enable real verification emails -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
-:root{--bg:#faf6f0;--bg2:#f0e8d6;--dark:#0a0806;--dark2:#160e06;--dark3:#221408;--accent:#7c2c2c;--gold:#b8905a;--gold2:#946e38;--gold3:#d4b07c;--text:#180e06;--text2:#3a2a16;--text3:#6a5438;--text4:#9a8468;--border:#c8bca8;--border2:#b8a890;--nav-h:62px;}
+:root{--bg:#0a0808;--bg2:#110e0c;--bg3:#181412;--dark:#040302;--dark2:#080604;--dark3:#100e0a;--accent:#9b1c1c;--accent2:#7a1414;--gold:#c8a070;--gold2:#b8905a;--gold3:#d4b07c;--text:#f0ece8;--text2:#cec8c0;--text3:#908880;--text4:#5c5650;--text5:#3c3830;--border:#2c2820;--border2:#221e1c;--border3:#363028;--nav-h:62px;}
 html,body{font-family:'Raleway',sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;}
 button,input{font-family:'Raleway',sans-serif;cursor:pointer;}
 .ann{background:var(--dark2);overflow:hidden;padding:.52rem 0;}.ann-inner{display:flex;gap:4rem;animation:annS 28s linear infinite;white-space:nowrap;}@keyframes annS{to{transform:translateX(-50%);}}
-.ann-inner span{font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;}.ann-dot{color:#3a2010;font-size:5px;vertical-align:middle;}
-.nav{background:var(--dark);border-bottom:0.5px solid #2a1e10;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;position:sticky;top:0;z-index:200;}
+.ann-inner span{font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;}.ann-dot{color:var(--text5);font-size:5px;vertical-align:middle;}
+.nav{background:var(--dark);border-bottom:0.5px solid var(--border);height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;position:sticky;top:0;z-index:200;}
 .nav-left{display:flex;align-items:center;}.hbtn{background:none;border:none;padding:.5rem;color:#c8b898;display:flex;align-items:center;justify-content:center;transition:color .2s;width:38px;height:38px;}.hbtn:hover{color:#f5f0e8;}
 .nav-logo{font-family:'Cormorant Garamond',serif;font-size:26px;letter-spacing:12px;color:#f5f0e8;font-weight:300;position:absolute;left:50%;transform:translateX(-50%);text-decoration:none;}.nav-logo em{font-style:italic;color:var(--gold);}
 .nav-right{display:flex;align-items:stretch;}.nr-svc{background:none;border:none;border-left:none;padding:0 1rem;color:#8a7868;font-size:9px;letter-spacing:2px;text-transform:uppercase;display:flex;align-items:center;gap:.5rem;transition:color .2s;height:var(--nav-h);text-decoration:none;}.nr-svc:hover{color:#c8b898;}
 .nicon{background:none;border:none;border-left:none;padding:0 .85rem;color:#8a7868;display:flex;align-items:center;justify-content:center;position:relative;transition:color .2s;height:var(--nav-h);min-width:44px;font-size:20px;text-decoration:none;}.nicon:hover{color:#f5f0e8;}
 .nbadge{position:absolute;top:10px;right:6px;min-width:16px;height:16px;background:var(--accent);border-radius:8px;font-size:8px;color:#fff;display:none;align-items:center;justify-content:center;padding:0 3px;font-weight:500;}
-.nav-cats{background:var(--dark);border-bottom:0.5px solid #2a1e10;display:flex;justify-content:center;overflow-x:auto;}.nav-cats::-webkit-scrollbar{display:none;}
+.nav-cats{background:var(--dark);border-bottom:0.5px solid var(--border);display:flex;justify-content:center;overflow-x:auto;}.nav-cats::-webkit-scrollbar{display:none;}
 .ncat{background:none;border:none;border-bottom:2px solid transparent;color:#8a7868;font-size:9px;letter-spacing:3px;text-transform:uppercase;padding:.82rem 1.2rem;white-space:nowrap;transition:all .25s;text-decoration:none;display:inline-flex;align-items:center;}.ncat:hover{color:#f5f0e8;border-bottom-color:var(--gold);}
 .side-ov{display:none;position:fixed;inset:0;z-index:300;}.side-ov.open{display:flex;background:rgba(10,8,6,.72);}
 .side-panel{background:var(--dark);width:290px;height:100%;display:flex;flex-direction:column;animation:sideIn .3s ease;overflow-y:auto;}@keyframes sideIn{from{transform:translateX(-100%);}to{transform:translateX(0);}}
-.side-hd{padding:1.3rem 1.6rem;border-bottom:0.5px solid #2a1e10;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;}.side-logo{font-family:'Cormorant Garamond',serif;font-size:16px;letter-spacing:7px;color:#f0e8dc;}
+.side-hd{padding:1.3rem 1.6rem;border-bottom:0.5px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-shrink:0;}.side-logo{font-family:'Cormorant Garamond',serif;font-size:16px;letter-spacing:7px;color:#f0e8dc;}
 .side-x{background:none;border:none;color:#6a5a48;font-size:22px;display:flex;align-items:center;justify-content:center;width:32px;height:32px;}.side-x:hover{color:#f0e8dc;}
 .side-sec{padding:1.1rem 1.6rem .4rem;font-size:9px;letter-spacing:5px;color:var(--gold2);text-transform:uppercase;}
-.slink{display:flex;justify-content:space-between;align-items:center;width:100%;padding:.82rem 1.6rem;background:none;border:none;border-bottom:0.5px solid #1e1610;font-size:12px;letter-spacing:1.5px;color:#8a7868;text-align:left;transition:all .2s;font-family:'Cormorant Garamond',serif;text-decoration:none;}.slink:hover{background:#1e160e;color:#f0e8dc;padding-left:2.2rem;}
-.side-ft{margin-top:auto;padding:1.4rem 1.6rem;border-top:0.5px solid #1e1610;display:flex;gap:.8rem;flex-shrink:0;}
+.slink{display:flex;justify-content:space-between;align-items:center;width:100%;padding:.82rem 1.6rem;background:none;border:none;border-bottom:0.5px solid var(--border);font-size:12px;letter-spacing:1.5px;color:#8a7868;text-align:left;transition:all .2s;font-family:'Cormorant Garamond',serif;text-decoration:none;}.slink:hover{background:#1e160e;color:#f0e8dc;padding-left:2.2rem;}
+.side-ft{margin-top:auto;padding:1.4rem 1.6rem;border-top:0.5px solid var(--border);display:flex;gap:.8rem;flex-shrink:0;}
 .sftb{flex:1;padding:.7rem;font-size:9px;letter-spacing:3px;text-transform:uppercase;border:0.5px solid #3a2a18;background:transparent;color:#6a5a48;transition:all .25s;text-decoration:none;text-align:center;display:block;}.sftb.prim{background:var(--gold);color:var(--dark);border-color:var(--gold);}
-.cart-drawer{position:fixed;top:0;right:-440px;width:420px;height:100%;background:#fff;z-index:300;transition:right .35s ease;display:flex;flex-direction:column;border-left:0.5px solid var(--border);}.cart-drawer.open{right:0;box-shadow:-4px 0 24px rgba(10,8,6,.15);}
+.cart-drawer{position:fixed;top:0;right:-440px;width:420px;height:100%;background:#0a0808;z-index:300;transition:right .35s ease;display:flex;flex-direction:column;border-left:0.5px solid var(--border);}.cart-drawer.open{right:0;box-shadow:-4px 0 24px rgba(10,8,6,.15);}
 .cart-dh{padding:1.3rem 1.6rem;background:var(--dark);display:flex;justify-content:space-between;align-items:center;flex-shrink:0;}.cart-dh-t{font-family:'Cormorant Garamond',serif;font-size:17px;letter-spacing:5px;color:#f0e8dc;}.cart-dh-x{background:none;border:none;color:#8a7868;font-size:22px;display:flex;align-items:center;justify-content:center;width:32px;height:32px;}.cart-dh-x:hover{color:#f0e8dc;}
-.cart-body{flex:1;overflow-y:auto;}.cart-bi{padding:1rem 1.6rem;}.cart-empty{font-size:12px;color:#9a8468;text-align:center;padding:3rem 1.6rem;font-family:'Cormorant Garamond',serif;font-style:italic;line-height:1.9;}
-.cart-ft{border-top:0.5px solid #e8dfc8;background:#f8f3ea;padding:1.4rem 1.6rem;flex-shrink:0;}.cart-tot{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1.2rem;}.cart-tot-l{font-size:10px;letter-spacing:3px;color:#6a5438;text-transform:uppercase;}.cart-tot-v{font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:2px;color:var(--accent);}
+.cart-body{flex:1;overflow-y:auto;}.cart-bi{padding:1rem 1.6rem;}.cart-empty{font-size:12px;color:var(--text4);text-align:center;padding:3rem 1.6rem;font-family:'Cormorant Garamond',serif;font-style:italic;line-height:1.9;}
+.cart-ft{border-top:0.5px solid #2c2820;background:#110e0c;padding:1.4rem 1.6rem;flex-shrink:0;}.cart-tot{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1.2rem;}.cart-tot-l{font-size:10px;letter-spacing:3px;color:#6a5438;text-transform:uppercase;}.cart-tot-v{font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:2px;color:var(--accent);}
 .cart-co{width:100%;padding:.88rem;background:var(--dark);color:#f0e8dc;border:none;font-size:9px;letter-spacing:4px;text-transform:uppercase;cursor:pointer;}
 .cart-ov{position:fixed;inset:0;background:rgba(10,8,6,.4);z-index:299;display:none;}.cart-ov.on{display:block;}
 
@@ -75,10 +77,10 @@ button,input{font-family:'Raleway',sans-serif;cursor:pointer;}
 .dash-link{display:block;font-size:10.5px;color:var(--text3);text-decoration:none;padding:.4rem 0;transition:all .2s;}
 .dash-link:hover{color:var(--text);padding-left:.4rem;}
 
-.footer{background:var(--dark);}.foot-m{padding:4rem 2rem 3rem;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;border-bottom:0.5px solid #181208;}
-.foot-brand{font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:8px;color:#f0e8dc;font-weight:300;margin-bottom:.8rem;}.foot-tag{font-family:'Cormorant Garamond',serif;font-size:12px;font-style:italic;color:#3c2010;line-height:2.2;}
-.foot-h{font-size:9px;letter-spacing:4px;color:#6a2828;text-transform:uppercase;margin-bottom:1.3rem;}.foot-l{list-style:none;}.foot-l li a{font-size:11px;color:#4a3018;margin-bottom:.7rem;display:block;letter-spacing:.5px;transition:color .25s;text-decoration:none;padding:.15rem 0;}.foot-l li a:hover{color:var(--gold);}
-.foot-soc{display:flex;gap:.5rem;margin-top:1.5rem;flex-wrap:wrap;}.fsoc{background:none;border:0.5px solid #2a1e10;color:#4a3018;font-size:11px;padding:.5rem .8rem;transition:all .25s;letter-spacing:1px;text-decoration:none;display:inline-block;}.fsoc:hover{border-color:#6a5040;color:var(--gold);}
+.footer{background:var(--dark);}.foot-m{padding:4rem 2rem 3rem;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;border-bottom:0.5px solid var(--border);}
+.foot-brand{font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:8px;color:#f0e8dc;font-weight:300;margin-bottom:.8rem;}.foot-tag{font-family:'Cormorant Garamond',serif;font-size:12px;font-style:italic;color:var(--text5);line-height:2.2;}
+.foot-h{font-size:9px;letter-spacing:4px;color:var(--accent);text-transform:uppercase;margin-bottom:1.3rem;}.foot-l{list-style:none;}.foot-l li a{font-size:11px;color:var(--text3);margin-bottom:.7rem;display:block;letter-spacing:.5px;transition:color .25s;text-decoration:none;padding:.15rem 0;}.foot-l li a:hover{color:var(--gold);}
+.foot-soc{display:flex;gap:.5rem;margin-top:1.5rem;flex-wrap:wrap;}.fsoc{background:none;border:0.5px solid var(--border);color:var(--text4);font-size:11px;padding:.5rem .8rem;transition:all .25s;letter-spacing:1px;text-decoration:none;display:inline-block;}.fsoc:hover{border-color:var(--border3);color:var(--gold);}
 .foot-bot{padding:1.5rem 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}.foot-copy{font-size:9px;color:#221408;letter-spacing:2px;text-transform:uppercase;}
 @media(max-width:700px){.foot-m{grid-template-columns:1fr 1fr;}.cart-drawer{width:100%;}.nr-svc .svc-lbl{display:none;}.dash-grid{grid-template-columns:1fr;}}
 </style>
@@ -132,7 +134,7 @@ button,input{font-family:'Raleway',sans-serif;cursor:pointer;}
       <div class="field"><label>Password</label><input type="password" id="si-pass" placeholder="••••••••"/></div>
       <button class="acc-btn" onclick="doSignIn()">Sign In</button>
       <p class="acc-msg" id="si-msg"></p>
-      <span class="acc-forgot" onclick="document.getElementById('si-msg').className='acc-msg ok';document.getElementById('si-msg').textContent='Reset link sent to your address.'">Forgot your password?</span>
+      <span class="acc-forgot" onclick="forgotPass()">Forgot your password?</span>
     </div>
     <div class="acc-panel" id="panel-su">
       <div class="field"><label>Full Name</label><input type="text" id="su-name" placeholder="Your name"/></div>
@@ -160,7 +162,7 @@ button,input{font-family:'Raleway',sans-serif;cursor:pointer;}
       </div>
       <div class="dash-card">
         <p class="dash-title">Orders</p>
-        <p class="dash-empty">No orders yet.<br/>The collection awaits.</p>
+        <div id="d-orders"><p class="dash-empty">No orders yet.<br/>The collection awaits.</p></div>
       </div>
       <div class="dash-card">
         <p class="dash-title">Wishlist</p>
@@ -189,30 +191,146 @@ button,input{font-family:'Raleway',sans-serif;cursor:pointer;}
 </footer>
 
 <script>
+/* ─────────────────────────────────────────────
+   EMAILJS SETUP — to enable real verification emails:
+   1. Create a free account at https://www.emailjs.com
+   2. Add a Gmail (or other) email service
+   3. Create an email template with variables: {{to_email}}, {{to_name}}, {{code}}
+   4. Replace the three placeholders below with your actual IDs
+   ───────────────────────────────────────────── */
+var EMAILJS_PUBLIC_KEY  = 'YOUR_EMAILJS_PUBLIC_KEY';   // e.g. 'user_abc123'
+var EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';            // e.g. 'service_xyz'
+var EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';           // e.g. 'template_abc'
+var EMAIL_CONFIGURED = (EMAILJS_PUBLIC_KEY !== 'YOUR_EMAILJS_PUBLIC_KEY');
+if(EMAIL_CONFIGURED){ (window.emailjs||{}).init({publicKey:EMAILJS_PUBLIC_KEY}); }
+
 var cart=JSON.parse(localStorage.getItem('veyne-cart')||'[]');
 var wishlist=JSON.parse(localStorage.getItem('veyne-wishlist')||'[]');
+var pendingSignup=null;
+var pendingCode=null;
+
 function updateCartBadge(){var cnt=cart.reduce(function(a,x){return a+x.qty;},0);var cb=document.getElementById('cb');if(cb){cb.textContent=cnt;cnt>0?cb.style.display='flex':cb.style.display='none';}}
 function toggleCart(){var c=document.getElementById('cart-drawer'),o=document.getElementById('cart-ov');c.classList.toggle('open');o.classList.toggle('on');}
 function toggleSide(){document.getElementById('side-ov').classList.toggle('open');}
 function switchTab(t){document.querySelectorAll('.acc-tab').forEach(function(b){b.classList.remove('on');});document.querySelectorAll('.acc-panel').forEach(function(p){p.classList.remove('on');});document.getElementById('tab-'+t).classList.add('on');document.getElementById('panel-'+t).classList.add('on');}
+
+/* Simple hash — not cryptographic, but prevents plain-text passwords in localStorage */
+function hashPass(pw){var h=0,i,c;for(i=0;i<pw.length;i++){c=pw.charCodeAt(i);h=((h<<5)-h)+c;h|=0;}return h.toString(36);}
+
+/* ── SIGN IN ── */
 function doSignIn(){
-  var em=document.getElementById('si-email').value.trim(),pw=document.getElementById('si-pass').value,msg=document.getElementById('si-msg');
+  var em=document.getElementById('si-email').value.trim().toLowerCase();
+  var pw=document.getElementById('si-pass').value;
+  var msg=document.getElementById('si-msg');
   if(!em||!pw){msg.className='acc-msg err';msg.textContent='Please enter your email and password.';return;}
-  if(!em.includes('@')){msg.className='acc-msg err';msg.textContent='Please enter a valid email address.';return;}
+  if(!em.includes('@')||!em.includes('.')){msg.className='acc-msg err';msg.textContent='Please enter a valid email address.';return;}
   var s=JSON.parse(localStorage.getItem('veyne-account')||'null');
-  if(s&&s.email===em&&s.password===pw){localStorage.setItem('veyne-session',JSON.stringify({name:s.name,email:s.email,since:s.since}));showDash(s.name,s.email,s.since);}
-  else{msg.className='acc-msg err';msg.textContent='Incorrect credentials. Please try again.';}
+  if(s&&s.email===em&&s.passhash===hashPass(pw)){
+    localStorage.setItem('veyne-session',JSON.stringify({name:s.name,email:s.email,since:s.since}));
+    showDash(s.name,s.email,s.since);
+  } else {
+    /* Rate-limit: track failed attempts */
+    var fails=parseInt(sessionStorage.getItem('veyne-fails')||'0')+1;
+    sessionStorage.setItem('veyne-fails',fails);
+    if(fails>=5){msg.className='acc-msg err';msg.textContent='Too many attempts. Please wait and try again.';document.getElementById('si-pass').disabled=true;setTimeout(function(){document.getElementById('si-pass').disabled=false;sessionStorage.setItem('veyne-fails','0');},30000);return;}
+    msg.className='acc-msg err';msg.textContent='Incorrect email or password.';
+  }
 }
+
+/* ── SIGN UP — step 1: validate → send code ── */
 function doSignUp(){
-  var n=document.getElementById('su-name').value.trim(),em=document.getElementById('su-email').value.trim(),pw=document.getElementById('su-pass').value,msg=document.getElementById('su-msg');
+  var n=document.getElementById('su-name').value.trim();
+  var em=document.getElementById('su-email').value.trim().toLowerCase();
+  var pw=document.getElementById('su-pass').value;
+  var msg=document.getElementById('su-msg');
+  /* Validation */
   if(!n||!em||!pw){msg.className='acc-msg err';msg.textContent='Please fill in all fields.';return;}
-  if(!em.includes('@')){msg.className='acc-msg err';msg.textContent='Please enter a valid email address.';return;}
+  if(!em.includes('@')||!em.includes('.')){msg.className='acc-msg err';msg.textContent='Please enter a valid email address.';return;}
   if(pw.length<8){msg.className='acc-msg err';msg.textContent='Password must be at least 8 characters.';return;}
-  var since=new Date().toLocaleDateString('en-GB',{year:'numeric',month:'long',day:'numeric'});
-  localStorage.setItem('veyne-account',JSON.stringify({name:n,email:em,password:pw,since:since}));
-  localStorage.setItem('veyne-session',JSON.stringify({name:n,email:em,since:since}));
-  showDash(n,em,since);
+  if(!/[A-Za-z]/.test(pw)||!/[0-9]/.test(pw)){msg.className='acc-msg err';msg.textContent='Password must contain letters and numbers.';return;}
+  var existing=JSON.parse(localStorage.getItem('veyne-account')||'null');
+  if(existing&&existing.email===em){msg.className='acc-msg err';msg.textContent='An account with this email already exists.';return;}
+  /* Generate 6-digit code */
+  var code=String(Math.floor(100000+Math.random()*900000));
+  pendingSignup={name:n,email:em,passhash:hashPass(pw)};
+  pendingCode=code;
+  /* Send via EmailJS if configured, otherwise show inline for demo */
+  if(EMAIL_CONFIGURED&&window.emailjs){
+    msg.className='acc-msg ok';msg.textContent='Sending verification code…';
+    window.emailjs.send(EMAILJS_SERVICE_ID,EMAILJS_TEMPLATE_ID,{to_email:em,to_name:n,code:code}).then(function(){
+      msg.textContent='Code sent to '+em+'. Check your inbox.';
+      showVerifyStep(em);
+    }).catch(function(){
+      msg.className='acc-msg err';msg.textContent='Could not send email. Check EmailJS configuration.';
+    });
+  } else {
+    /* Demo mode — show code inline since EmailJS is not yet configured */
+    msg.className='acc-msg ok';
+    msg.innerHTML='<strong style="color:var(--gold);letter-spacing:2px;">Demo mode:</strong> Your code is <strong style="color:var(--text);letter-spacing:4px;">'+code+'</strong><br/><span style="font-size:8px;color:var(--text4);">Set up EmailJS above to send real emails.</span>';
+    showVerifyStep(em);
+  }
 }
+
+/* ── VERIFY STEP ── */
+function showVerifyStep(email){
+  var panel=document.getElementById('panel-su');
+  panel.innerHTML=
+    '<p style="font-size:11px;color:var(--text3);line-height:2;margin-bottom:2rem;">Enter the 6-digit code sent to<br/><strong style="color:var(--text);letter-spacing:1px;">'+email+'</strong></p>'+
+    '<div style="display:flex;gap:.5rem;justify-content:center;margin-bottom:1.5rem;" id="code-inputs">'+
+    [0,1,2,3,4,5].map(function(i){return '<input type="text" maxlength="1" inputmode="numeric" id="ci'+i+'" style="width:44px;height:52px;text-align:center;font-family:\'Cormorant Garamond\',serif;font-size:22px;letter-spacing:0;border:none;border-bottom:1.5px solid var(--border2);background:transparent;color:var(--text);outline:none;transition:border-color .2s;" oninput="nextCode(this,'+i+')" onkeydown="backCode(this,'+i+',event)"/>';}).join('')+
+    '</div>'+
+    '<button onclick="verifyCode()" style="width:100%;padding:.95rem;background:var(--dark);color:#f0ece8;border:none;font-size:8.5px;letter-spacing:4px;text-transform:uppercase;cursor:pointer;">Verify &amp; Create Account</button>'+
+    '<p class="acc-msg" id="verify-msg" style="margin-top:1rem;"></p>'+
+    '<p style="font-size:8.5px;letter-spacing:2px;color:var(--text5);text-align:center;margin-top:1.4rem;cursor:pointer;" onclick="resendCode()">Resend code</p>';
+  setTimeout(function(){var f=document.getElementById('ci0');if(f)f.focus();},100);
+}
+
+function nextCode(el,i){
+  el.value=el.value.replace(/\D/g,'').slice(-1);
+  if(el.value&&i<5){var n=document.getElementById('ci'+(i+1));if(n)n.focus();}
+}
+function backCode(el,i,e){if(e.key==='Backspace'&&!el.value&&i>0){var p=document.getElementById('ci'+(i-1));if(p){p.value='';p.focus();}}}
+
+function getCode(){return [0,1,2,3,4,5].map(function(i){var e=document.getElementById('ci'+i);return e?e.value:'';}).join('');}
+
+function verifyCode(){
+  var entered=getCode();
+  var msg=document.getElementById('verify-msg');
+  if(entered.length<6){msg.className='acc-msg err';msg.textContent='Please enter all 6 digits.';return;}
+  if(entered!==pendingCode){msg.className='acc-msg err';msg.textContent='Incorrect code. Please try again.';return;}
+  var since=new Date().toLocaleDateString('en-GB',{year:'numeric',month:'long',day:'numeric'});
+  var acc=Object.assign({},pendingSignup,{since:since,verified:true});
+  localStorage.setItem('veyne-account',JSON.stringify(acc));
+  localStorage.setItem('veyne-session',JSON.stringify({name:acc.name,email:acc.email,since:acc.since}));
+  pendingCode=null;pendingSignup=null;
+  showDash(acc.name,acc.email,acc.since);
+}
+
+function resendCode(){
+  if(!pendingSignup){return;}
+  pendingCode=String(Math.floor(100000+Math.random()*900000));
+  if(EMAIL_CONFIGURED&&window.emailjs){
+    window.emailjs.send(EMAILJS_SERVICE_ID,EMAILJS_TEMPLATE_ID,{to_email:pendingSignup.email,to_name:pendingSignup.name,code:pendingCode});
+  }
+  var m=document.getElementById('verify-msg');
+  if(m){m.className='acc-msg ok';m.textContent=EMAIL_CONFIGURED?'New code sent.':'New demo code: '+pendingCode;}
+}
+
+/* ── FORGOT PASSWORD ── */
+function forgotPass(){
+  var em=document.getElementById('si-email').value.trim().toLowerCase();
+  var msg=document.getElementById('si-msg');
+  if(!em||!em.includes('@')){msg.className='acc-msg err';msg.textContent='Enter your email above first.';return;}
+  if(EMAIL_CONFIGURED&&window.emailjs){
+    var resetCode=String(Math.floor(100000+Math.random()*900000));
+    window.emailjs.send(EMAILJS_SERVICE_ID,EMAILJS_TEMPLATE_ID,{to_email:em,to_name:'Operative',code:resetCode});
+    msg.className='acc-msg ok';msg.textContent='Reset code sent to '+em+'.';
+  } else {
+    msg.className='acc-msg ok';msg.textContent='Set up EmailJS above to enable password reset emails.';
+  }
+}
+
+/* ── DASHBOARD ── */
 function showDash(name,email,since){
   document.getElementById('auth-page').style.display='none';
   document.getElementById('dash-page').style.display='block';
@@ -220,8 +338,19 @@ function showDash(name,email,since){
   document.getElementById('d-email').textContent=email;
   document.getElementById('d-since').textContent=since;
   if(wishlist.length){document.getElementById('d-wishlist').innerHTML='<p style="font-size:11px;color:var(--text3);">'+wishlist.length+' item'+(wishlist.length!==1?'s':'')+' saved. <a href="wishlist.html" style="color:var(--accent);text-decoration:none;">View →</a></p>';}
+  /* Show cart items as recent activity */
+  if(cart.length){
+    var ol=document.getElementById('d-orders');
+    if(ol){ol.innerHTML=cart.map(function(item){return '<div class="dash-row"><span class="dash-label">'+item.name+'</span><span class="dash-val">€ '+(parseFloat(item.price)*item.qty).toFixed(2)+'</span></div>';}).join('');}
+  }
 }
-function signOut(){localStorage.removeItem('veyne-session');document.getElementById('auth-page').style.display='flex';document.getElementById('dash-page').style.display='none';}
+
+function signOut(){
+  localStorage.removeItem('veyne-session');
+  document.getElementById('auth-page').style.display='flex';
+  document.getElementById('dash-page').style.display='none';
+}
+
 var sess=JSON.parse(localStorage.getItem('veyne-session')||'null');
 if(sess){showDash(sess.name,sess.email,sess.since);}
 updateCartBadge();
