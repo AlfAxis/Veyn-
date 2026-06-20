@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet"/>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
-:root{--bg:#0a0808;--bg2:#110e0c;--bg3:#181412;--dark:#040302;--dark2:#080604;--dark3:#100e0a;--accent:#9b1c1c;--accent2:#7a1414;--gold:#c8a070;--gold2:#b8905a;--gold3:#d4b07c;--text:#f0ece8;--text2:#cec8c0;--text3:#908880;--text4:#5c5650;--text5:#3c3830;--border:#2c2820;--border2:#221e1c;--border3:#363028;--nav-h:62px;}
+:root{--bg:#0a0808;--bg2:#110e0c;--bg3:#181412;--dark:#040302;--dark2:#080604;--dark3:#100e0a;--accent:#9b1c1c;--accent2:#7a1414;--gold:#c8a070;--gold2:#b8905a;--gold3:#d4b07c;--text:#f2eee8;--text2:#d8d0c8;--text3:#b8b0a8;--text4:#887e78;--text5:#5c5450;--border:#2c2820;--border2:#241e1c;--border3:#403830;--nav-h:62px;}
 html,body{font-family:'Raleway',sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;}
 button,input,textarea,select{font-family:'Raleway',sans-serif;cursor:pointer;}
 .ann{background:var(--dark2);overflow:hidden;padding:.52rem 0;}.ann-inner{display:flex;gap:4rem;animation:annS 28s linear infinite;white-space:nowrap;}@keyframes annS{to{transform:translateX(-50%);}}
@@ -20,7 +20,7 @@ button,input,textarea,select{font-family:'Raleway',sans-serif;cursor:pointer;}
 .nicon{background:none;border:none;border-left:none;padding:0 .85rem;color:#8a7868;display:flex;align-items:center;justify-content:center;position:relative;transition:color .2s;height:var(--nav-h);min-width:44px;font-size:20px;text-decoration:none;}.nicon:hover{color:#f5f0e8;}
 .nbadge{position:absolute;top:10px;right:6px;min-width:16px;height:16px;background:var(--accent);border-radius:8px;font-size:8px;color:#fff;display:none;align-items:center;justify-content:center;padding:0 3px;font-weight:500;}
 .nav-cats{background:var(--dark);border-bottom:0.5px solid var(--border);display:flex;justify-content:center;overflow-x:auto;}.nav-cats::-webkit-scrollbar{display:none;}
-.ncat{background:none;border:none;border-bottom:2px solid transparent;color:#8a7868;font-size:9px;letter-spacing:3px;text-transform:uppercase;padding:.82rem 1.2rem;white-space:nowrap;transition:all .25s;text-decoration:none;display:inline-flex;align-items:center;}.ncat:hover,.ncat.on{color:#f5f0e8;border-bottom-color:var(--gold);}
+.ncat{background:none;border:none;border-bottom:2px solid transparent;color:#9a9088;font-size:9px;letter-spacing:3px;text-transform:uppercase;padding:.82rem 1.2rem;white-space:nowrap;transition:all .25s;text-decoration:none;display:inline-flex;align-items:center;}.ncat:hover,.ncat.on{color:#f0ece8;border-bottom-color:var(--gold);}
 .side-ov{display:none;position:fixed;inset:0;z-index:300;}.side-ov.open{display:flex;background:rgba(10,8,6,.72);}
 .side-panel{background:var(--dark);width:290px;height:100%;display:flex;flex-direction:column;animation:sideIn .3s ease;overflow-y:auto;}@keyframes sideIn{from{transform:translateX(-100%);}to{transform:translateX(0);}}
 .side-hd{padding:1.3rem 1.6rem;border-bottom:0.5px solid var(--border);display:flex;justify-content:space-between;align-items:center;}.side-logo{font-family:'Cormorant Garamond',serif;font-size:16px;letter-spacing:7px;color:#f0e8dc;}
@@ -69,7 +69,7 @@ button,input,textarea,select{font-family:'Raleway',sans-serif;cursor:pointer;}
 .cf-msg{font-size:10px;letter-spacing:2px;margin-top:.8rem;min-height:18px;color:var(--text4);}
 .footer{background:var(--dark);}.foot-m{padding:4.5rem 2rem 3rem;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;border-bottom:0.5px solid var(--border);}
 .foot-brand{font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:8px;color:#f0e8dc;font-weight:300;margin-bottom:.8rem;}.foot-tag{font-family:'Cormorant Garamond',serif;font-size:12px;font-style:italic;color:var(--text5);line-height:2.2;}
-.foot-h{font-size:9px;letter-spacing:4px;color:var(--accent);text-transform:uppercase;margin-bottom:1.3rem;}.foot-l{list-style:none;}.foot-l li a{font-size:11px;color:var(--text3);margin-bottom:.7rem;display:block;letter-spacing:.5px;transition:color .25s;text-decoration:none;padding:.15rem 0;}.foot-l li a:hover{color:var(--gold);}
+.foot-h{font-size:9px;letter-spacing:4px;color:var(--accent);text-transform:uppercase;margin-bottom:1.3rem;}.foot-l{list-style:none;}.foot-l li a{font-size:11px;color:#a09890;margin-bottom:.7rem;display:block;letter-spacing:.5px;transition:color .25s;text-decoration:none;padding:.15rem 0;}.foot-l li a:hover{color:var(--gold);}
 .foot-soc{display:flex;gap:.5rem;margin-top:1.5rem;flex-wrap:wrap;}.fsoc{background:none;border:0.5px solid var(--border);color:var(--text4);font-size:11px;padding:.5rem .8rem;transition:all .25s;letter-spacing:1px;text-decoration:none;display:inline-block;}.fsoc:hover{border-color:var(--border3);color:var(--gold);}
 .foot-bot{padding:1.5rem 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}.foot-copy{font-size:9px;color:#221408;letter-spacing:2px;text-transform:uppercase;}
 .toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(10px);background:var(--dark2);color:#f0e8dc;padding:.72rem 2rem;font-size:9px;letter-spacing:3px;text-transform:uppercase;opacity:0;transition:all .35s ease;white-space:nowrap;pointer-events:none;z-index:500;border:0.5px solid #3a2818;}.toast.on{opacity:1;transform:translateX(-50%) translateY(0);}
@@ -200,5 +200,7 @@ function submitForm(e){
 }
 updateCartBadge();
 </script>
+<div id="cookie-b" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#0a0808;border-top:0.5px solid #2c2820;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;z-index:600;flex-wrap:wrap;"><p style="font-size:10px;color:var(--text4);letter-spacing:.5px;line-height:1.9;max-width:680px;">Veyné uses local storage to save your cart, wishlist and session. By continuing you accept this. <a href="faq.html" style="color:var(--accent);text-decoration:none;letter-spacing:.5px;">Privacy Policy</a></p><button onclick="acceptCookies()" style="padding:.6rem 1.6rem;background:var(--accent);border:none;color:#f2eee8;font-size:8px;letter-spacing:3px;text-transform:uppercase;cursor:pointer;flex-shrink:0;white-space:nowrap;">Accept</button></div>
+<script>if(!localStorage.getItem("veyne-cookies")){var cb=document.getElementById("cookie-b");if(cb)cb.style.display="flex";}function acceptCookies(){localStorage.setItem("veyne-cookies","1");var cb=document.getElementById("cookie-b");if(cb){cb.style.transition="opacity .3s";cb.style.opacity="0";setTimeout(function(){cb.style.display="none";},300);}}</script>
 </body>
 </html>
