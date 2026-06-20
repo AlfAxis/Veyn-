@@ -195,12 +195,12 @@ button,input{font-family:'Raleway',sans-serif;cursor:pointer;}
    EMAILJS SETUP — to enable real verification emails:
    1. Create a free account at https://www.emailjs.com
    2. Add a Gmail (or other) email service
-   3. Create an email template with variables: {{to_email}}, {{to_name}}, {{code}}
+   3. Use the One-Time Password template — variables used: {{email}}, {{to_name}}, {{passcode}}
    4. Replace the three placeholders below with your actual IDs
    ───────────────────────────────────────────── */
-var EMAILJS_PUBLIC_KEY  = 'YOUR_EMAILJS_PUBLIC_KEY';   // e.g. 'user_abc123'
-var EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';            // e.g. 'service_xyz'
-var EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';           // e.g. 'template_abc'
+var EMAILJS_PUBLIC_KEY  = 'RqrW38u6cdtbk9Ypp';
+var EMAILJS_SERVICE_ID  = 'service_sjeo0kg';
+var EMAILJS_TEMPLATE_ID = 'template_3ijik4m';
 var EMAIL_CONFIGURED = (EMAILJS_PUBLIC_KEY !== 'YOUR_EMAILJS_PUBLIC_KEY');
 if(EMAIL_CONFIGURED){ (window.emailjs||{}).init({publicKey:EMAILJS_PUBLIC_KEY}); }
 
@@ -257,7 +257,7 @@ function doSignUp(){
   /* Send via EmailJS if configured, otherwise show inline for demo */
   if(EMAIL_CONFIGURED&&window.emailjs){
     msg.className='acc-msg ok';msg.textContent='Sending verification code…';
-    window.emailjs.send(EMAILJS_SERVICE_ID,EMAILJS_TEMPLATE_ID,{to_email:em,to_name:n,code:code}).then(function(){
+    window.emailjs.send(EMAILJS_SERVICE_ID,EMAILJS_TEMPLATE_ID,{email:em,to_name:n,passcode:code}).then(function(){
       msg.textContent='Code sent to '+em+'. Check your inbox.';
       showVerifyStep(em);
     }).catch(function(){
@@ -310,7 +310,7 @@ function resendCode(){
   if(!pendingSignup){return;}
   pendingCode=String(Math.floor(100000+Math.random()*900000));
   if(EMAIL_CONFIGURED&&window.emailjs){
-    window.emailjs.send(EMAILJS_SERVICE_ID,EMAILJS_TEMPLATE_ID,{to_email:pendingSignup.email,to_name:pendingSignup.name,code:pendingCode});
+    window.emailjs.send(EMAILJS_SERVICE_ID,EMAILJS_TEMPLATE_ID,{email:pendingSignup.email,to_name:pendingSignup.name,passcode:pendingCode});
   }
   var m=document.getElementById('verify-msg');
   if(m){m.className='acc-msg ok';m.textContent=EMAIL_CONFIGURED?'New code sent.':'New demo code: '+pendingCode;}
@@ -323,7 +323,7 @@ function forgotPass(){
   if(!em||!em.includes('@')){msg.className='acc-msg err';msg.textContent='Enter your email above first.';return;}
   if(EMAIL_CONFIGURED&&window.emailjs){
     var resetCode=String(Math.floor(100000+Math.random()*900000));
-    window.emailjs.send(EMAILJS_SERVICE_ID,EMAILJS_TEMPLATE_ID,{to_email:em,to_name:'Operative',code:resetCode});
+    window.emailjs.send(EMAILJS_SERVICE_ID,EMAILJS_TEMPLATE_ID,{email:em,to_name:'Operative',passcode:resetCode});
     msg.className='acc-msg ok';msg.textContent='Reset code sent to '+em+'.';
   } else {
     msg.className='acc-msg ok';msg.textContent='Set up EmailJS above to enable password reset emails.';
