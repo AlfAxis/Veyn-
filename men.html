@@ -501,7 +501,7 @@ function renderProducts(list){
   var c=document.getElementById('prod-count');
   if(c)c.textContent=list.length+' piece'+(list.length!==1?'s':'');
   if(!list.length){g.innerHTML='<div style="padding:3rem;text-align:center;font-size:12px;color:var(--text3);letter-spacing:2px;grid-column:1/-1;font-family:\'Cormorant Garamond\',serif;font-style:italic;">No items match your selection.</div>';return;}
-  g.style.opacity="0";g.innerHTML=list.map(function(p,i){
+  g.innerHTML=list.map(function(p,i){
     var w=wishlist.includes(p.id);
     var idx=allProducts.indexOf(p);
     return '<div class="pc">'+(p.badge?'<span class="pc-bdg">'+p.badge+'</span>':'')+
@@ -513,7 +513,7 @@ function renderProducts(list){
     '<button class="pc-add" id="pa'+p.id+'" onclick="addToCart('+p.id+',this)">Add to Order</button>'+
     '<button class="pc-wish'+(w?' on':'')+'" onclick="tWish('+p.id+',this)" aria-label="Wishlist">'+(w?'♥':'♡')+'</button>'+
     '</div></div></div>';
-  }).join('');
+  }).join('');g.style.opacity='0';g.style.transition='none';setTimeout(function(){g.style.transition='opacity .35s ease';g.style.opacity='1';},16);
 }
 
 function addToCart(id,btn){

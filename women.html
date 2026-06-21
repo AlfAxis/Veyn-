@@ -416,7 +416,7 @@ function renderProducts(list){
     '<div class="pc-img" style="background:'+bgs[idx%bgs.length]+';" onclick="location.href=\'product.html?id='+p.id+'\'">'+mkSvg(idx)+'</div>'+
     '<div class="pc-bd"><p class="pc-tag">'+p.tag+'</p><a href="product.html?id='+p.id+'" class="pc-name">'+p.name+'</a><p class="pc-price">€ '+p.price.toFixed(2)+'</p>'+
     '<div class="pc-actions"><button class="pc-add" id="pa'+p.id+'" onclick="addToCart('+p.id+',this)">Add to Order</button><button class="pc-wish'+(w?' on':'')+'" onclick="tWish('+p.id+',this)">'+(w?'♥':'♡')+'</button></div></div></div>';
-  }).join('');
+  }).join('');g.style.opacity='0';g.style.transition='none';setTimeout(function(){g.style.transition='opacity .35s ease';g.style.opacity='1';},16);
 }
 function addToCart(id,btn){var p=allProducts.find(function(x){return x.id===id;});if(!p)return;var ex=cart.find(function(i){return i.id===id;});if(ex){ex.qty++;}else{cart.push({id:id,name:p.name,tag:p.tag,price:p.price.toFixed(2),qty:1});}saveCart();updateCartBadge();showT(p.name+' added to your order');if(btn){var o=btn.textContent;btn.textContent='Added ✓';btn.classList.add('done');setTimeout(function(){btn.textContent=o;btn.classList.remove('done');},2200);}openCartD();}
 function tWish(id,btn){var idx=wishlist.indexOf(id);if(idx>-1){wishlist.splice(idx,1);btn.classList.remove('on');btn.textContent='♡';}else{wishlist.push(id);btn.classList.add('on');btn.textContent='♥';}saveWish();showT(idx>-1?'Removed from wishlist':'Added to wishlist');}
